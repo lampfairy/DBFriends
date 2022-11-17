@@ -1,4 +1,4 @@
-package customer.dao;
+package model.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

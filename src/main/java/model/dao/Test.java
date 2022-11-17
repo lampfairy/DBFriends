@@ -1,4 +1,4 @@
-package customer.dao;
+package model.dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
