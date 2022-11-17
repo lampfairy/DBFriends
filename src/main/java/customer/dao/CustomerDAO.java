@@ -1,26 +1,27 @@
-package rrr;
+package customer.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-//import rrr.Customer;
+
 import util.JDBCUtil;
 
 public class CustomerDAO {
     private JDBCUtil jdbcUtil = null;
     
     public CustomerDAO() {          
-        jdbcUtil = new JDBCUtil();      // JDBCUtil ��ü ����
+        jdbcUtil = new JDBCUtil();
     }
     
     //고객 등록
     public int create(Customer Customer) throws SQLException {
         String sql = "INSERT INTO Customer (userId, name, userPw, phoneNumber, "
-                + "emailAddress) "
-                    + "VALUES (?, ?, ?, ?, ?)";     
+                + "emailAddress, birthDate) "
+                    + "VALUES (?, ?, ?, ?, ?, ?)";     
         Object[] param = new Object[] {Customer.getUserId(), Customer.getName(), 
-                Customer.getUserPw(), Customer.getPhoneNumber(), Customer.getEmailAddress()};              
+                Customer.getUserPw(), Customer.getPhoneNumber(), Customer.getEmailAddress(), 
+                Customer.getBirthDate()};              
         jdbcUtil.setSqlAndParameters(sql, param);
         
         try {               

@@ -1,4 +1,4 @@
-package rrr;
+package customer.dao;
 
 import java.util.Date;
 
@@ -31,15 +31,6 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
         this.birthDate = birthDate;
-    }
-    
-    public Customer(String name, String userId, String userPw, String phoneNumber, String emailAddress) {
-        super();
-        this.name = name;
-        this.userId = userId;
-        this.userPw = userPw;
-        this.phoneNumber = phoneNumber;
-        this.emailAddress = emailAddress;
     }
     
     public String getName() {
@@ -81,8 +72,9 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer [name=" + name + ", userId=" + userId + ", userPw=" + userPw + ", phoneNumber=" + phoneNumber
-                + ", emailAddress=" + emailAddress + "]";
+                + ", emailAddress=" + emailAddress + ", birthDate=" + birthDate + "]";
     }
+    
     
     
 }
