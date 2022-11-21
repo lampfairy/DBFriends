@@ -15,7 +15,7 @@ public class ProductTest {
     
         Scanner scanner = new Scanner(System.in);
       
-        System.out.println("create�삁�젣");  
+        System.out.println("create product");  
         
         System.out.print("create productId : ");
         int productId = scanner.nextInt();
