@@ -41,7 +41,7 @@ public class ProductDAO {
     public int update(Product Product) throws SQLException {
         String sql = "UPDATE Product "
                     + "SET location=?, price=?, description=?, image=?, name=?, type=? "
-                    + "WHERE productId=?";
+                    + "WHERE productId=? ";
         Object[] param = new Object[] {Product.getLocation(), Product.getPrice(), Product.getDescription(),
                  Product.getImage(), Product.getName(), Product.getType(), Product.getProductId()};                
         jdbcUtil.setSqlAndParameters(sql, param);   

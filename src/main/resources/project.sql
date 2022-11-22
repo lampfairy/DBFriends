@@ -90,7 +90,7 @@ CREATE TABLE Review
 	rating               NUMBER(2,1)  NULL  CONSTRAINT  Validation_Rule_Rating CHECK (rating BETWEEN 0 AND 5),
 	content              VARCHAR2(500)  NULL ,
 	image                VARCHAR2(50)  NULL ,
-	reservationId        NUMBER(6,0)  NOT NULL ,
+	reviewId        	NUMBER(6,0)  NOT NULL ,
 	userId               VARCHAR2(12)  NOT NULL 
 );
 
