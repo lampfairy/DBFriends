@@ -3,7 +3,7 @@
 
 <html>
 <head>
-<title>사용자 관리(UserMan3)</title>
+<title>사용자 관리(UserMan2)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
 <script>
@@ -20,9 +20,9 @@ function login() {
 	}		
 	form.submit();
 }
+
 function userCreate(targetUri) {
 	form.action = targetUri;
-	form.method="GET";		// register form 요청
 	form.submit();
 }
 </script>
@@ -35,13 +35,12 @@ function userCreate(targetUri) {
 	<tr>
 	  <td width="20"></td>
 	  <td>
-	  	<b>UserMan3</b><br><br>
-	   	<table>
-	   	  <tr>
-		    <td class="title">&nbsp;&nbsp;사용자 관리 - 로그인&nbsp;&nbsp;</td>
+	    <b>UserMan2</b><br><br>
+	    <table>
+		  <tr>
+	   		<td class="title">&nbsp;&nbsp;<b>사용자 관리 - 로그인</b>&nbsp;&nbsp;</td>
 		  </tr>
 	    </table>  
-		
 	    <!-- 로그인이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
         <c:if test="${loginFailed}">
 	  	  <br><font color="red"><c:out value="${exception.getMessage()}" /></font><br>
@@ -66,8 +65,7 @@ function userCreate(targetUri) {
 		  <tr>
 			<td align=left>
 			<input type="button" value="로그인" onClick="login()"> &nbsp;
-			<input type="button" value="회원가입" onClick="userCreate(
-								'<c:url value='/user/register'/>')">
+			<input type="button" value="회원가입" onClick="userCreate('<c:url value='/user/register/form' />')">
 			</td>						
 		  </tr>
 		  <tr height="40"><td>(관리자 로그인: admin/admin)</td></tr>

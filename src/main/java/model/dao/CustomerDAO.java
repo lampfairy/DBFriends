@@ -5,7 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import util.JDBCUtil;
+import model.Customer;
+
 
 public class CustomerDAO {
     private JDBCUtil jdbcUtil = null;
@@ -14,7 +15,7 @@ public class CustomerDAO {
         jdbcUtil = new JDBCUtil();
     }
     
-    //ê³ ê° ë“±ë¡
+    //°í°´ µî·Ï
     public int create(Customer Customer) throws SQLException {
         String sql = "INSERT INTO Customer (userId, name, userPw, phoneNumber, "
                 + "emailAddress, birthDate) "
@@ -37,7 +38,7 @@ public class CustomerDAO {
         return 0;           
     }
 
-    //ê³ ê° ìˆ˜ì •
+    //°í°´ ¼öÁ¤
     public int update(Customer Customer) throws SQLException {
         String sql = "UPDATE Customer "
                     + "SET name=?, userPw=?, phoneNumber=?, emailAddress=?, birthDate=? "
@@ -60,7 +61,7 @@ public class CustomerDAO {
         return 0;
     }
 
-   //íšŒì› ì‚­ì œ
+   //È¸¿ø »èÁ¦
     public int remove(String userId) throws SQLException {
         String sql = "DELETE FROM Customer WHERE userId=?";     
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});   
@@ -79,7 +80,7 @@ public class CustomerDAO {
         return 0;
     }
 
-   //íšŒì› ì •ë³´ ë³´ê¸°
+   //È¸¿ø Á¤º¸ º¸±â
     public Customer findCustomer(String userId) throws SQLException {
         String sql = "SELECT name, phoneNumber, emailAddress, birthDate "
                     + "FROM Customer "
@@ -105,7 +106,7 @@ public class CustomerDAO {
         return null;
     }
 
-    //íšŒì›ì •ë³´ ë¦¬ìŠ¤íŠ¸ë³´ê¸°
+    //È¸¿øÁ¤º¸ ¸®½ºÆ®º¸±â
     public List<Customer> findCustomerList() throws SQLException {
         String sql = "SELECT userId, name, userPw, "
                 + "phoneNumber, emailAddress, birthDate " 
@@ -136,7 +137,7 @@ public class CustomerDAO {
         return null;
     }
 
-    //ì•„ì´ë”” ì¤‘ë³µ í™•ì¸
+    //¾ÆÀÌµğ Áßº¹ È®ÀÎ
     public boolean existingCustomer(String userId) throws SQLException {
         String sql = "SELECT count(*) FROM Customer WHERE userId=?";      
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});  
