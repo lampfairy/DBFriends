@@ -19,9 +19,12 @@
 		.count div{text-align:center;font-size:18px;width:150px;height:150px;
 		border-radius:50%;background-color:skyBlue;float:left;margin:0px 121px;
 		line-height:150px;color:white;font-weight:bolder}
-		.count1{background:url('count1.jpg');}
-		.count2{background:url('count2.jpg');}
-		.count3{background:url('count3.jpg');}
+		.count1{background:url('images/count1.jpg');}
+		.count2{background:url('images/count2.jpg');}
+		.count3{background:url('images/count3.jpg');}
+		.new{width:1180px;margin: 0px auto}
+		.new div{text-align:center;font-size:18px;width:300px;height:300px;
+		background-color:skyBlue;float:left;margin:0px 30px;line-height:300px;}
 	</style>
 </head>
 <body>
@@ -61,10 +64,13 @@
 			<div class = "count1">숙소&nbsp;n개</div>
 			<div class = "count2">맛집&nbsp;n개</div>
 			<div class = "count3">액티비티&nbsp;n개</div>
-		</div>
+		</div><br><br><br><br><br><br><br><br><br><br><br><br>
 		<!-- 신규여행지 3개 -->
-		<div>
-		
+		<div style="text-align:center;font-size:24px">신규 여행지</div><br><br>
+		<div class = "new">
+			<div>신규 여행지</div>
+			<div>신규 여행지</div>
+			<div>신규 여행지</div>
 		</div>
 		
 		
