@@ -23,8 +23,8 @@
 		.count2{background:url('images/count2.jpg');}
 		.count3{background:url('images/count3.jpg');}
 		.new{width:1180px;margin: 0px auto}
-		.new div{text-align:center;font-size:18px;width:300px;height:300px;
-		background-color:skyBlue;float:left;margin:0px 30px;line-height:300px;}
+		.new div{text-align:center;font-size:18px;width:330px;height:330px;
+		background-color:skyBlue;float:left;margin:0px 30px;line-height:330px;}
 	</style>
 </head>
 <body>
@@ -72,9 +72,6 @@
 			<div>신규 여행지</div>
 			<div>신규 여행지</div>
 		</div>
-		
-		
-		
 	</div>
 	
 	
