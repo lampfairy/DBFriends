@@ -11,7 +11,7 @@ import model.dao.CustomerDAO;
 import java.sql.Date;
 import java.sql.SQLException;
 
-public class Test {
+public class CustomerTest {
 
     private static CustomerDAO dao = new CustomerDAO();
     

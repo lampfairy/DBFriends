@@ -62,6 +62,10 @@ public class Product {
     }
     
     //constructor
+    public Product() {
+        
+    }
+    
     public Product(int productId, String location, int price, String description, int status, String image, String name,
             int type) {
         super();
@@ -87,6 +91,7 @@ public class Product {
         this.name = name;
         this.type = type;
     }
+    
     //toString
     @Override
     public String toString() {

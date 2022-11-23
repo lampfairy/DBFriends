@@ -40,7 +40,7 @@ public class ReservationDAO {
     //怨좉컼 �닔�젙
     public int update(Reservation Reservation) throws SQLException {
         String sql = "UPDATE Reservation "
-                    + "SET productId=?, startDate=?, endDate=?, headCount=?, price=?, userId=? "
+                    + "SET productId=?, startDate=?, endDate=?, headCount=?, price=?, reservationList=?, userId=? "
                     + "WHERE reservationId=? ";
         Object[] param = new Object[] {Reservation.getProductId(), Reservation.getStartDate(), Reservation.getEndDate(),
                 Reservation.getHeadCount(), Reservation.getPrice(), Reservation.getReservationList(), Reservation.getUserId(), Reservation.getReservationId()};           
