@@ -15,7 +15,7 @@ public class ReviewDAO {
         jdbcUtil = new JDBCUtil();
     }
     
-    //怨좉컼 �벑濡�
+    //create Review
     public int create(Review Review) throws SQLException {
         String sql = "INSERT INTO Review (reviewId, userId, title, writeDate, "
                     + "rating, content, image) "
@@ -37,7 +37,7 @@ public class ReviewDAO {
         return 0;           
     }
 
-    //怨좉컼 �닔�젙
+    //update Review
     public int update(Review Review) throws SQLException {
         
         // reviewId, userId 를 둘 다 where 절로?
@@ -62,7 +62,7 @@ public class ReviewDAO {
         return 0;
     }
 
-   //�쉶�썝 �궘�젣
+   //remove Review
     public int remove(int reviewId) throws SQLException {
         String sql = "DELETE FROM Review WHERE reviewId=?";     
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reviewId});   
@@ -81,7 +81,7 @@ public class ReviewDAO {
         return 0;
     }
 
-   //�쉶�썝 �젙蹂� 蹂닿린
+   //find Review
     public Review findReview(int reviewId) throws SQLException {
         String sql = "SELECT userId, title, writeDate, rating, content, image "
                     + "FROM Review "
@@ -110,7 +110,7 @@ public class ReviewDAO {
         return null;
     }
  
-    //�쉶�썝�젙蹂� 由ъ뒪�듃蹂닿린
+    //find Review List
     public List<Review> findReviewList() throws SQLException {
         String sql = "SELECT reviewId, userId, title, writeDate, rating, content, image "
                     + "FROM Review "
@@ -142,11 +142,11 @@ public class ReviewDAO {
         return null;
     }
 
-  //아이디 중복 확인
+    //Review 아이디 중복 확인
     public boolean existingReview(int reviewId) throws SQLException {
         String sql = "SELECT count(*) FROM Review WHERE reviewId=?";      
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reviewId});  
-        
+
         try {
             ResultSet rs = jdbcUtil.executeQuery();    
             if (rs.next()) {
@@ -160,4 +160,6 @@ public class ReviewDAO {
         }
         return false;
     }
+
+
 }

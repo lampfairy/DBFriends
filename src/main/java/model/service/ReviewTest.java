@@ -51,7 +51,6 @@ public class ReviewTest {
         
         
         try {
-        
             Date wdate = transformDate(writeDate);
             
             Review r = new Review(reviewId, userId, title, wdate, rating, content, image);

@@ -15,7 +15,7 @@ public class ReservationDAO {
         jdbcUtil = new JDBCUtil();
     }
     
-    //怨좉컼 �벑濡�
+    //create Reservation
     public int create(Reservation Reservation) throws SQLException {
         String sql = "INSERT INTO Reservation (reservationId, productId, startDate, endDate, "
                 + "headCount, price, reservationList, userId) "              
@@ -37,7 +37,7 @@ public class ReservationDAO {
         return 0;           
     }
 
-    //怨좉컼 �닔�젙
+    //update Reservation
     public int update(Reservation Reservation) throws SQLException {
         String sql = "UPDATE Reservation "
                     + "SET productId=?, startDate=?, endDate=?, headCount=?, price=?, reservationList=?, userId=? "
@@ -60,7 +60,7 @@ public class ReservationDAO {
         return 0;
     }
 
-   //�쉶�썝 �궘�젣
+   //remove Reservation
     public int remove(int reservationId) throws SQLException {
         String sql = "DELETE FROM Reservation WHERE reservationId=? ";     
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
@@ -79,7 +79,7 @@ public class ReservationDAO {
         return 0;
     }
 
-   //�쉶�썝 �젙蹂� 蹂닿린
+   //find Reservation
     public Reservation findReservation(int reservationId) throws SQLException {
         String sql = "SELECT productId, startDate, endDate, headCount, price, reservationList, userId "
                     + "FROM Reservation "
@@ -108,7 +108,7 @@ public class ReservationDAO {
         return null;
     }
 
-    //�쉶�썝�젙蹂� 由ъ뒪�듃蹂닿린
+    //find Reservation List
     public List<Reservation> findReservationList() throws SQLException {
         String sql = "SELECT reservationId, productId, startDate, endDate, "
                 + "headCount, price, reservationList, userId "
@@ -141,7 +141,7 @@ public class ReservationDAO {
         return null;
     }
 
-  //아이디 중복 확인
+  //Reservation 아이디 중복 확인
     public boolean existingReservation(int reservationId) throws SQLException {
         String sql = "SELECT count(*) FROM Reservation WHERE reservationId=?";      
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});  

@@ -76,12 +76,11 @@ public class Review {
 //        this.image = image;
 //        this.reviewId = reviewId;
 //    }
+    
     @Override
     public String toString() {
         return "Review [reviewId=" + reviewId + ", userId=" + userId + ", title=" + title + ", writeDate="
                 + writeDate + ", rating=" + rating + ", content=" + content + ", image=" + image + "]";
     }
-    
-    
     
 }
