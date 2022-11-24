@@ -18,8 +18,7 @@ public class AccountDetailsDAO {
     // create Account
     public int create(AccountDetails AccountDetails) throws SQLException {
         String sql = "INSERT INTO AccountDetails (userId, bankName, nameOnAccount, accountNumber) "
-                
-                    + "VALUES (?, ?, ?, ?) ";     
+                    + "VALUES (?, ?, ?, ?)";     
         Object[] param = new Object[] {AccountDetails.getUserId(), AccountDetails.getBankName(), AccountDetails.getNameOnAccount(), AccountDetails.getAccountNumber()};
                              
         jdbcUtil.setSqlAndParameters(sql, param);
@@ -103,7 +102,7 @@ public class AccountDetailsDAO {
         return null;
     }
 
-    //�쉶�썝�젙蹂� 由ъ뒪�듃蹂닿린
+    //find Account Details List
     public List<AccountDetails> findAccountDetailsList() throws SQLException {
         String sql = "SELECT userId, bankName, nameOnAccount, accountNumber "
                     + "FROM AccountDetails "
@@ -122,7 +121,6 @@ public class AccountDetailsDAO {
                 AccountDetailsList.add(AccountDetails);   
             }       
             return AccountDetailsList;                    
-            
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {

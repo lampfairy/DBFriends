@@ -48,7 +48,4 @@ public class AccountDetails {
         return "AccountDetails [userId=" + userId + ", bankName=" + bankName + ", nameOnAccount=" + nameOnAccount
                 + ", accountNumber=" + accountNumber + "]";
     }
-    
-    
-    
 }

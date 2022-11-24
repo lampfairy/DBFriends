@@ -19,7 +19,7 @@ public class BookmarkDAO {
    
     //create Bookmark
     public int create(Bookmark Bookmark) throws SQLException {
-        String sql = "INSERT INTO create (userId, productId) "
+        String sql = "INSERT INTO Bookmark (userId, productId) "
                     + "VALUES (?, ?)";    
         Object[] param = new Object[] {Bookmark.getUserId(), Bookmark.getProductId()};              
         jdbcUtil.setSqlAndParameters(sql, param);
@@ -37,32 +37,10 @@ public class BookmarkDAO {
         return 0;          
     }
 
-    //update Bookmark
-    public int update(Bookmark Bookmark) throws SQLException {
-        String sql = "UPDATE Bookmark "
-                    + "SET productId=? "
-                    + "WHERE userId=?";
-        Object[] param = new Object[] {Bookmark.getProductId(), Bookmark.getUserId()};                
-        jdbcUtil.setSqlAndParameters(sql, param);  
-       
-        try {              
-            int result = jdbcUtil.executeUpdate();
-            return result;
-        } catch (Exception ex) {
-            jdbcUtil.rollback();
-            ex.printStackTrace();
-        }
-        finally {
-            jdbcUtil.commit();
-            jdbcUtil.close();
-        }      
-        return 0;
-    }
-
    //remove Bookmark
-    public int remove(int productId) throws SQLException {
-        String sql = "DELETE FROM Bookmark WHERE productId=?";    
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {productId});  
+    public int remove(String userId, int productId) throws SQLException {
+        String sql = "DELETE FROM Bookmark WHERE userId=? AND productId=?";    
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {userId, productId});  
 
         try {              
             int result = jdbcUtil.executeUpdate();
@@ -79,20 +57,23 @@ public class BookmarkDAO {
     }
 
    //find Bookmark
-    public Bookmark findBookmark(String userId) throws SQLException {
+    public List<Bookmark> findUserBookmarkList(String userId) throws SQLException {
         String sql = "SELECT productId "
                     + "FROM Bookmark "
-                    + "WHERE userId=? ";              
+                    + "WHERE userId=? "
+                    + "ORDER BY productId";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});  
        
         try {
             ResultSet rs = jdbcUtil.executeQuery();    
-            if (rs.next()) {                      
+            List<Bookmark> BookmarkList = new ArrayList<Bookmark>();  
+            while (rs.next()) {
             Bookmark Bookmark = new Bookmark(
-                    userId,
+            		userId,
                     rs.getInt("productId"));
-                return Bookmark;
-            }
+            BookmarkList.add(Bookmark);  
+            }      
+            return BookmarkList; 
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -105,7 +86,7 @@ public class BookmarkDAO {
     public List<Bookmark> findBookmarkList() throws SQLException {
         String sql = "SELECT userId, productId "
                    + "FROM Bookmark "
-                   + "ORDER BY userId";
+                   + "ORDER BY userId, productId";
         jdbcUtil.setSqlAndParameters(sql, null);  
                    
         try {
