@@ -1,84 +1,71 @@
-<%@page contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<!DOCTYPE html>
 <html>
 <head>
-<title>ì‚¬ìš©ì ê´€ë¦¬(UserMan2)</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
-<script>
-function login() {
-	if (form.userId.value == "") {
-		alert("ì‚¬ìš©ì IDë¥¼ ì…ë ¥í•˜ì‹­ì‹œì˜¤.");
-		form.userId.focus();
-		return false;
-	} 
-	if (form.password.value == "") {
-		alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì‹­ì‹œì˜¤.");
-		form.password.focus();
-		return false;
-	}		
-	form.submit();
-}
-
-function userCreate(targetUri) {
-	form.action = targetUri;
-	form.submit();
-}
-</script>
+	<meta charset="EUC-KR">
+	<title>·Î±×ÀÎ ÆäÀÌÁö</title>
+	<style type="text/css">
+		.layout{margin:0px auto;width:1180px;padding:10px;font-size:18px}
+		table, td{border:2px solid skyBlue;border-collapse:collapse;}
+		table{margin:250px auto 0px auto}
+		td{height:40px}
+		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:skyBlue;
+		border:1px solid black;width:100px;height:30px}
+		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
+	</style>
+	<script>
+		function login() {
+			if (form.userId.value == "") {
+				alert("»ç¿ëÀÚ ID¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À.");
+				form.userId.focus();
+				return false;
+			} 
+			if (form.password.value == "") {
+				alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À.");
+				form.password.focus();
+				return false;
+			}		
+			form.submit();
+		}
+		
+		function userCreate(targetUri) {
+			form.action = targetUri;
+			form.submit();
+		}
+	</script>
 </head>
 <body>
-<br>
-<!-- login form  -->
-<form name="form" method="POST" action="<c:url value='/user/login' />">
-  <table style="width:100%">
-	<tr>
-	  <td width="20"></td>
-	  <td>
-	    <b>UserMan2</b><br><br>
-	    <table>
-		  <tr>
-	   		<td class="title">&nbsp;&nbsp;<b>ì‚¬ìš©ì ê´€ë¦¬ - ë¡œê·¸ì¸</b>&nbsp;&nbsp;</td>
-		  </tr>
-	    </table>  
-	    <!-- ë¡œê·¸ì¸ì´ ì‹¤íŒ¨í•œ ê²½ìš° exception ê°ì²´ì— ì €ì¥ëœ ì˜¤ë¥˜ ë©”ì‹œì§€ë¥¼ ì¶œë ¥ -->
-        <c:if test="${loginFailed}">
-	  	  <br><font color="red"><c:out value="${exception.getMessage()}" /></font><br>
-	    </c:if>
-	    <br>	  
-	    <table style="background-color: YellowGreen">
-	  	  <tr height="40">
-			<td width="150" align="center" bgcolor="E6ECDE">ì‚¬ìš©ì ID</td>
-			<td width="250" bgcolor="ffffff" style="padding-left:10">
-				<input type="text" style="width:240" name="userId">
-			</td>
-		  </tr>
-	  	  <tr height="40">
-			<td width="150" align="center" bgcolor="E6ECDE">ë¹„ë°€ë²ˆí˜¸</td>
-			<td width="250" bgcolor="ffffff" style="padding-left:10">
-				<input type="password" style="width:240" name="password">
-			</td>
-		  </tr>
-	    </table>
-	    <br>	  
-	    <table style="width:100%">
-		  <tr>
-			<td align=left>
-			<input type="button" value="ë¡œê·¸ì¸" onClick="login()"> &nbsp;
-			<input type="button" value="íšŒì›ê°€ì…" onClick="userCreate('<c:url value='/user/register/form' />')">
-			</td>						
-		  </tr>
-		  <tr height="40"><td>(ê´€ë¦¬ì ë¡œê·¸ì¸: admin/admin)</td></tr>
-	    </table>
-	  </td>	  
-	</tr>
-	<tr height="100"><td>&nbsp;</td>
-	  <td>
-		<a href="http://cs.dongduk.ac.kr">
-		  <img src="<c:url value='/images/logo.gif' />" /></a>		
-	  </td>
-	</tr>
-  </table>  
-</form>
+	<!-- ·Î°í¿Í ¸Ş´º -->
+	<jsp:include page = "../main/menu.jsp"/>
+	<hr>
+	<div class = "layout">
+		<!-- ·Î±×ÀÎ Æû -->
+		<form name="form" method="POST" action="<c:url value='/user/login' />">
+			<!-- ·Î±×ÀÎÀÌ ½ÇÆĞÇÑ °æ¿ì exception °´Ã¼¿¡ ÀúÀåµÈ ¿À·ù ¸Ş½ÃÁö¸¦ Ãâ·Â -->
+	        <c:if test="${loginFailed}">
+		  	  <br><font color="red"><c:out value="${exception.getMessage()}" /></font><br>
+		    </c:if>
+			<table>
+				<tr>
+					<td width="100" align="center">¾ÆÀÌµğ</td>
+					<td width="250" style="padding-left:10px">
+						<input type="text" style="width:230px" name="userId">
+					</td>
+				</tr>
+				<tr>
+					<td width="100" align="center">ºñ¹Ğ¹øÈ£</td>
+					<td width="250" style="padding-left:10px">
+						<input type="password" style="width:230px" name="password">
+					</td>
+				</tr>
+			</table><br>
+			<div class = "btnBox">
+				<input type="button" value="·Î±×ÀÎ" onClick="login()" class = "btn"> &nbsp;
+				<input type="button" value="È¸¿ø°¡ÀÔ" onClick="userCreate('<c:url value='/user/register/form' />')" class = "btn">
+			</div>
+		</form>
+	</div>
 </body>
 </html>

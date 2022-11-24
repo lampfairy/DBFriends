@@ -73,7 +73,5 @@
 			<div>신규 여행지</div>
 		</div>
 	</div>
-	
-	
 </body>
 </html>
