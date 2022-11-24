@@ -30,7 +30,7 @@
   			<div class="navi"><a href="review.jsp">리뷰</a></div>
   			<div class="navi"><a href="myPage.jsp">마이페이지</a></div>
 		</div>
-		<div class="login"><a href="login.jsp">로그인/회원가입</a></div>
+		<div class="login"><a href="loginForm.jsp">로그인/회원가입</a></div>
 	</div>
 </body>
 </html>

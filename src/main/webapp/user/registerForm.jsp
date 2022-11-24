@@ -1,125 +1,151 @@
-<%@page contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-<title>ì‚¬ìš©ì ê´€ë¦¬</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel=stylesheet href="<c:url value='/css/user.css' />" type="text/css">
-<script>
-function userCreate() {
-	if (form.userId.value == "") {
-		alert("ì‚¬ìš©ì IDë¥¼ ì…ë ¥í•˜ì‹­ì‹œì˜¤.");
-		form.userId.focus();
-		return false;
-	} 
-	if (form.password.value == "") {
-		alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì‹­ì‹œì˜¤.");
-		form.password.focus();
-		return false;
-	}
-	if (form.password.value != form.password2.value) {
-		alert("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
-		form.name.focus();
-		return false;
-	}
-	if (form.name.value == "") {
-		alert("ì´ë¦„ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤.");
-		form.name.focus();
-		return false;
-	}
-	var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-	if(emailExp.test(form.email.value)==false) {
-		alert("ì´ë©”ì¼ í˜•ì‹ì´ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.");
-		form.email.focus();
-		return false;
-	}
-	var phoneExp = /^\d{2,3}-\d{3,4}-\d{4}$/;
-	if(phoneExp.test(form.phone.value)==false) {
-		alert("ì „í™”ë²ˆí˜¸ í˜•ì‹ì´ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.");
-		form.phone.focus();
-		return false;
-	}
-	form.submit();
-}
-
-function userList(targetUri) {
-	form.action = targetUri;
-	form.submit();
-}
-</script>
+	<meta charset="EUC-KR">
+	<title>È¸¿ø°¡ÀÔ Æû</title>
+	<style type="text/css">
+		.layout{margin:0px auto;width:1180px;padding:10px;font-size:18px}
+		table, td{border:2px solid skyBlue;border-collapse:collapse;}
+		table{margin:100px auto 0px auto}
+		td{height:40px}
+		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:skyBlue;
+		border:1px solid black;width:100px;height:30px}
+		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
+	</style>
+	<script>
+		function userCreate() {
+			if (form.userId.value == "") {
+				alert("»ç¿ëÀÚ ID¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À.");
+				form.userId.focus();
+				return false;
+			} 
+			if (form.password.value == "") {
+				alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À.");
+				form.password.focus();
+				return false;
+			}
+			if (form.password.value != form.password2.value) {
+				alert("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+				form.name.focus();
+				return false;
+			}
+			if (form.name.value == "") {
+				alert("ÀÌ¸§À» ÀÔ·ÂÇÏ½Ê½Ã¿À.");
+				form.name.focus();
+				return false;
+			}
+			var phoneExp = /^\d{2,3}-\d{3,4}-\d{4}$/;
+			if(phoneExp.test(form.phone.value)==false) {
+				alert("ÀüÈ­¹øÈ£ Çü½ÄÀÌ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.");
+				form.phone.focus();
+				return false;
+			}
+			var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+			if(emailExp.test(form.email.value)==false) {
+				alert("ÀÌ¸ŞÀÏ Çü½ÄÀÌ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.");
+				form.email.focus();
+				return false;
+			}
+			var birthExp = /^[10000000-99999999]/;
+			if(birthExp.test(form.birth.value)==false) {
+				alert("»ı³â¿ùÀÏ Çü½ÄÀÌ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.");
+				form.birth.focus();
+				return false;
+			}
+			
+			form.submit();
+		}
+		
+		function userList(targetUri) {
+			form.action = targetUri;
+			form.submit();
+		}
+	</script>
 </head>
 <body>
-<br>
-<!-- registration form  -->
-<form name="form" method="POST" action="<c:url value='/user/register' />">
-  <table style="width: 100%">
-    <tr>
-      <td width="20"></td>
-	  <td>
-	    <table>
-		  <tr>
-		    <td class="title">&nbsp;&nbsp;<b>ì‚¬ìš©ì ê´€ë¦¬ - íšŒì› ê°€ì…</b>&nbsp;&nbsp;</td>
-		  </tr>
-	    </table>  
-	    <br>	 
-	    <!-- íšŒì›ê°€ì…ì´ ì‹¤íŒ¨í•œ ê²½ìš° exception ê°ì²´ì— ì €ì¥ëœ ì˜¤ë¥˜ ë©”ì‹œì§€ë¥¼ ì¶œë ¥ -->
-        <c:if test="${registerFailed}">
-	      <font color="red"><c:out value="${exception.getMessage()}" /></font>
-	    </c:if>
-	    <br>	  
-	    <table style="background-color: YellowGreen">
-	  	  <tr height="40">
-			<td width="150" align="center" bgcolor="E6ECDE">ì‚¬ìš©ì ID</td>
-			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240;" name="userId">
-			</td>
-		  </tr>
-	  	  <tr height="40">
-			<td width="150" align="center" bgcolor="E6ECDE">ë¹„ë°€ë²ˆí˜¸</td>
-			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="password" style="width: 240" name="password">
-			</td>
-		  </tr>
-	  	  <tr height="40">
-			<td width="150" align="center" bgcolor="E6ECDE">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</td>
-			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="password" style="width: 240" name="password2">
-			</td>
-		  </tr>
-	  	  <tr height="40">
-			<td width="150" align="center" bgcolor="E6ECDE">ì´ë¦„</td>
-			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240" name="name" 
-				 	<c:if test="${registerFailed}">value="${user.name}"</c:if>>
-			</td>
-		  </tr>
-	  	  <tr height="40">
-			<td width="150" align="center" bgcolor="E6ECDE">ì´ë©”ì¼ ì£¼ì†Œ</td>
-			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240" name="email" 
-					<c:if test="${registerFailed}">value="${user.email}"</c:if>>
-			</td>
-		  </tr>	
-	  	  <tr height="40">
-			<td width="150" align="center" bgcolor="E6ECDE">ì „í™”ë²ˆí˜¸</td>
-			<td width="250" bgcolor="ffffff" style="padding-left: 10">
-				<input type="text" style="width: 240" name="phone" 
-					<c:if test="${registerFailed}">value="${user.phone}"</c:if>>
-			</td>
-		  </tr>		  
-	    </table>
-	    <br>	  
-	    <table style="width: 100%">
-		  <tr>
-			<td align="left">
-			<input type="button" value="íšŒì› ê°€ì…" onClick="userCreate()"> &nbsp;
-			<input type="button" value="ëª©ë¡" onClick="userList('<c:url value='/user/list' />')">
-			</td>
-		  </tr>
-	    </table>
-	  </td>
-    </tr>
-  </table>  
-</form>
+	<!-- ·Î°í¿Í ¸Ş´º -->
+	<jsp:include page = "../main/menu.jsp"/>
+	<hr>
+	<div class = "layout">
+		<!-- È¸¿ø°¡ÀÔ Æû -->
+		<form name="form" method="POST" action="<c:url value='/user/register' />">
+			<!-- È¸¿ø°¡ÀÔÀÌ ½ÇÆĞÇÑ °æ¿ì exception °´Ã¼¿¡ ÀúÀåµÈ ¿À·ù ¸Ş½ÃÁö¸¦ Ãâ·Â -->
+	        <c:if test="${registerFailed}">
+		      <font color="red"><c:out value="${exception.getMessage()}" /></font>
+		    </c:if>
+		    <table>
+		    	<tr>
+					<td width="150" align="center">ÀÌ¸§</td>
+					<td width="250" style="padding-left:10px">
+						<input type="text" style="width:230px;" name="name"
+						<c:if test="${registerFailed}">value="${user.name}"</c:if>>
+					</td>
+			    </tr>
+		    	<tr>
+				<td width="150" align="center">»ç¿ëÀÚ ID</td>
+				<td width="250" style="padding-left:10px">
+					<input type="text" style="width:230px;" name="userId">
+				</td>
+			  </tr>
+		  	  <tr>
+				<td width="150" align="center">ºñ¹Ğ¹øÈ£</td>
+				<td width="250" style="padding-left:10px">
+					<input type="password" style="width:230px" name="password">
+				</td>
+			  </tr>
+		  	  <tr>
+				<td width="150" align="center">ºñ¹Ğ¹øÈ£ È®ÀÎ</td>
+				<td width="250" style="padding-left:10px">
+					<input type="password" style="width:230px" name="password2">
+				</td>
+			  </tr>
+			  <tr>
+				<td width="150" align="center">ÀüÈ­¹øÈ£</td>
+				<td width="250" style="padding-left:10px">
+					<input type="text" style="width:230px" name="phone" 
+						<c:if test="${registerFailed}">value="${user.phone}"</c:if>>
+				</td>
+			  </tr>
+		  	  <tr>
+				<td width="150" align="center">ÀÌ¸ŞÀÏ ÁÖ¼Ò</td>
+				<td width="250" style="padding-left:10px">
+					<input type="text" style="width:230px" name="email" 
+						<c:if test="${registerFailed}">value="${user.email}"</c:if>>
+				</td>
+			  </tr>
+			  <tr>
+				<td width="150" align="center">»ı³â¿ùÀÏ</td>
+				<td width="250" style="padding-left:10px">
+					<input type="text" style="width:230px" name="birth" 
+						<c:if test="${registerFailed}">value="${user.birth}"</c:if>
+						placeholder="ex.20130101">
+				</td>
+			  </tr>
+		  	  <tr>
+				<td width="150" align="center">ÀºÇà</td>
+				<td width="250">
+					<input type="radio" name="bankName" value="kookmin">±¹¹Î
+					<input type="radio" name="bankName" value="nonghyup">³óÇù
+					<input type="radio" name="bankName" value="woori">¿ì¸®
+					<input type="radio" name="bankName" value="shinhan">½ÅÇÑ
+				</td>
+			  </tr>
+			  <tr>
+				<td width="150" align="center">°èÁÂ¹øÈ£</td>
+				<td width="250" style="padding-left:10px">
+					<input type="text" style="width:230px" name="account" 
+						<c:if test="${registerFailed}">value="${user.account}"</c:if>>
+				</td>
+			  </tr>
+		    </table><br>
+			<div class = "btnBox">
+				<input type="button" value="È¸¿ø °¡ÀÔ" onClick="userCreate()" class = "btn"> &nbsp;
+				<input type="button" value="¸ñ·Ï" onClick="userList('<c:url value='/user/list' />')" class = "btn">
+			</div>
+		</form>
+	</div>
 </body>
 </html>
