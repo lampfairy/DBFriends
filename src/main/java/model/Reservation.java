@@ -1,7 +1,7 @@
 package model;
 
 import java.util.Date;
-
+//
 public class Reservation {
     private int reservationId;
     private int productId;

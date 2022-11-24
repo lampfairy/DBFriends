@@ -16,7 +16,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 
 public class ReviewTest {
-
+//
     private static ReservationDAO dao_r = new ReservationDAO();
     private static ReviewDAO dao = new ReviewDAO();
     

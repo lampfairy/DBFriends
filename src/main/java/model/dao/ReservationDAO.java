@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Reservation;
-//import util.JDBCUtil;
+//import util.JDBCUtil; //
 
 public class ReservationDAO {
     private JDBCUtil jdbcUtil = null;

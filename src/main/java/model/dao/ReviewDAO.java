@@ -14,7 +14,7 @@ public class ReviewDAO {
     public ReviewDAO() {          
         jdbcUtil = new JDBCUtil();
     }
-    
+    //r
     //create Review
     public int create(Review Review) throws SQLException {
         String sql = "INSERT INTO Review (reservationId, title, writeDate, rating, content, image) "
