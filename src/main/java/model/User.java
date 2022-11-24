@@ -1,87 +1,78 @@
 package model;
 
-/**
- * 사용자 관리를 위해 필요한 도메인 클래스. USERINFO 테이블과 대응됨
- */
+import java.util.Date;
+
 public class User {
-	private String userId;
-	private String password;
-	private String name;
-	private String email;
-	private String phone;
-
-	public User() { }	// 기본 생성자
-	
-	public User(String userId, String password, String name, String email, String phone) {
-		this.userId = userId;
-		this.password = password;
-		this.name = name;
-		this.email = email;
-		this.phone = phone;
-	}
-
-	public void update(User updateUser) {
-        this.password = updateUser.password;
-        this.name = updateUser.name;
-        this.email = updateUser.email;
-        this.phone = updateUser.phone;
+    private String name;
+    private String userId;
+    private String userPw;
+    private String phoneNumber;
+    private String emailAddress;
+    private Date birthDate;
+    
+    public User() {
+        super();
     }
-	
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	/* 비밀번호 검사 */
-	public boolean matchPassword(String password) {
-		if (password == null) {
-			return false;
-		}
-		return this.password.equals(password);
-	}
-	
-	public boolean isSameUser(String userid) {
-        return this.userId.equals(userid);
+    
+    public User(String name, String userId, String userPw, String phoneNumber, String emailAddress,
+            Date birthDate) {
+        super();
+        this.name = name;
+        this.userId = userId;
+        this.userPw = userPw;
+        this.phoneNumber = phoneNumber;
+        this.emailAddress = emailAddress;
+        this.birthDate = birthDate;
     }
 
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + ", phone="
-				+ phone + "]";
-	}	
+    public User(String name, String userId, String phoneNumber, String emailAddress, Date birthDate) {
+        super();
+        this.name = name;
+        this.userId = userId;
+        this.phoneNumber = phoneNumber;
+        this.emailAddress = emailAddress;
+        this.birthDate = birthDate;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getUserId() {
+        return userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+    public String getUserPw() {
+        return userPw;
+    }
+    public void setUserPw(String userPw) {
+        this.userPw = userPw;
+    }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+    public Date getBirthDate() {
+        return birthDate;
+    }
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+    @Override
+    public String toString() {
+        return "Customer [name=" + name + ", userId=" + userId + ", userPw=" + userPw + ", phoneNumber=" + phoneNumber
+                + ", emailAddress=" + emailAddress + ", birthDate=" + birthDate + "]";
+    }
 }

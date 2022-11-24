@@ -5,15 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
-import model.Customer;
-import model.dao.CustomerDAO;
+import model.User;
+import model.dao.UserDAO;
 
 import java.sql.Date;
 import java.sql.SQLException;
 
-public class CustomerTest {
+public class UserTest {
 
-    private static CustomerDAO dao = new CustomerDAO();
+    private static UserDAO dao = new UserDAO();
     
     public static void main(String[] args) {
     
@@ -23,7 +23,7 @@ public class CustomerTest {
         System.out.print("create id : ");
         String userId = scanner.next();
         try {
-            while(dao.existingCustomer(userId)) {
+            while(dao.existingUser(userId)) {
                 System.out.println(userId + " 는 이미 존재하는 아이디 입니다");
                 System.out.print("create id : ");
                 userId = scanner.next();
@@ -45,17 +45,17 @@ public class CustomerTest {
         try {
         Date date = transformDate(birthDate);
         
-        Customer cust = new Customer(name, userId, userPw, phoneNumber, email, date);
-        System.out.println(cust.toString());
-        int num = dao.create(cust);
+        User user = new User(name, userId, userPw, phoneNumber, email, date);
+        System.out.println(user.toString());
+        int num = dao.create(user);
         System.out.println(num);
         
-        List<Customer> list = dao.findCustomerList();  
+        List<User> list = dao.findUserList();  
         
-        System.out.println("--------------------customer id 목록--------------------");
+        System.out.println("--------------------User id 목록--------------------");
         if(list != null) {
             for(int i = 0; i < list.size(); i++) {
-                Customer c = list.get(i);
+                User c = list.get(i);
                 String n = c.getUserId();
                 System.out.printf("%s \n", n);
             }
@@ -66,7 +66,7 @@ public class CustomerTest {
         System.out.print("update id : ");
         userId = scanner.next();
         try {
-            while(!dao.existingCustomer(userId)) {
+            while(!dao.existingUser(userId)) {
                 System.out.println(userId + " 는 존재하지 않는 아이디 입니다");
                 System.out.print("update id : ");
                 userId = scanner.next();
@@ -87,17 +87,17 @@ public class CustomerTest {
         birthDate = scanner.next();
         date = transformDate(birthDate);
         
-        cust = new Customer(name, userId, userPw, phoneNumber, email, date);
-        num = dao.update(cust);
+        user = new User(name, userId, userPw, phoneNumber, email, date);
+        num = dao.update(user);
         
         System.out.println(num);
         
-        list = dao.findCustomerList();  
+        list = dao.findUserList();  
         
-       System.out.println("--------------------customer id 목록--------------------");
+       System.out.println("--------------------User id 목록--------------------");
         if(list != null) {
             for(int i = 0; i < list.size(); i++) {
-                Customer c = list.get(i);
+                User c = list.get(i);
                 String n = c.getUserId();
                 System.out.printf("%s \n", n);
             }
@@ -107,7 +107,7 @@ public class CustomerTest {
         System.out.print("remove id : ");
         userId = scanner.next();
         try {
-            while(!dao.existingCustomer(userId)) {
+            while(!dao.existingUser(userId)) {
                 System.out.println(userId + " 는 존재하지 않는 아이디 입니다");
                 System.out.print("remove id : ");
                 userId = scanner.next();
@@ -120,21 +120,21 @@ public class CustomerTest {
         
         System.out.println(num);
         
-        list = dao.findCustomerList();  
+        list = dao.findUserList();  
         
-        System.out.println("--------------------customer id 목록--------------------");
+        System.out.println("--------------------User id 목록--------------------");
         if(list != null) {
             for(int i = 0; i < list.size(); i++) {
-                Customer c = list.get(i);
+                User c = list.get(i);
                 String n = c.getUserId();
                 System.out.printf("%s \n", n);
             }
         }
-        System.out.println("findCustomer예제");
+        System.out.println("findUser예제");
         System.out.print("id : ");
         userId = scanner.next();
         try {
-            while(!dao.existingCustomer(userId)) {
+            while(!dao.existingUser(userId)) {
                 System.out.println(userId + " 는 존재하지 않는 아이디 입니다");
                 System.out.print("remove id : ");
                 userId = scanner.next();
@@ -143,13 +143,13 @@ public class CustomerTest {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        cust = dao.findCustomer(userId);
-        System.out.println(cust.toString());
+        user = dao.findUser(userId);
+        System.out.println(user.toString());
         
-//        System.out.println("existingCustomer예제");
+//        System.out.println("existingUser예제");
 //        System.out.print("id : ");
 //        userId = scanner.next();
-//        Boolean n = dao.existingCustomer(userId);
+//        Boolean n = dao.existingUser(userId);
 //        System.out.println(n);
         
         

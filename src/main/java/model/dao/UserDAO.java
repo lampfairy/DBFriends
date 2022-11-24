@@ -5,18 +5,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Customer;
+import model.User;
 
 
-public class CustomerDAO {
+public class UserDAO {
     private JDBCUtil jdbcUtil = null;
     
-    public CustomerDAO() {          
+    public UserDAO() {          
         jdbcUtil = new JDBCUtil();
     }
     
-    //°í°´ µî·Ï
-    public int create(Customer Customer) throws SQLException {
+    //ï¿½ï¿½ ï¿½ï¿½ï¿½
+    public int create(User Customer) throws SQLException {
         String sql = "INSERT INTO Customer (userId, name, userPw, phoneNumber, "
                 + "emailAddress, birthDate) "
                     + "VALUES (?, ?, ?, ?, ?, ?)";     
@@ -38,8 +38,8 @@ public class CustomerDAO {
         return 0;           
     }
 
-    //°í°´ ¼öÁ¤
-    public int update(Customer Customer) throws SQLException {
+    //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public int update(User Customer) throws SQLException {
         String sql = "UPDATE Customer "
                     + "SET name=?, userPw=?, phoneNumber=?, emailAddress=?, birthDate=? "
                     + "WHERE userId=?";
@@ -61,7 +61,7 @@ public class CustomerDAO {
         return 0;
     }
 
-   //È¸¿ø »èÁ¦
+   //È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public int remove(String userId) throws SQLException {
         String sql = "DELETE FROM Customer WHERE userId=?";     
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});   
@@ -80,8 +80,8 @@ public class CustomerDAO {
         return 0;
     }
 
-   //È¸¿ø Á¤º¸ º¸±â
-    public Customer findCustomer(String userId) throws SQLException {
+   //È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public User findUser(String userId) throws SQLException {
         String sql = "SELECT name, phoneNumber, emailAddress, birthDate "
                     + "FROM Customer "
                     + "WHERE userId=? ";              
@@ -90,7 +90,7 @@ public class CustomerDAO {
         try {
             ResultSet rs = jdbcUtil.executeQuery();    
             if (rs.next()) {                      
-                Customer Customer = new Customer(
+                User Customer = new User(
                     rs.getString("name"),
                     userId,
                     rs.getString("phoneNumber"),
@@ -106,8 +106,8 @@ public class CustomerDAO {
         return null;
     }
 
-    //È¸¿øÁ¤º¸ ¸®½ºÆ®º¸±â
-    public List<Customer> findCustomerList() throws SQLException {
+    //È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½
+    public List<User> findUserList() throws SQLException {
         String sql = "SELECT userId, name, userPw, "
                 + "phoneNumber, emailAddress, birthDate " 
                    + "FROM Customer "
@@ -116,9 +116,9 @@ public class CustomerDAO {
                     
         try {
             ResultSet rs = jdbcUtil.executeQuery();           
-            List<Customer> CustomerList = new ArrayList<Customer>();   
+            List<User> CustomerList = new ArrayList<User>();   
             while (rs.next()) {
-                Customer Customer = new Customer(
+                User Customer = new User(
                     rs.getString("name"),
                     rs.getString("userId"),
                     rs.getString("userPw"),
@@ -137,8 +137,8 @@ public class CustomerDAO {
         return null;
     }
 
-    //¾ÆÀÌµð Áßº¹ È®ÀÎ
-    public boolean existingCustomer(String userId) throws SQLException {
+    //ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½ È®ï¿½ï¿½
+    public boolean existingUser(String userId) throws SQLException {
         String sql = "SELECT count(*) FROM Customer WHERE userId=?";      
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});  
         
