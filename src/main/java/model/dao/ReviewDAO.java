@@ -60,10 +60,10 @@ public class ReviewDAO {
     }
 
    //remove Review
+
     public int remove(int reservationId) throws SQLException {
         String sql = "DELETE FROM Review WHERE reservationId=?";     
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
-
         try {               
             int result = jdbcUtil.executeUpdate(); 
             return result;
@@ -141,7 +141,6 @@ public class ReviewDAO {
     public boolean existingReview(int reservationId) throws SQLException {
         String sql = "SELECT count(*) FROM Review WHERE reservationId=?";      
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});  
-        
         try {
             ResultSet rs = jdbcUtil.executeQuery();    
             if (rs.next()) {
