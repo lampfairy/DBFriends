@@ -4,25 +4,18 @@ import java.util.Date;
 
 public class Review {
     
-    private int reviewId;
-    private String userId;
+    private int reservationId;
     private String title;
     private Date writeDate;
     private float rating;
     private String content;
     private String image;
     
-    public int getReviewId() {
-        return reviewId;
+    public int getReservationId() {
+        return reservationId;
     }
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
-    }
-    public String getUserId() {
-        return userId;
-    }
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
     }
     public String getTitle() {
         return title;
@@ -54,11 +47,9 @@ public class Review {
     public void setImage(String image) {
         this.image = image;
     }
-    public Review(int reviewId, String userId, String title, Date writeDate, float rating, String content,
-            String image) {
+    public Review(int reservationId, String title, Date writeDate, float rating, String content, String image) {
         super();
-        this.reviewId = reviewId;
-        this.userId = userId;
+        this.reservationId = reservationId;
         this.title = title;
         this.writeDate = writeDate;
         this.rating = rating;
@@ -76,12 +67,10 @@ public class Review {
 //        this.image = image;
 //        this.reviewId = reviewId;
 //    }
+    
     @Override
     public String toString() {
-        return "Review [reviewId=" + reviewId + ", userId=" + userId + ", title=" + title + ", writeDate="
+        return "Review [reservationId=" + reservationId + ", title=" + title + ", writeDate="
                 + writeDate + ", rating=" + rating + ", content=" + content + ", image=" + image + "]";
     }
-    
-    
-    
 }

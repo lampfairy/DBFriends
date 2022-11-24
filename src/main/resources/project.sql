@@ -90,15 +90,14 @@ CREATE TABLE Review
 	rating               NUMBER(2,1)  NULL  CONSTRAINT  Validation_Rule_Rating CHECK (rating BETWEEN 0 AND 5),
 	content              VARCHAR2(500)  NULL ,
 	image                VARCHAR2(50)  NULL ,
-	reviewId        	NUMBER(6,0)  NOT NULL ,
-	userId               VARCHAR2(12)  NOT NULL 
+	reservationId        	NUMBER(6,0)  NOT NULL
 );
 
 CREATE UNIQUE INDEX XPKReview ON Review
 (reservationId   ASC,userId   ASC);
 
 ALTER TABLE Review
-	ADD CONSTRAINT  XPKReview PRIMARY KEY (reservationId,userId);
+	ADD CONSTRAINT  XPKReview PRIMARY KEY (reservationId);
 
 ALTER TABLE AccountDetails
 	ADD (
@@ -123,7 +122,3 @@ CONSTRAINT Reserve FOREIGN KEY (userId) REFERENCES Customer (userId));
 ALTER TABLE Review
 	ADD (
 CONSTRAINT Review FOREIGN KEY (reservationId) REFERENCES Reservation (reservationId));
-
-ALTER TABLE Review
-	ADD (
-CONSTRAINT R_29 FOREIGN KEY (userId) REFERENCES Customer (userId));

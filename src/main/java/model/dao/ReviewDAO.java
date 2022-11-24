@@ -15,12 +15,11 @@ public class ReviewDAO {
         jdbcUtil = new JDBCUtil();
     }
     
-    //怨좉컼 �벑濡�
+    //create Review
     public int create(Review Review) throws SQLException {
-        String sql = "INSERT INTO Review (reviewId, userId, title, writeDate, "
-                    + "rating, content, image) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";     
-        Object[] param = new Object[] {Review.getReviewId(), Review.getUserId(), Review.getTitle(), Review.getWriteDate(),
+        String sql = "INSERT INTO Review (reservationId, title, writeDate, rating, content, image) "
+                    + "VALUES (?, ?, ?, ?, ?, ?)";     
+        Object[] param = new Object[] {Review.getReservationId(), Review.getTitle(), Review.getWriteDate(),
                 Review.getRating(), Review.getContent(), Review.getImage()};              
         jdbcUtil.setSqlAndParameters(sql, param);
         
@@ -37,15 +36,13 @@ public class ReviewDAO {
         return 0;           
     }
 
-    //怨좉컼 �닔�젙
+    //update Review
     public int update(Review Review) throws SQLException {
-        
-        // reviewId, userId 를 둘 다 where 절로?
         String sql = "UPDATE Review "
-                    + "SET title, writeDate, rating, content, image "
-                    + "WHERE reviewId=? ";
+                    + "SET title=?, writeDate=?, rating=?, content=?, image=? "
+                    + "WHERE reservationId=?";
         Object[] param = new Object[] {Review.getTitle(), Review.getWriteDate(),
-                Review.getRating(), Review.getContent(), Review.getImage(), Review.getReviewId()};                
+                Review.getRating(), Review.getContent(), Review.getImage(), Review.getReservationId()};                
         jdbcUtil.setSqlAndParameters(sql, param);   
         
         try {               
@@ -62,10 +59,10 @@ public class ReviewDAO {
         return 0;
     }
 
-   //�쉶�썝 �궘�젣
-    public int remove(int reviewId) throws SQLException {
-        String sql = "DELETE FROM Review WHERE reviewId=?";     
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {reviewId});   
+   //remove Review
+    public int remove(int reservationId) throws SQLException {
+        String sql = "DELETE FROM Review WHERE reservationId=?";     
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
 
         try {               
             int result = jdbcUtil.executeUpdate(); 
@@ -81,19 +78,18 @@ public class ReviewDAO {
         return 0;
     }
 
-   //�쉶�썝 �젙蹂� 蹂닿린
-    public Review findReview(int reviewId) throws SQLException {
-        String sql = "SELECT userId, title, writeDate, rating, content, image "
+   //find Review
+    public Review findReview(int reservationId) throws SQLException {
+        String sql = "SELECT reservationId, title, writeDate, rating, content, image "
                     + "FROM Review "
-                    + "WHERE reviewId=? ";              
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {reviewId});   
+                    + "WHERE reservationId=?";              
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
         
         try {
             ResultSet rs = jdbcUtil.executeQuery();    
             if (rs.next()) {                      
                 Review Review = new Review(
-                        reviewId,
-                        rs.getString("userId"),
+                        reservationId,
                         rs.getString("title"),
                         rs.getDate("writeDate"),
                         rs.getFloat("rating"),
@@ -110,11 +106,11 @@ public class ReviewDAO {
         return null;
     }
  
-    //�쉶�썝�젙蹂� 由ъ뒪�듃蹂닿린
+    //find Review List
     public List<Review> findReviewList() throws SQLException {
-        String sql = "SELECT reviewId, userId, title, writeDate, rating, content, image "
+        String sql = "SELECT reservationId, title, writeDate, rating, content, image "
                     + "FROM Review "
-                    + "ORDER BY reviewId";
+                    + "ORDER BY writeDate";
         jdbcUtil.setSqlAndParameters(sql, null);  
                     
         try {
@@ -122,8 +118,7 @@ public class ReviewDAO {
             List<Review> ReviewList = new ArrayList<Review>();   
             while (rs.next()) {
                 Review Review = new Review(
-                       rs.getInt("reviewId"),
-                       rs.getString("userId"),
+                       rs.getInt("reservationId"),
                        rs.getString("title"),
                        rs.getDate("writeDate"),
                        rs.getFloat("rating"),
@@ -142,10 +137,10 @@ public class ReviewDAO {
         return null;
     }
 
-  //아이디 중복 확인
-    public boolean existingReview(int reviewId) throws SQLException {
-        String sql = "SELECT count(*) FROM Review WHERE reviewId=?";      
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {reviewId});  
+  //Review 아이디 중복 확인
+    public boolean existingReview(int reservationId) throws SQLException {
+        String sql = "SELECT count(*) FROM Review WHERE reservationId=?";      
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});  
         
         try {
             ResultSet rs = jdbcUtil.executeQuery();    
