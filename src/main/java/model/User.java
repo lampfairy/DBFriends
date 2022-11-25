@@ -77,11 +77,11 @@ public class User {
     }
     
     /* 비밀번호 검사 */
-    public boolean matchPassword(String password) {
-        if (password == null) {
+    public boolean matchPassword(String userPw) {
+        if (userPw == null) {
             return false;
         }
-        return this.userPw.equals(password);
+        return this.userPw.equals(userPw);
     }
     
     public boolean isSameUser(String userid) {

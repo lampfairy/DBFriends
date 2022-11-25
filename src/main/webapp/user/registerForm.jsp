@@ -49,13 +49,6 @@
 				form.email.focus();
 				return false;
 			}
-			var birthExp = /^[10000000-99999999]/;
-			if(birthExp.test(form.birth.value)==false) {
-				alert("생년월일 형식이 올바르지 않습니다.");
-				form.birth.focus();
-				return false;
-			}
-			
 			form.submit();
 		}
 		
@@ -93,7 +86,7 @@
 		  	  <tr>
 				<td width="150" align="center">비밀번호</td>
 				<td width="250" style="padding-left:10px">
-					<input type="password" style="width:230px" name="password">
+					<input type="password" style="width:230px" name="userPw">
 				</td>
 			  </tr>
 		  	  <tr>
@@ -105,22 +98,22 @@
 			  <tr>
 				<td width="150" align="center">전화번호</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="phone" 
-						<c:if test="${registerFailed}">value="${user.phone}"</c:if>>
+					<input type="text" style="width:230px" name="phoneNumber" 
+						<c:if test="${registerFailed}">value="${user.phoneNumber}"</c:if>>
 				</td>
 			  </tr>
 		  	  <tr>
 				<td width="150" align="center">이메일 주소</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="email" 
-						<c:if test="${registerFailed}">value="${user.email}"</c:if>>
+					<input type="text" style="width:230px" name="emailAddress" 
+						<c:if test="${registerFailed}">value="${user.emailAddress}"</c:if>>
 				</td>
 			  </tr>
 			  <tr>
 				<td width="150" align="center">생년월일</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="birth" 
-						<c:if test="${registerFailed}">value="${user.birth}"</c:if>
+					<input type="text" style="width:230px" name="birthDate" 
+						<c:if test="${registerFailed}">value="${user.birthDate}"</c:if>
 						placeholder="ex.20130101">
 				</td>
 			  </tr>
@@ -136,13 +129,12 @@
 			  <tr>
 				<td width="150" align="center">계좌번호</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="accountNumber" 
-						<c:if test="${registerFailed}">value="${user.accountNumber}"</c:if>>
+					<input type="text" style="width:230px" name="accountNumber" >
 				</td>
 			  </tr>
 		    </table><br>
 			<div class = "btnBox">
-				<input type="button" value="회원 가입" onClick="userCreate()" class = "btn"> &nbsp;
+				<input type="submit" value="회원 가입" onClick="userCreate()" class = "btn"> &nbsp;
 				<input type="button" value="목록" onClick="userList('<c:url value='/user/list' />')" class = "btn">
 			</div>
 		</form>

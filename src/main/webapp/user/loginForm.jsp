@@ -57,12 +57,12 @@
 				<tr>
 					<td width="100" align="center">비밀번호</td>
 					<td width="250" style="padding-left:10px">
-						<input type="password" style="width:230px" name="password">
+						<input type="password" style="width:230px" name="userPw">
 					</td>
 				</tr>
 			</table><br>
 			<div class = "btnBox">
-				<input type="button" value="로그인" onClick="login()" class = "btn"> &nbsp;
+				<input type="submit" value="로그인" onClick="login()" class = "btn"> &nbsp;
 				<input type="button" value="회원가입" onClick="userCreate('<c:url value='/user/register/form' />')" class = "btn">
 			</div>
 		</form>

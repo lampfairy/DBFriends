@@ -63,11 +63,11 @@ public class UserManager {
 //        return userDAO.findUserList(currentPage, countPerPage);
 //    }
 
-    public boolean login(String userId, String password)
+    public boolean login(String userId, String userPw)
         throws SQLException, UserNotFoundException, PasswordMismatchException {
         User user = findUser(userId);
 
-        if (!user.matchPassword(password)) {
+        if (!user.matchPassword(userPw)) {
             throw new PasswordMismatchException("비밀번호가 일치하지 않습니다.");
         }
         return true;
