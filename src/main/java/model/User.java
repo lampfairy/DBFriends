@@ -75,4 +75,16 @@ public class User {
         return "Customer [name=" + name + ", userId=" + userId + ", userPw=" + userPw + ", phoneNumber=" + phoneNumber
                 + ", emailAddress=" + emailAddress + ", birthDate=" + birthDate + "]";
     }
+    
+    /* 비밀번호 검사 */
+    public boolean matchPassword(String password) {
+        if (password == null) {
+            return false;
+        }
+        return this.userPw.equals(password);
+    }
+    
+    public boolean isSameUser(String userid) {
+        return this.userId.equals(userid);
+    }
 }

@@ -136,8 +136,8 @@
 			  <tr>
 				<td width="150" align="center">°èÁÂ¹øÈ£</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="account" 
-						<c:if test="${registerFailed}">value="${user.account}"</c:if>>
+					<input type="text" style="width:230px" name="accountNumber" 
+						<c:if test="${registerFailed}">value="${user.accountNumber}"</c:if>>
 				</td>
 			  </tr>
 		    </table><br>
