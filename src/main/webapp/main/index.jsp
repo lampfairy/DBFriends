@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +20,9 @@
 		.count div{text-align:center;font-size:18px;width:150px;height:150px;
 		border-radius:50%;background-color:skyBlue;float:left;margin:0px 121px;
 		line-height:150px;color:white;font-weight:bolder}
-		.count1{background:url('images/count1.jpg');}
-		.count2{background:url('images/count2.jpg');}
-		.count3{background:url('images/count3.jpg');}
+		.count1{background:url('../images/count1.jpg');}
+		.count2{background:url('../images/count2.jpg');}
+		.count3{background:url('../images/count3.jpg');}
 		.new{width:1180px;margin: 0px auto}
 		.new div{text-align:center;font-size:18px;width:330px;height:330px;
 		background-color:skyBlue;float:left;margin:0px 30px;line-height:330px;}

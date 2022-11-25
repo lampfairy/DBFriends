@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,15 +23,25 @@
 </head>
 <body>
 	<div class="layout1">
-  		<div class="logo1"><a href="index.jsp">로고</a></div>
-  		<div class="logo2"><a href="index.jsp">먹고 놀자</a></div>
+  		<div class="logo1"><a href="<c:url value='/main/index' />">로고</a></div>
+  		<div class="logo2"><a href="<c:url value='/main/index' />">먹고 놀자</a></div>
 		<div class="navitool">
-  			<div class="navi"><a href="top10.jsp">TOP10</a></div>
-  			<div class="navi"><a href="reservation.jsp">예약/예매</a></div>
-  			<div class="navi"><a href="review.jsp">리뷰</a></div>
-  			<div class="navi"><a href="myPage.jsp">마이페이지</a></div>
+  			<div class="navi"><a href="<c:url value='/main/top10' />">TOP10</a></div>
+  			<div class="navi"><a href="<c:url value='/main/reserv' />">예약/예매</a></div>
+  			<div class="navi"><a href="<c:url value='/main/review' />">리뷰</a></div>
+  			<div class="navi"><a href="<c:url value='/main/myPage' />">마이페이지</a></div>
 		</div>
-		<div class="login"><a href="loginForm.jsp">로그인/회원가입</a></div>
+		<div class="login">
+			<c:choose>
+				<c:when test = "${user.userId == null}">
+					<a href="<c:url value='/user/loginForm' />">로그인/회원가입</a>
+				</c:when>
+				<c:otherwise>
+					<a href="<c:url value='/user/logout' />">로그아웃</a>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		
 	</div>
 </body>
 </html>
