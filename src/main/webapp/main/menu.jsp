@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="model.User" %>
+<%
+	User user = (User)request.getAttribute("userId");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +37,7 @@
 		</div>
 		<div class="login">
 			<c:choose>
-				<c:when test = "${user.userId == null}">
+				<c:when test = "${userId == null}">
 					<a href="<c:url value='/user/loginForm' />">로그인/회원가입</a>
 				</c:when>
 				<c:otherwise>
