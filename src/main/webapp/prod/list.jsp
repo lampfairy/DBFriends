@@ -18,29 +18,31 @@
 		table, td{border:2px solid skyBlue;border-collapse:collapse;}
 		table{margin:100px auto 0px auto;text-align:center}
 		td{height:40px}
-		.image{height:200px}
+		.image{height:150px}
 		</style>
 </head>
 <body>
 	<form>
 		<table>
 			<tr>
-				<td width=200>사진</td>
+				<td width=150>사진</td>
 				<td width=600>이름 및 위치</td>
 				<td width=200>바로가기</td>
 			</tr>
 			<c:forEach var="prod" items="${prodList}">
 				<tr>
 					<td class = "image">이미지</td>
-					<td>
-						이름 : ${prod.name}<br>
-						가격 : ${prod.price}<br>
-						위치 : ${prod.location}<br>
-						위치 : ${prod.location}<br>
+					<td style="text-align:left;">
+						이름 : ${prod.name}<br><br>
+						가격 : ${prod.price}<br><br>
+						위치 : ${prod.location}<br><br>
 					</td>
 					<td>
-						<a href = "<c:url value='/prod/detail' />">바로가기</a>
-					<td>
+						<a href = "<c:url value='/prod/detail'>
+							<c:param name = 'productId' value='${prod.productId}' />
+							</c:url>">
+						바로가기</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

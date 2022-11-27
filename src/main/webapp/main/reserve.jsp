@@ -18,10 +18,14 @@
 		body{margin:0}
 		.layout{margin:0px auto;width:1180px;padding:10px}
 		.search{background-image:ivory;text-align:center}
-		select,input{width:240px;height:40px;background-color:skyBlue;
+		select{width:240px;height:40px;background-color:skyBlue;
 		border-radius: 10px;font-size:18px;text-align:center;}
 		.splace{margin-right:150px}
 		.sdetail{margin-left:150px}
+		.key{width:600px;height:40px;background-color:skyBlue;
+		border-radius: 10px;font-size:18px;text-align:center;}
+		.sub{width:240px;height:40px;background-color:skyBlue;
+		border-radius: 10px;font-size:18px;text-align:center;}
 	</style>
 </head>
 <body>
@@ -50,7 +54,8 @@
 					<option value = "2">...</option>
 					<option value = "3">....</option>
 				</select><br><br><br><br><br><br><br><br>
-				<input type = "submit" value = "검색"/>
+				<input type = "text" placeholder="키워드 검색" name = "keySearch" class = "key"/>
+				<input type = "submit" value = "검색" class = "sub"/>
 			</form><br><br>
 		</div>
 		<!-- 상품 목록 -->
