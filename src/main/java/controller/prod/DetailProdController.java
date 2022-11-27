@@ -21,11 +21,12 @@ public class DetailProdController implements Controller {
 		UserManager manager = UserManager.getInstance();
 		User user = manager.findUser(id);
         request.setAttribute("user", user); 
-
+        
 		int prodId = Integer.parseInt(request.getParameter("productId"));
 		ProdManager prodManager = ProdManager.getInstance();
 		Product product = prodManager.findProduct(prodId);
 		request.setAttribute("product", product);
+		
 		return "/prod/detail.jsp";
 	}
 }

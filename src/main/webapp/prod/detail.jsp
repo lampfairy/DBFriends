@@ -3,10 +3,6 @@
 <%@page import="model.User" %>
 <%@page import="model.Product" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	Product prod = (Product)request.getAttribute("prod");
-	User user = (User)request.getAttribute("user");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +11,12 @@
 	<style type="text/css">
 		body{margin:0}
 		.layout{margin:0px auto;width:1180px;padding:10px}
-		table, td{border:2px solid skyBlue;border-collapse:collapse;}
+		table, td{border:2px solid skyBlue;border-collapse:collapse;text-align:center;}
 		table{margin:100px auto 0px auto; width:800px}
 		td{height:40px}
-		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:skyBlue;
-		border:1px solid black;width:100px;height:30px}
-		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
+		.btn{margin:20px}
+		a{float:left}
+		.image{height:200px;width:200px}
 	</style>
 </head>
 <body>
@@ -34,7 +30,7 @@
 				<caption
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">장소 상세 정보 </caption>
 				<tr>
-					<td colspan="2">${prod.name}</td>
+					<td colspan="2">${product.name}${user.name}</td>
 				</tr>
 				<tr>
 					<td colspan="2">
@@ -45,7 +41,7 @@
 						<a href = "<c:url value='/prod/review'>
 							<c:param name = 'productId' value='${prod.productId}' />
 							</c:url>">리뷰
-						</a>
+						</a>&nbsp;&nbsp;&nbsp;&nbsp;
 						<a href = "<c:url value='/prod/bookmark'>
 							<c:param name = 'productId' value='${prod.productId}' />
 							</c:url>">찜
@@ -53,7 +49,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="image">
 						이미지
 					</td>
 					<td>
