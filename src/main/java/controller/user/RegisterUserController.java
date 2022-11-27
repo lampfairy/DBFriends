@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import controller.Controller;
 import model.AccountDetails;
 import model.User;
-import model.service.ExistingUserException;
+import model.service.ExistingException;
 import model.service.UserManager;
 
 public class RegisterUserController implements Controller {
@@ -48,7 +48,7 @@ public class RegisterUserController implements Controller {
             manager.create(user);
             return "redirect:/user/list";   // 성공 시 사용자 리스트 화면으로 redirect
 
-        } catch (ExistingUserException e) {   // 예외 발생 시 회원가입 form으로 forwarding
+        } catch (ExistingException e) {   // 예외 발생 시 회원가입 form으로 forwarding
             request.setAttribute("registerFailed", true);
             request.setAttribute("exception", e);
             request.setAttribute("user", user);

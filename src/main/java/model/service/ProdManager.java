@@ -22,9 +22,9 @@ public class ProdManager {
 		return prodMan;
 	}
 	
-	public int create(Product product) throws SQLException, ExistingProdException {
+	public int create(Product product) throws SQLException, ExistingException {
 		if(prodDAO.existingProduct(product.getProductId()) == true) {
-			throw new ExistingProdException(product.getProductId() + "exists");
+			throw new ExistingException(product.getProductId() + "exists");
 		}
 		return prodDAO.create(product);
 	}
@@ -38,11 +38,11 @@ public class ProdManager {
     }
 
     public Product findProduct(int productId)
-        throws SQLException, ProdNotFoundException {
+        throws SQLException, ExistingException {
         Product prod = prodDAO.findProduct(productId);
         
         if (prod == null) {
-            throw new ProdNotFoundException(productId + "doesn't exist");
+            throw new ExistingException(productId + "doesn't exist");
         }       
         return prod;
     }

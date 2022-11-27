@@ -129,4 +129,22 @@ public class AccountDetailsDAO {
         return null;
     }
  
+    
+    public boolean existingAccount(String userId) throws SQLException {
+        String sql = "SELECT count(*) FROM AccountDetails WHERE userId=?";      
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});  
+        
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();    
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return (count == 1 ? true : false);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();     
+        }
+        return false;
+    }
 }

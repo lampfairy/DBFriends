@@ -75,6 +75,11 @@ public class BookmarkTest {
 	        		System.out.print("input productId : ");
 	        		productId = scanner.nextInt();
 	        	}
+	        	while(dao.existingBookmark(userId, productId)) {
+	        		System.out.println(productId + " alraedy exist");
+	        		System.out.print("input productId : ");
+	        		productId = scanner.nextInt();
+	        	}
 	        } catch (SQLException e1) {
 	        	// TODO Auto-generated catch block
 	        	e1.printStackTrace();
