@@ -1,15 +1,14 @@
 package controller.main;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.Controller;
 import controller.user.UserSessionUtils;
 import model.User;
 import model.service.UserManager;
 
-public class GotoMyPageController {
+public class GotoMyPageController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 로그인 여부 확인
         if (!UserSessionUtils.hasLogined(request.getSession())) {
@@ -34,6 +33,6 @@ public class GotoMyPageController {
         request.setAttribute("user", user);     
 
         // 사용자 리스트 화면으로 이동(forwarding)
-        return "/main/myPage.jsp";  
+        return "/main/myPage.jsp";
     }
 }
