@@ -8,14 +8,14 @@
 </head>
 <body>
 	<!-- 로고와 메뉴 -->
-	<!--<jsp:include page="menu.jsp" /> 여기 고치세요-->    
+	<jsp:include page="../main/menu.jsp" />
 	<hr>
 	<div class="layout">
 		<!-- 회원정보 폼 -->
 		<form class="table">
 			<table>
 				<caption
-					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">장소 상세 정보</caption>
+					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">장소 상세 정보 </caption>
 				<tr>
 					<td width="150" align="center">이름</td>
 					<td width="250" style="padding-left: 10px"><input type="text"
