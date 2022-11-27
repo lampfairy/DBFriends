@@ -31,6 +31,8 @@
 		<!-- 장소 상세 폼 -->
 		<form>
 			<table>
+				<caption
+					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">장소 상세 정보 </caption>
 				<tr>
 					<td colspan="2">${prod.name}</td>
 				</tr>
