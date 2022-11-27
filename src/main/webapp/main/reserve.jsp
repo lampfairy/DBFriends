@@ -54,27 +54,7 @@
 			</form><br><br>
 		</div>
 		<!-- 상품 목록 -->
-			<a href = "<c:url value='/prod/list' />">눌러</a>
-		<table>
-			<tr>
-				<td width=200>사진</td>
-				<td width=600>이름 및 위치</td>
-				<td width=200>바로가기</td>
-			</tr>
-			<c:forEach var="prod" items="${prodList}">
-				<tr>
-					<td>이미지</td>
-					<td>sdfsdf
-						이름 : ${prod.name}
-						위치 : ${prod.location}
-						위치 : ${prod.location}
-					</td>
-					<td>
-						sdf
-					<td>
-				</tr>
-			</c:forEach>
-		</table>
+		<jsp:include page = "../prod/list.jsp"/>
 	</div>
 </body>
 </html>
