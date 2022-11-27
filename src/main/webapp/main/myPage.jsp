@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.User" %>
 <%
-	User user = (User)session.getAttribute("user");
+	User user = (User)request.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html>
