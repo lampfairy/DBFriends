@@ -19,7 +19,7 @@
 		table{margin:100px auto 0px auto;text-align:center}
 		td{height:40px}
 		.image{height:150px}
-		</style>
+	</style>
 </head>
 <body>
 	<form>

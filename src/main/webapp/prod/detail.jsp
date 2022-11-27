@@ -1,88 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@page import="model.User" %>
+<%@page import="model.Product" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	Product prod = (Product)request.getAttribute("prod");
+	User user = (User)request.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>장소 상세 페이지</title>
+	<meta charset="EUC-KR">
+	<title>장소 상세 페이지</title>
+	<style type="text/css">
+		body{margin:0}
+		.layout{margin:0px auto;width:1180px;padding:10px}
+		table, td{border:2px solid skyBlue;border-collapse:collapse;}
+		table{margin:100px auto 0px auto; width:800px}
+		td{height:40px}
+		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:skyBlue;
+		border:1px solid black;width:100px;height:30px}
+		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
+	</style>
 </head>
 <body>
 	<!-- 로고와 메뉴 -->
-	<!--<jsp:include page="menu.jsp" /> 여기 고치세요-->    
+	<jsp:include page="../main/menu.jsp" /> 
 	<hr>
 	<div class="layout">
-		<!-- 회원정보 폼 -->
-		<form class="table">
-			<table>
-				<caption
-					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">장소 상세 정보</caption>
+		<!-- 장소 상세 폼 -->
+		<form>
+			<table width = 800>
 				<tr>
-					<td width="150" align="center">이름</td>
-					<td width="250" style="padding-left: 10px"><input type="text"
-						style="width: 230px;" name="name" value="${prod.name}"
-						<c:if test="${registerFailed}">value="${prod.name}"</c:if>>
+					<td colspan="2">${prod.name}</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a href = "<c:url value='/prod/reserve'>
+							<c:param name = 'productId' value='${prod.productId}' />
+							</c:url>">예약/예매
+						</a>
+						<a href = "<c:url value='/prod/review'>
+							<c:param name = 'productId' value='${prod.productId}' />
+							</c:url>">리뷰
+						</a>
+						<a href = "<c:url value='/prod/bookmark'>
+							<c:param name = 'productId' value='${prod.productId}' />
+							</c:url>">찜
+						</a>
 					</td>
 				</tr>
 				<tr>
-					<td width="150" align="center">사용자 ID</td>
-					<td width="250" style="padding-left: 10px"><input type="text"
-						style="width: 230px;" name="userId" value="${user.userId}"
-						readonly></td>
-				</tr>
-				<tr>
-					<td width="150" align="center">비밀번호</td>
-					<td width="250" style="padding-left: 10px"><input
-						type="password" style="width: 230px" name="userPw"
-						value="${user.userPw}"></td>
-				</tr>
-				<tr>
-					<td width="150" align="center">비밀번호 확인</td>
-					<td width="250" style="padding-left: 10px"><input
-						type="password" style="width: 230px" name="password2"
-						value="${user.userPw}"></td>
-				</tr>
-				<tr>
-					<td width="150" align="center">전화번호</td>
-					<td width="250" style="padding-left: 10px"><input type="text"
-						style="width: 230px" name="phoneNumber"
-						value="${user.phoneNumber}"
-						<c:if test="${registerFailed}">value="${user.phoneNumber}"</c:if>>
+					<td>
+						이미지
 					</td>
-				</tr>
-				<tr>
-					<td width="150" align="center">이메일 주소</td>
-					<td width="250" style="padding-left: 10px"><input type="text"
-						style="width: 230px" name="emailAddress"
-						value="${user.emailAddress}"
-						<c:if test="${registerFailed}">value="${user.emailAddress}"</c:if>>
-					</td>
-				</tr>
-				<tr>
-					<td width="150" align="center">생년월일</td>
-					<td width="250" style="padding-left: 10px"><input type="text"
-						style="width: 230px" name="birthDate" value="${user.birthDate}"
-						<c:if test="${registerFailed}">value="${user.birthDate}"</c:if>>
+					<td>
+						장소 설명: ${prod.description}
 					</td>
 				</tr>
 			</table>
-			<br>
-			<div class="btnBox">
-				<input type="submit" value="수정" onClick="userCreate()" class="btn">
-			</div>
 		</form>
-		<br> <br>
-		<div style='background: gray; height: 1px;'></div>
-		<br> <br>
-		<!-- 목록 3개 -->
-		<div style="text-align: center; font-size: 24px">목록</div>
-		<br> <br>
-		<div class="new">
-			<div>찜목록</div>
-			<div>예약목록</div>
-			<div>내가다녀온곳</div>
-		</div>
-
-
 	</div>
 </body>
 </html>
