@@ -30,7 +30,7 @@
 	<div class="layout">
 		<!-- Àå¼Ò »ó¼¼ Æû -->
 		<form>
-			<table width = 800>
+			<table>
 				<tr>
 					<td colspan="2">${prod.name}</td>
 				</tr>
