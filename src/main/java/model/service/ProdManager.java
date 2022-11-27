@@ -37,8 +37,7 @@ public class ProdManager {
         return prodDAO.remove(productId);
     }
 
-    public Product findProduct(int productId)
-        throws SQLException, ExistingException {
+    public Product findProduct(int productId) throws SQLException, ExistingException {
         Product prod = prodDAO.findProduct(productId);
         
         if (prod == null) {
