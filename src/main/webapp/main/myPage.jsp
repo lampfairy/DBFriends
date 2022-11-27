@@ -24,12 +24,12 @@
 	</style>
 	<script>
 		function userCreate() {
-			if (form.password.value == "") {
+			if (form.userPw.value == "") {
 				alert("비밀번호를 입력하십시오.");
 				form.password.focus();
 				return false;
 			}
-			if (form.password.value != form.password2.value) {
+			if (form.userPw.value != form.password2.value) {
 				alert("비밀번호가 일치하지 않습니다.");
 				form.name.focus();
 				return false;
@@ -39,24 +39,26 @@
 				form.name.focus();
 				return false;
 			}
-			var phoneExp = /^\d{2,3}-\d{3,4}-\d{4}$/;
+			<!-- var phoneExp = /^\d{2,3}-\d{3,4}-\d{4}$/;
 			if(phoneExp.test(form.phone.value)==false) {
 				alert("전화번호 형식이 올바르지 않습니다.");
 				form.phone.focus();
 				return false;
-			}
+			} -->
+			
 			var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 			if(emailExp.test(form.email.value)==false) {
 				alert("이메일 형식이 올바르지 않습니다.");
 				form.email.focus();
 				return false;
 			}
-			var birthExp = /^[10000000-99999999]/;
+			
+			<!-- var birthExp = /^[10000000-99999999]/;
 			if(birthExp.test(form.birth.value)==false) {
 				alert("생년월일 형식이 올바르지 않습니다.");
 				form.birth.focus();
 				return false;
-			}
+			} -->
 			
 			form.submit();
 		}
@@ -69,7 +71,7 @@
 	<hr>
 	<div class = "layout">
 		<!-- 회원정보 폼 -->
-		<form class = "form" method="POST" action="<c:url value='/user/register' />">
+		<form class = "form" method="POST" action="<c:url value='/user/update' />">
 			<!-- 회원가입이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
 	       <c:if test="${registerFailed}">
 		      <font color="red"><c:out value="${exception.getMessage()}" /></font>
@@ -92,7 +94,7 @@
 		  	  <tr>
 				<td width="150" align="center">비밀번호</td>
 				<td width="250" style="padding-left:10px">
-					<input type="password" style="width:230px" name="password" value="${user.userPw}">
+					<input type="password" style="width:230px" name="userPw" value="${user.userPw}">
 				</td>
 			  </tr>
 			   <tr>
@@ -124,7 +126,7 @@
 			  </tr>
 		    </table><br>
 			<div class = "btnBox">
-				<input type="button" value="수정" onClick="userCreate()" class = "btn">
+				<input type="submit" value="수정" onClick="userCreate()" class = "btn">
 			</div>
 		</form><br><br>
 		<div style='background:gray; height:1px;'></div>

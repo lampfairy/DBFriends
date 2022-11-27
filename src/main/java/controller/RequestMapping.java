@@ -10,6 +10,8 @@ import controller.user.ListUserController;
 import controller.user.LoginController;
 import controller.user.LogoutController;
 import controller.user.RegisterUserController;
+import controller.user.UpdateUserController;
+import controller.user.UpdateUserFormController;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -23,13 +25,13 @@ public class RequestMapping {
         mappings.put("/user/loginForm", new ForwardController("/user/loginForm.jsp"));
         mappings.put("/user/login", new LoginController());
         mappings.put("/main/myPage", new GotoMyPageController());
-                mappings.put("/user/logout", new LogoutController());
+        mappings.put("/user/logout", new LogoutController());
         mappings.put("/user/list", new ListUserController());
         //        mappings.put("/user/view", new ViewUserController());
         mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
         mappings.put("/user/register", new RegisterUserController());
-        //        mappings.put("/user/update/form", new UpdateUserFormController());
-        //        mappings.put("/user/update", new UpdateUserController());
+//        mappings.put("/user/update/form", new UpdateUserFormController());
+        mappings.put("/user/update", new UpdateUserController());
         //        mappings.put("/user/delete", new DeleteUserController());
 
         logger.info("Initialized Request Mapping!");
