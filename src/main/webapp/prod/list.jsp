@@ -7,7 +7,6 @@
 <%
 	@SuppressWarnings("unchecked") 
 	List<Product> prodList = (List<Product>)request.getAttribute("prodList");
-    User user = (User)request.getAttribute("user"); 
 %>
 <!DOCTYPE html>
 <html>

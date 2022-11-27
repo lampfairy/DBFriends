@@ -29,7 +29,10 @@ public class RequestMapping {
         mappings.put("/main/reserve", new GotoReservePageController());
         mappings.put("/user/logout", new LogoutController());
         mappings.put("/user/list", new ListUserController());
+<<<<<<< HEAD
         
+=======
+>>>>>>> fb8c1dffdb1b1e505459544e1496194f90e74d72
         //        mappings.put("/user/view", new ViewUserController());
         mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
         mappings.put("/user/register", new RegisterUserController());
