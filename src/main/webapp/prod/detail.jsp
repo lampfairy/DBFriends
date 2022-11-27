@@ -8,24 +8,19 @@
 </head>
 <body>
 	<!-- 로고와 메뉴 -->
-	<jsp:include page="menu.jsp" />
+	<!--<jsp:include page="menu.jsp" /> 여기 고치세요-->    
 	<hr>
 	<div class="layout">
 		<!-- 회원정보 폼 -->
-		<form class="table" method="POST"
-			action="<c:url value='/user/update' />">
-			<!-- 회원가입이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
-			<c:if test="${registerFailed}">
-				<font color="red"><c:out value="${exception.getMessage()}" /></font>
-			</c:if>
+		<form class="table">
 			<table>
 				<caption
-					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">회원정보</caption>
+					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">장소 상세 정보</caption>
 				<tr>
 					<td width="150" align="center">이름</td>
 					<td width="250" style="padding-left: 10px"><input type="text"
-						style="width: 230px;" name="name" value="${user.name}"
-						<c:if test="${registerFailed}">value="${user.name}"</c:if>>
+						style="width: 230px;" name="name" value="${prod.name}"
+						<c:if test="${registerFailed}">value="${prod.name}"</c:if>>
 					</td>
 				</tr>
 				<tr>
@@ -75,15 +70,12 @@
 				<input type="submit" value="수정" onClick="userCreate()" class="btn">
 			</div>
 		</form>
-		<br>
-		<br>
+		<br> <br>
 		<div style='background: gray; height: 1px;'></div>
-		<br>
-		<br>
+		<br> <br>
 		<!-- 목록 3개 -->
 		<div style="text-align: center; font-size: 24px">목록</div>
-		<br>
-		<br>
+		<br> <br>
 		<div class="new">
 			<div>찜목록</div>
 			<div>예약목록</div>
