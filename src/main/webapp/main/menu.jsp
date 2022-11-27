@@ -2,9 +2,6 @@
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.User" %>
-<%
-	User user = (User)request.getAttribute("userId");
-%>
 <!DOCTYPE html>
 <html>
 <head>

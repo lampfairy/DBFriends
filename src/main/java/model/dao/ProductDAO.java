@@ -83,7 +83,7 @@ public class ProductDAO {
     public Product findProduct(int productId) throws SQLException {
         String sql = "SELECT location, price, description, status, image, name, type "
                     + "FROM Product "
-                    + "WHERE productId=? ";              
+                    + "WHERE productId=?";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {productId});   
         
         try {

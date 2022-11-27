@@ -3,10 +3,6 @@
 <%@page import="model.User" %>
 <%@page import="model.Product" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	Product prod = (Product)request.getAttribute("prod");
-	User user = (User)request.getAttribute("user");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +17,7 @@
 		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:skyBlue;
 		border:1px solid black;width:100px;height:30px}
 		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
+		a{float:left}
 	</style>
 </head>
 <body>
@@ -34,7 +31,7 @@
 				<caption
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">장소 상세 정보 </caption>
 				<tr>
-					<td colspan="2">${prod.name}</td>
+					<td colspan="2">${product.name}${user.name}</td>
 				</tr>
 				<tr>
 					<td colspan="2">
