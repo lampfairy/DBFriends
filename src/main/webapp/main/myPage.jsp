@@ -81,7 +81,7 @@
 				<tr>
 					<td width="150" align="center">이름</td>
 					<td width="250" style="padding-left:10px">
-						<input type="text" style="width:230px;" name="name" placeholder="ex.20130101" value="${user.getName()}"
+						<input type="text" style="width:230px;" name="name" value="${user.name}"
 						<c:if test="${registerFailed}">value="${user.name}"</c:if>>
 					</td>
 				</tr>
@@ -106,21 +106,21 @@
 			  <tr>
 				<td width="150" align="center">전화번호</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="phone" value="${user.phoneNumber}"
+					<input type="text" style="width:230px" name="phoneNumber" value="${user.phoneNumber}"
 						<c:if test="${registerFailed}">value="${user.phoneNumber}"</c:if>>
 				</td>
 			  </tr>
 		  	  <tr>
 				<td width="150" align="center">이메일 주소</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="email" value="${user.emailAddress}"
+					<input type="text" style="width:230px" name="emailAddress" value="${user.emailAddress}"
 						<c:if test="${registerFailed}">value="${user.emailAddress}"</c:if>>
 				</td>
 			  </tr>
 			  <tr>
 				<td width="150" align="center">생년월일</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="birth" value="${user.birthDate}"
+					<input type="text" style="width:230px" name="birthDate" value="${user.birthDate}"
 						<c:if test="${registerFailed}">value="${user.birthDate}"</c:if>>
 				</td>
 			  </tr>

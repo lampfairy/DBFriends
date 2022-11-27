@@ -49,6 +49,10 @@ public class UpdateUserController implements Controller {
 //	    }	
     	
     	// POST request (회원정보가 parameter로 전송됨)
+        
+        String id = UserSessionUtils.getLoginUserId(request.getSession());
+        UserManager manager = UserManager.getInstance();
+        
     	Date date = transformDate(request.getParameter("birthDate"));
         User updateUser = new User(
                 request.getParameter("name"),
@@ -60,10 +64,9 @@ public class UpdateUserController implements Controller {
         );
 
     	log.debug("Update User : {}", updateUser);
-
-		UserManager manager = UserManager.getInstance();
 		manager.update(updateUser);
-        return "redirect:/main/myPage";
+		request.setAttribute("user", updateUser);
+        return "/main/myPage.jsp";
     }
     
     public static Date transformDate(String date)
