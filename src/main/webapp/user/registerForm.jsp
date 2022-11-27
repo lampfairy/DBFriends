@@ -22,12 +22,12 @@
 				form.userId.focus();
 				return false;
 			} 
-			if (form.password.value == "") {
+			if (form.userPw.value == "") {
 				alert("비밀번호를 입력하십시오.");
 				form.password.focus();
 				return false;
 			}
-			if (form.password.value != form.password2.value) {
+			if (form.userPw.value != form.password2.value) {
 				alert("비밀번호가 일치하지 않습니다.");
 				form.name.focus();
 				return false;
@@ -37,12 +37,12 @@
 				form.name.focus();
 				return false;
 			}
-			var phoneExp = /^\d{2,3}-\d{3,4}-\d{4}$/;
+			<!--var phoneExp = /^\d{2,3}-\d{3,4}-\d{4}$/;
 			if(phoneExp.test(form.phone.value)==false) {
 				alert("전화번호 형식이 올바르지 않습니다.");
 				form.phone.focus();
 				return false;
-			}
+			}-->
 			var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 			if(emailExp.test(form.email.value)==false) {
 				alert("이메일 형식이 올바르지 않습니다.");
@@ -80,19 +80,22 @@
 		    	<tr>
 				<td width="150" align="center">사용자 ID</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px;" name="userId">
+					<input type="text" style="width:230px;" name="userId"
+					<c:if test="${registerFailed}">value="${user.userId}"</c:if>>
 				</td>
 			  </tr>
 		  	  <tr>
 				<td width="150" align="center">비밀번호</td>
 				<td width="250" style="padding-left:10px">
-					<input type="password" style="width:230px" name="userPw">
+					<input type="password" style="width:230px" name="userPw"
+					<c:if test="${registerFailed}">value="${user.userPw}"</c:if>>
 				</td>
 			  </tr>
 		  	  <tr>
 				<td width="150" align="center">비밀번호 확인</td>
 				<td width="250" style="padding-left:10px">
-					<input type="password" style="width:230px" name="password2">
+					<input type="password" style="width:230px" name="password2"
+					<c:if test="${registerFailed}">value="${user.password2}"</c:if>>
 				</td>
 			  </tr>
 			  <tr>
@@ -112,9 +115,7 @@
 			  <tr>
 				<td width="150" align="center">생년월일</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="birthDate" 
-						<c:if test="${registerFailed}">value="${user.birthDate}"</c:if>
-						placeholder="ex.20130101">
+					<input type="text" style="width:230px" name="birthDate" placeholder="ex.20130101">
 				</td>
 			  </tr>
 		  	  <tr>

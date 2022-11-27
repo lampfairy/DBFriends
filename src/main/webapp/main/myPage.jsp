@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="model.User" %>
+<%
+	User user = (User)session.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,7 +79,7 @@
 				<tr>
 					<td width="150" align="center">¿Ã∏ß</td>
 					<td width="250" style="padding-left:10px">
-						<input type="text" style="width:230px;" name="name" value="${user.name}"
+						<input type="text" style="width:230px;" name="name" placeholder="ex.20130101" value="${user.getName()}"
 						<c:if test="${registerFailed}">value="${user.name}"</c:if>>
 					</td>
 				</tr>

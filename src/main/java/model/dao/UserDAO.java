@@ -82,7 +82,7 @@ public class UserDAO {
 
    //ȸ�� ���� ����
     public User findUser(String userId) throws SQLException {
-        String sql = "SELECT name, phoneNumber, emailAddress, birthDate "
+        String sql = "SELECT name, userPw, phoneNumber, emailAddress, birthDate "
                     + "FROM Customer "
                     + "WHERE userId=? ";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});   
@@ -93,6 +93,7 @@ public class UserDAO {
                 User Customer = new User(
                     rs.getString("name"),
                     userId,
+                    rs.getString("userPw"),
                     rs.getString("phoneNumber"),
                     rs.getString("emailAddress"),
                     rs.getDate("birthDate"));

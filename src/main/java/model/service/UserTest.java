@@ -18,6 +18,8 @@ public class UserTest {
     public static void main(String[] args) {
     
         Scanner scanner = new Scanner(System.in);
+        
+        
       
         System.out.println("create예제");  
         System.out.print("create id : ");
@@ -61,6 +63,24 @@ public class UserTest {
             }
         }
         System.out.println();
+        
+        System.out.println("findUser예제");
+        System.out.print("id : ");
+        userId = scanner.next();
+        try {
+            while(!dao.existingUser(userId)) {
+                System.out.println(userId + " 는 존재하지 않는 아이디 입니다");
+                System.out.print("remove id : ");
+                userId = scanner.next();
+            }
+        } catch (SQLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        user = dao.findUser(userId);
+        System.out.println(user.toString());
+        
+        
         
         System.out.println("update예제");
         System.out.print("update id : ");
