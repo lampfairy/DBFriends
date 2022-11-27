@@ -33,7 +33,7 @@
 					<td>이미지</td>
 					<td>
 						이름 : ${prod.name}<br>
-						위치 : ${prod.location}
+						위치 : ${prod.location}<br>
 					</td>
 					<td>
 						<a href="<c:url value='/prod/detail' />">바로가기</a>
