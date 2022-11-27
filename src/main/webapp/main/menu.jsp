@@ -27,11 +27,11 @@
 </head>
 <body>
 	<div class="layout1">
-  		<div class="logo1"><a href="<c:url value='/main/index' />"></a></div>
-  		<div class="logo2"><a href="<c:url value='/main/index' />">먹고 놀자</a></div>
+  		<div class="logo1"><a href="<c:url value='/' />"></a></div>
+  		<div class="logo2"><a href="<c:url value='/' />">먹고 놀자</a></div>
 		<div class="navitool">
   			<div class="navi"><a href="<c:url value='/main/top10' />">TOP10</a></div>
-  			<div class="navi"><a href="<c:url value='/main/reserv' />">예약/예매</a></div>
+  			<div class="navi"><a href="<c:url value='/main/reserve' />">예약/예매</a></div>
   			<div class="navi"><a href="<c:url value='/main/review' />">리뷰</a></div>
   			<div class="navi"><a href="<c:url value='/main/myPage' />">마이페이지</a></div>
 		</div>

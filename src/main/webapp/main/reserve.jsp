@@ -45,7 +45,7 @@
 			</form><br><br>
 		</div>
 		<!-- 상품 목록 -->
-		<jsp:include page = "../prod/list.jsp"/>
+			<a href = "<c:url value='/prod/list' />">눌러</a>
 	</div>
 </body>
 </html>

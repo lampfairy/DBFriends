@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
+import controller.user.UserSessionUtils;
 import model.Product;
 import model.service.ProdManager;
 
@@ -19,6 +20,7 @@ public class findProdController implements Controller {
 //		if (currentPageStr != null && !currentPageStr.equals("")) {
 //			currentPage = Integer.parseInt(currentPageStr);
 //		}       
+	    String id = UserSessionUtils.getLoginUserId(request.getSession());
 
 		ProdManager prodManager = ProdManager.getInstance();
 		List<Product> prodList = prodManager.findProductList();
