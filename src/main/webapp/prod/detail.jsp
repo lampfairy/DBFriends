@@ -11,13 +11,12 @@
 	<style type="text/css">
 		body{margin:0}
 		.layout{margin:0px auto;width:1180px;padding:10px}
-		table, td{border:2px solid skyBlue;border-collapse:collapse;}
+		table, td{border:2px solid skyBlue;border-collapse:collapse;text-align:center;}
 		table{margin:100px auto 0px auto; width:800px}
 		td{height:40px}
-		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:skyBlue;
-		border:1px solid black;width:100px;height:30px}
-		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
+		.btn{margin:20px}
 		a{float:left}
+		.image{height:200px;width:200px}
 	</style>
 </head>
 <body>
@@ -42,7 +41,7 @@
 						<a href = "<c:url value='/prod/review'>
 							<c:param name = 'productId' value='${prod.productId}' />
 							</c:url>">¸®ºä
-						</a>
+						</a>&nbsp;&nbsp;&nbsp;&nbsp;
 						<a href = "<c:url value='/prod/bookmark'>
 							<c:param name = 'productId' value='${prod.productId}' />
 							</c:url>">Âò
@@ -50,7 +49,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="image">
 						ÀÌ¹ÌÁö
 					</td>
 					<td>
