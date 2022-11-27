@@ -20,7 +20,6 @@ public class RequestMapping {
 	// 각 요청 uri에 대한 controller 객체를 저장할 HashMap 생성
 	private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
-<<<<<<< HEAD
 	public void initMapping() {
 		//    	 각 uri에 대응되는 controller 객체를 생성 및 저장
 		mappings.put("/", new ForwardController("/main/index.jsp"));
@@ -36,24 +35,6 @@ public class RequestMapping {
 		//        mappings.put("/user/update/form", new UpdateUserFormController());
 		mappings.put("/user/update", new UpdateUserController());
 		//        mappings.put("/user/delete", new DeleteUserController());
-=======
-    public void initMapping() {
-        //    	 각 uri에 대응되는 controller 객체를 생성 및 저장
-        mappings.put("/", new ForwardController("/main/index.jsp"));
-        mappings.put("/user/loginForm", new ForwardController("/user/loginForm.jsp"));
-        mappings.put("/user/login", new LoginController());
-        mappings.put("/main/myPage", new GotoMyPageController());
-        mappings.put("/main/reserve", new GotoReservePageController());
-        mappings.put("/user/logout", new LogoutController());
-        mappings.put("/user/list", new ListUserController());
-        mappings.put("/user/list", new FindListProdController());
-        //        mappings.put("/user/view", new ViewUserController());
-        mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
-        mappings.put("/user/register", new RegisterUserController());
-//        mappings.put("/user/update/form", new UpdateUserFormController());
-        mappings.put("/user/update", new UpdateUserController());
-        //        mappings.put("/user/delete", new DeleteUserController());
->>>>>>> e199c5565715540034ce5f0e5c709691ac443fad
 
 		logger.info("Initialized Request Mapping!");
 	}

@@ -20,17 +20,16 @@ import model.Product;
 import model.User;
 
 public class DetailProdController implements Controller {
-    private static final Logger log = LoggerFactory.getLogger(DetailProdController.class);
+	private static final Logger log = LoggerFactory.getLogger(DetailProdController.class);
 
-    @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
-        String id = UserSessionUtils.getLoginUserId(request.getSession());
-        UserManager manager = UserManager.getInstance();
-        //int prodId = 
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
+		String id = UserSessionUtils.getLoginUserId(request.getSession());
+		UserManager manager = UserManager.getInstance();
 
-		//request.setAttribute("prodId", prodId);
-        return "/.jsp";
-    }
-    
-   
+		int prodId = Integer.parseInt(request.getParameter("prodId"));
+
+		request.setAttribute("prodId", prodId);
+		return "/prod/detail.jsp";
+	}
 }
