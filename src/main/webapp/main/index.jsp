@@ -27,6 +27,11 @@
 		.new div{text-align:center;font-size:18px;width:330px;height:330px;
 		background-color:skyBlue;float:left;margin:0px 30px;line-height:330px;}
 	</style>
+	<script>
+		function search(){
+			sForm.submit();
+		}
+	</script>
 </head>
 <body>
 	<!-- 로고와 메뉴 -->
@@ -37,7 +42,7 @@
 	<div class="layout">
 		<!-- 검색창 -->
 		<div class="search">
-			<form class = "sForm">
+			<form class = "sForm" method="POST" action="<c:url value='/prod/list' />">
 				<select name="place" class = "splace">
 					<option disabled selected>장소</option>
 					<option value = "1">성북구</option>
@@ -56,11 +61,7 @@
 					<option value = "2">...</option>
 					<option value = "3">....</option>
 				</select><br><br><br><br><br><br><br><br>
-				<input type = "submit" value = "검색"/>
-					<a href = "<c:url value='/prod/list'>
-						<c:param name = 'type' value='${type}' />
-							</c:url>">
-						검색</a>
+				<input type = "submit" value = "검색" onClick="search()"/>
 			</form><br><br><br><br>
 		</div>
 		<!-- 개수자랑 -->
