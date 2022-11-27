@@ -15,8 +15,8 @@
 		table{margin:100px auto 0px auto; width:800px}
 		td{height:40px}
 		.btn{margin:20px}
-		a{float:left}
-		.image{height:200px;width:200px}
+		btn{float:left;display:inline-block;margin:0 30px 0 0}
+		.pImage{height:200px;width:200px}
 	</style>
 </head>
 <body>
@@ -30,30 +30,38 @@
 				<caption
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">장소 상세 정보 </caption>
 				<tr>
-					<td colspan="2">${product.name}${user.name}</td>
+					<td colspan="2">${product.name}</td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<a href = "<c:url value='/prod/reserve'>
-							<c:param name = 'productId' value='${prod.productId}' />
-							</c:url>">예약/예매
+							<c:param name = 'productId' value='${product.productId}' />
+							</c:url>" class = "btn">예약/예매
 						</a>
 						<a href = "<c:url value='/prod/review'>
-							<c:param name = 'productId' value='${prod.productId}' />
-							</c:url>">리뷰
-						</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<c:param name = 'productId' value='${product.productId}' />
+							</c:url>" class = "btn">리뷰
+						</a>
 						<a href = "<c:url value='/prod/bookmark'>
-							<c:param name = 'productId' value='${prod.productId}' />
-							</c:url>">찜
+							<c:param name = 'productId' value='${product.productId}' />
+							</c:url>" class = "btn">찜
 						</a>
 					</td>
 				</tr>
 				<tr>
-					<td class="image">
+					<td>위치</td>
+					<td>${product.location}</td>
+				</tr>
+				<tr>
+					<td>가격</td>
+					<td>${product.price}</td>
+				</tr>
+				<tr>
+					<td class="pImage">
 						이미지
 					</td>
 					<td>
-						장소 설명: ${prod.description}
+						장소 설명: ${product.description}
 					</td>
 				</tr>
 			</table>
