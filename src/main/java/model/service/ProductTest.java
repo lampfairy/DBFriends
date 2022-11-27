@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import model.Product;
+import model.User;
 import model.dao.ProductDAO;
 
 import java.sql.Date;
@@ -13,18 +14,31 @@ import java.sql.SQLException;
 
 public class ProductTest {
 
-    private static ProductDAO dao = new ProductDAO();
-    
-    public static void main(String[] args) {
-    
-        Scanner scanner = new Scanner(System.in);
-      
-        System.out.println("create product");  
-        
-        System.out.print("create productId : ");
-        int productId = scanner.nextInt();
-        
-        try {
+	private static ProductDAO dao = new ProductDAO();
+
+	public static void main(String[] args) throws SQLException {
+
+		Scanner scanner = new Scanner(System.in);
+
+		List<Product> list = dao.findProductList();  
+
+		System.out.println("--------------------Product id 목록--------------------");
+		if(list != null) {
+			for(int i = 0; i < list.size(); i++) {
+				Product p = list.get(i);
+				int n = p.getProductId();
+				String name = p.getName();
+				System.out.printf("%d  %s \n", n, name);
+			}
+		}
+		System.out.println("end");
+
+		System.out.println("create product");  
+
+		System.out.print("create productId : ");
+		int productId = scanner.nextInt();
+
+		try {
             while(dao.existingProduct(productId)) {
                 System.out.println(productId + " can't be used ");
                 System.out.print("create productId : ");
@@ -58,7 +72,7 @@ public class ProductTest {
         int num = dao.create(p);
         System.out.println(num);
         
-        List<Product> list = dao.findProductList();  
+        list = dao.findProductList();  
         
         System.out.println("--------------------Product id --------------------");
         if(list != null) {
