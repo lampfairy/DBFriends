@@ -6,7 +6,7 @@ public class ExistingProdException extends Exception{
     public ExistingProdException() {
         super();
     }
-    // String -> int 일수도..?
+   
     public ExistingProdException(String arg) {
         super(arg);
     }
