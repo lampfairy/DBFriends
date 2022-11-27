@@ -22,9 +22,9 @@ public class ReserveManager {
 		return resvMan;
 	}
 	
-	public int create(Reservation Reservation) throws SQLException, ExistingResvException {
+	public int create(Reservation Reservation) throws SQLException, ExistingException {
 		if(resvDAO.existingReservation(Reservation.getReservationId()) == true) {
-			throw new ExistingResvException(Reservation.getReservationId() + "exists");
+			throw new ExistingException(Reservation.getReservationId() + "exists");
 		}
 		return resvDAO.create(Reservation);
 	}
@@ -38,11 +38,11 @@ public class ReserveManager {
     }
 
     public Reservation findReservation(int ReservationId)
-        throws SQLException, ProdNotFoundException {
+        throws SQLException, ExistingException {
         Reservation prod = resvDAO.findReservation(ReservationId);
         
         if (prod == null) {
-            throw new ProdNotFoundException(ReservationId + "doesn't exist");
+            throw new ExistingException(ReservationId + "doesn't exist");
         }       
         return prod;
     }
