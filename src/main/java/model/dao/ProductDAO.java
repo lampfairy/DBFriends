@@ -139,6 +139,22 @@ public class ProductDAO {
         }
         return null;
     }
+    
+    public int countingProduct(int type) throws SQLException {
+    	String sql = "SELECT count(*) FROM Product WHERE type=? ";
+    	jdbcUtil.setSqlAndParameters(sql, new Object[] {Integer.toString(type)});  
+    	int count = 0;
+    	 try {
+    		 ResultSet rs = jdbcUtil.executeQuery();
+    		 if(rs.next())
+    			 count = rs.getInt(1);
+         } catch (Exception ex) {
+             ex.printStackTrace();
+         } finally {
+             jdbcUtil.close();     
+         }
+    	 return count;
+    }
 
   //아이디 중복 확인
     public boolean existingProduct(int productId) throws SQLException {

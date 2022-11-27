@@ -57,14 +57,18 @@
 					<option value = "3">....</option>
 				</select><br><br><br><br><br><br><br><br>
 				<input type = "submit" value = "검색"/>
+					<a href = "<c:url value='/prod/list'>
+						<c:param name = 'type' value='${type}' />
+							</c:url>">
+						검색</a>
 			</form><br><br><br><br>
 		</div>
 		<!-- 개수자랑 -->
 		<div style="text-align:center;font-size:24px">서울 내 인기 여행지</div><br><br>
 		<div class = "count">
-			<div class = "count1">숙소&nbsp;n개</div>
-			<div class = "count2">맛집&nbsp;n개</div>
-			<div class = "count3">액티비티&nbsp;n개</div>
+			<div class = "count2">맛집&nbsp; ${restaurant}개</div>
+			<div class = "count1">숙소&nbsp; ${activity}개</div>
+			<div class = "count3">액티비티&nbsp; ${accommodation}개</div>
 		</div><br><br><br><br><br><br><br><br><br><br><br><br>
 		<!-- 신규여행지 3개 -->
 		<div style="text-align:center;font-size:24px">신규 여행지</div><br><br>

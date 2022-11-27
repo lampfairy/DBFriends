@@ -22,6 +22,7 @@ public class ProductTest {
 
 		List<Product> list = dao.findProductList();  
 
+		
 		System.out.println("--------------------Product id 목록--------------------");
 		if(list != null) {
 			for(int i = 0; i < list.size(); i++) {
@@ -75,6 +76,7 @@ public class ProductTest {
         list = dao.findProductList();  
         
         System.out.println("--------------------Product id --------------------");
+        System.out.println("1127추가 --> " + dao.countingProduct(type));
         if(list != null) {
             for(int i = 0; i < list.size(); i++) {
                 Product c = list.get(i);
