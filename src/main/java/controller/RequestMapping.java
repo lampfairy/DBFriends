@@ -7,12 +7,12 @@ import org.slf4j.LoggerFactory;
 
 import controller.main.GotoMyPageController;
 import controller.main.GotoReservePageController;
+import controller.prod.FindListProdController;
 import controller.user.ListUserController;
 import controller.user.LoginController;
 import controller.user.LogoutController;
 import controller.user.RegisterUserController;
 import controller.user.UpdateUserController;
-import controller.user.UpdateUserFormController;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -29,6 +29,7 @@ public class RequestMapping {
         mappings.put("/main/reserve", new GotoReservePageController());
         mappings.put("/user/logout", new LogoutController());
         mappings.put("/user/list", new ListUserController());
+        mappings.put("/user/list", new FindListProdController());
         //        mappings.put("/user/view", new ViewUserController());
         mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
         mappings.put("/user/register", new RegisterUserController());

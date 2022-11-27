@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="model.Product" %>
 <%@page import="model.User" %>
+<%@page import="model.Product" %>
 <%@page import="java.util.*" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	@SuppressWarnings("unchecked") 
 	List<Product> prodList = (List<Product>)request.getAttribute("prodList");
+	User user = (User)request.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html>
@@ -17,6 +18,7 @@
 		table, td{border:2px solid skyBlue;border-collapse:collapse;}
 		table{margin:100px auto 0px auto;text-align:center}
 		td{height:40px}
+		.image{height:200px}
 		</style>
 </head>
 <body>
@@ -29,14 +31,15 @@
 			</tr>
 			<c:forEach var="prod" items="${prodList}">
 				<tr>
-					<td>이미지</td>
-					<td>sdfsdf
-						<!--이름 : ${prod.name}
-						위치 : ${prod.location}
-						위치 : ${prod.location}-->
+					<td class = "image">이미지</td>
+					<td>
+						이름 : ${prod.name}<br>
+						가격 : ${prod.price}<br>
+						위치 : ${prod.location}<br>
+						위치 : ${prod.location}<br>
 					</td>
 					<td>
-						sdf
+						<a href = "<c:url value='/prod/detail' />">바로가기</a>
 					<td>
 				</tr>
 			</c:forEach>
