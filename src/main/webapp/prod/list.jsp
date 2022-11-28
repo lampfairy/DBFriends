@@ -2,8 +2,8 @@
     pageEncoding="EUC-KR"%>
 <%@page import="model.User" %>
 <%@page import="model.Product" %>
-<%@page import="java.util.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
