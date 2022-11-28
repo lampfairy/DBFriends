@@ -33,11 +33,15 @@
 			<form class = "sForm" method="POST" action="<c:url value='/prod/list' />">
 				<select name="place" class = "splace">
 					<option disabled selected>장소</option>
-					<option value = "1">성북구</option>
-					<option value = "2">종로구</option>
-					<option value = "3">마포구</option>
+					<option value = "1">서울</option>
+					<option value = "2">경기</option>
+					<option value = "3">강원</option>
+					<option value = "4">충청</option>
+					<option value = "5">전라</option>
+					<option value = "6">경상</option>
+					<option value = "7">제주</option>
 				</select>
-				<select name="type">
+				<select name= "type" id = "type">
 					<option disabled selected>맛집/숙소/액티비티</option>
 					<option value = "1">맛집</option>
 					<option value = "2">숙소</option>
@@ -45,10 +49,13 @@
 				</select>
 				<select name="detail" class = "sdetail">
 					<option disabled selected>세부사항</option>
-					<option value = "1">..</option>
-					<option value = "2">...</option>
-					<option value = "3">....</option>
-				</select><br><br><br><br><br><br><br><br>
+					<!--  
+					<option value = "한식" <c:if test="${type.type eq 1}"></c:if>></option>
+					-->
+					</select>
+					
+					
+				<br><br><br><br><br><br><br><br>
 				<input type = "text" placeholder="키워드 검색" name = "keySearch" class = "key"/>
 				<input type = "submit" value = "검색" class = "sub"/>
 			</form><br><br>
