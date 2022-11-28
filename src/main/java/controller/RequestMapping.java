@@ -5,6 +5,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import controller.main.GoReviewPageController;
+import controller.main.GoTop10PageController;
 import controller.main.GotoMyPageController;
 import controller.main.GotoReservePageController;
 import controller.prod.DetailProdController;
@@ -27,7 +29,9 @@ public class RequestMapping {
 		mappings.put("/user/loginForm", new ForwardController("/user/loginForm.jsp"));
 		mappings.put("/user/login", new LoginController());
 		mappings.put("/main/myPage", new GotoMyPageController());
+		mappings.put("/main/top10", new GoTop10PageController());
 		mappings.put("/main/reserve", new GotoReservePageController());
+		mappings.put("/main/review", new GoReviewPageController());
 		mappings.put("/user/logout", new LogoutController());
 		mappings.put("/user/list", new ListUserController());
 		mappings.put("/prod/detail", new DetailProdController());

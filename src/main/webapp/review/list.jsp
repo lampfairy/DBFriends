@@ -2,13 +2,14 @@
     pageEncoding="EUC-KR"%>
 <%@page import="model.User" %>
 <%@page import="model.Product" %>
+<%@page import="model.Review" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="EUC-KR">
-	<title>장소 리스트</title>
+	<title>리뷰 리스트</title>
 	<style type="text/css">
 		table, td{border:2px solid skyBlue;border-collapse:collapse;}
 		table{margin:100px auto 0px auto;text-align:center}
@@ -20,23 +21,22 @@
 	<form>
 		<table>
 			<tr>
-				<td width=150>사진</td>
-				<td width=600>이름 및 위치</td>
-				<td width=200>바로가기</td>
+				<td colspan = "3">검색 결과</td>
 			</tr>
-			<c:forEach var="prod" items="${prodList}">
+			<tr>
+				<td width=300>장소</td>
+				<td width=600>리뷰 제목</td>
+				<td width=200>리뷰 보기</td>
+			</tr>
+			<c:forEach var="review" items="${reviewList}">
 				<tr>
-					<td class = "image">이미지</td>
-					<td style="text-align:left;">
-						이름 : ${prod.name}<br><br>
-						가격 : ${prod.price}<br><br>
-						위치 : ${prod.location}<br><br>
-					</td>
+					<td style="text-align:left;">장소명</td>
+					<td style="text-align:left;">${review.title}<td>
 					<td>
-						<a href = "<c:url value='/prod/detail'>
-							<c:param name = 'productId' value='${prod.productId}' />
+						<a href = "<c:url value='/review/detail'>
+							<c:param name = 'reservationId' value='${review.reservationId}' />
 							</c:url>">
-						바로가기</a>
+						리뷰 보기</a>
 					</td>
 				</tr>
 			</c:forEach>
