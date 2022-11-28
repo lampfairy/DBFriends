@@ -83,7 +83,7 @@ public class ProductDAO {
     public Product findProduct(int productId) throws SQLException {
         String sql = "SELECT location, price, description, status, image, name, type "
                     + "FROM Product "
-                    + "WHERE productId=? ";              
+                    + "WHERE productId=?";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {productId});   
         
         try {
@@ -108,7 +108,6 @@ public class ProductDAO {
         return null;
     }
 
-    //�쉶�썝�젙蹂� 由ъ뒪�듃蹂닿린
     public List<Product> findProductList() throws SQLException {
         String sql = "SELECT productId, location, price, description, status, image, name, type "
                     + "FROM Product "
@@ -138,6 +137,54 @@ public class ProductDAO {
             jdbcUtil.close();      
         }
         return null;
+    }
+    
+    public List<Product> findProductList(int type) throws SQLException {
+        String sql = "SELECT productId, location, price, description, status, image, name, type "
+                    + "FROM Product "
+                    + "WHERE type=? "
+                    + "ORDER BY productId";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {Integer.toString(type)});  
+                    
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();           
+            List<Product> ProductList = new ArrayList<Product>();   
+            while (rs.next()) {
+                Product Product = new Product(
+                        rs.getInt("productId"),
+                        rs.getString("location"),
+                        rs.getInt("price"),
+                        rs.getString("description"),
+                        rs.getInt("status"),
+                        rs.getString("image"),
+                        rs.getString("name"),
+                        rs.getInt("type"));
+                ProductList.add(Product);   
+            }       
+            return ProductList;                    
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();      
+        }
+        return null;
+    }
+    
+    public int countingProduct(int type) throws SQLException {
+    	String sql = "SELECT count(*) FROM Product WHERE type=? ";
+    	jdbcUtil.setSqlAndParameters(sql, new Object[] {Integer.toString(type)});  
+    	int count = 0;
+    	 try {
+    		 ResultSet rs = jdbcUtil.executeQuery();
+    		 if(rs.next())
+    			 count = rs.getInt(1);
+         } catch (Exception ex) {
+             ex.printStackTrace();
+         } finally {
+             jdbcUtil.close();     
+         }
+    	 return count;
     }
 
   //아이디 중복 확인

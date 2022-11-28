@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +27,11 @@
 		.new div{text-align:center;font-size:18px;width:330px;height:330px;
 		background-color:skyBlue;float:left;margin:0px 30px;line-height:330px;}
 	</style>
+	<script>
+		function search(){
+			sForm.submit();
+		}
+	</script>
 </head>
 <body>
 	<!-- 로고와 메뉴 -->
@@ -37,7 +42,7 @@
 	<div class="layout">
 		<!-- 검색창 -->
 		<div class="search">
-			<form class = "sForm">
+			<form class = "sForm" method="POST" action="<c:url value='/prod/list' />">
 				<select name="place" class = "splace">
 					<option disabled selected>장소</option>
 					<option value = "1">성북구</option>
@@ -56,15 +61,15 @@
 					<option value = "2">...</option>
 					<option value = "3">....</option>
 				</select><br><br><br><br><br><br><br><br>
-				<input type = "submit" value = "검색"/>
+				<input type = "submit" value = "검색" onClick="search()"/>
 			</form><br><br><br><br>
 		</div>
 		<!-- 개수자랑 -->
 		<div style="text-align:center;font-size:24px">서울 내 인기 여행지</div><br><br>
 		<div class = "count">
-			<div class = "count1">숙소&nbsp;n개</div>
-			<div class = "count2">맛집&nbsp;n개</div>
-			<div class = "count3">액티비티&nbsp;n개</div>
+			<div class = "count2">맛집&nbsp; ${restaurant}개</div>
+			<div class = "count1">숙소&nbsp; ${activity}개</div>
+			<div class = "count3">액티비티&nbsp; ${accommodation}개</div>
 		</div><br><br><br><br><br><br><br><br><br><br><br><br>
 		<!-- 신규여행지 3개 -->
 		<div style="text-align:center;font-size:24px">신규 여행지</div><br><br>

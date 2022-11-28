@@ -9,6 +9,7 @@ import controller.main.GoReviewPageController;
 import controller.main.GoTop10PageController;
 import controller.main.GotoMyPageController;
 import controller.main.GotoReservePageController;
+import controller.prod.DetailProdController;
 import controller.prod.FindListProdController;
 import controller.user.ListUserController;
 import controller.user.LoginController;
@@ -33,6 +34,8 @@ public class RequestMapping {
 		mappings.put("/main/review", new GoReviewPageController());
 		mappings.put("/user/logout", new LogoutController());
 		mappings.put("/user/list", new ListUserController());
+		mappings.put("/prod/detail", new DetailProdController());
+		mappings.put("/prod/list", new FindListProdController());
 		//        mappings.put("/user/view", new ViewUserController());
 		mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
 		mappings.put("/user/register", new RegisterUserController());

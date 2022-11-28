@@ -2,13 +2,8 @@
     pageEncoding="EUC-KR"%>
 <%@page import="model.User" %>
 <%@page import="model.Product" %>
-<%@page import="java.util.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	@SuppressWarnings("unchecked") 
-	List<Product> prodList = (List<Product>)request.getAttribute("prodList");
-	User user = (User)request.getAttribute("user");
-%>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +14,7 @@
 		table{margin:100px auto 0px auto;text-align:center}
 		td{height:40px}
 		.image{height:150px}
-		</style>
+	</style>
 </head>
 <body>
 	<form>
