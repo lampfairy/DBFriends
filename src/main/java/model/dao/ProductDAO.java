@@ -108,12 +108,43 @@ public class ProductDAO {
         return null;
     }
 
-    //�쉶�썝�젙蹂� 由ъ뒪�듃蹂닿린
     public List<Product> findProductList() throws SQLException {
         String sql = "SELECT productId, location, price, description, status, image, name, type "
                     + "FROM Product "
                     + "ORDER BY productId";
         jdbcUtil.setSqlAndParameters(sql, null);  
+                    
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();           
+            List<Product> ProductList = new ArrayList<Product>();   
+            while (rs.next()) {
+                Product Product = new Product(
+                        rs.getInt("productId"),
+                        rs.getString("location"),
+                        rs.getInt("price"),
+                        rs.getString("description"),
+                        rs.getInt("status"),
+                        rs.getString("image"),
+                        rs.getString("name"),
+                        rs.getInt("type"));
+                ProductList.add(Product);   
+            }       
+            return ProductList;                    
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();      
+        }
+        return null;
+    }
+    
+    public List<Product> findProductList(int type) throws SQLException {
+        String sql = "SELECT productId, location, price, description, status, image, name, type "
+                    + "FROM Product "
+                    + "WHERE type=? "
+                    + "ORDER BY productId";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {Integer.toString(type)});  
                     
         try {
             ResultSet rs = jdbcUtil.executeQuery();           

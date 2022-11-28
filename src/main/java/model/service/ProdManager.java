@@ -49,6 +49,11 @@ public class ProdManager {
     public List<Product> findProductList() throws SQLException {
             return prodDAO.findProductList();
     }
+    
+    public List<Product> findProductList(int type) throws SQLException {
+        return prodDAO.findProductList(type);
+}
+    
     public int countingProduct(int type) throws SQLException {
     	return prodDAO.countingProduct(type);
     }
