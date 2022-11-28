@@ -15,8 +15,10 @@ public class FindListProdController implements Controller{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
 		ProdManager prodManager = ProdManager.getInstance();
-        int type = Integer.parseInt(request.getParameter("type"));
-        List<Product> prodList = prodManager.findProductList(type);
+        int type1 = Integer.parseInt(request.getParameter("type1"));
+        int type2 = Integer.parseInt(request.getParameter("type2"));
+        int type3 = Integer.parseInt(request.getParameter("type3"));
+        List<Product> prodList = prodManager.findProductList(type1, type2, type3);
         //List<Product> prodList = prodManager.findProductList(currentPage, countPerPage);
 
         // userList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달

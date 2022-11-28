@@ -50,25 +50,32 @@ public class ProductTest {
             e1.printStackTrace();
         } 
         
-        
+		scanner.nextLine();
         System.out.print("location : ");
-        String location = scanner.next();
+        String location = scanner.nextLine();
         System.out.print("price : ");
         int price = scanner.nextInt();
+		scanner.nextLine();
+
         System.out.print("description : ");
-        String description = scanner.next();
+        String description = scanner.nextLine();
         System.out.print("status : ");
         int status = scanner.nextInt();
         System.out.print("image : ");
-        String image = scanner.next();
+		scanner.nextLine();
+        String image = scanner.nextLine();
         System.out.print("name : ");
-        String name = scanner.next();
-        System.out.print("type : ");
-        int type = scanner.nextInt();
+        String name = scanner.nextLine();
+        System.out.print("type1 : ");
+        int type1 = scanner.nextInt();
+        System.out.print("type2 : ");
+        int type2 = scanner.nextInt();
+        System.out.print("type3 : ");
+        int type3 = scanner.nextInt();
         
         try {
         
-        Product p = new Product(productId, location, price, description, status, image, name, type);
+        Product p = new Product(productId, location, price, description, status, image, name, type1, type2, type3);
         System.out.println(p.toString());
         int num = dao.create(p);
         System.out.println(num);
@@ -76,7 +83,7 @@ public class ProductTest {
         list = dao.findProductList();  
         
         System.out.println("--------------------Product id --------------------");
-        System.out.println("1127추가 --> " + dao.countingProduct(type));
+        System.out.println("1127추가 --> " + dao.countingProduct(type1));
         if(list != null) {
             for(int i = 0; i < list.size(); i++) {
                 Product c = list.get(i);
@@ -112,11 +119,15 @@ public class ProductTest {
         image = scanner.next();
         System.out.print("name : ");
         name = scanner.next();
-        System.out.print("type : ");
-        type = scanner.nextInt();
+        System.out.print("type1 : ");
+        type1 = scanner.nextInt();
+        System.out.print("type2 : ");
+        type2 = scanner.nextInt();
+        System.out.print("type3 : ");
+        type3 = scanner.nextInt();
         
         
-        p = new Product(productId, location, price, description, status, image, name, type);
+        p = new Product(productId, location, price, description, status, image, name, type1, type2, type3);
         num = dao.update(p);
         
         System.out.println(num);
@@ -188,6 +199,4 @@ public class ProductTest {
             scanner.close();
         }
     }
-    
-   
 }

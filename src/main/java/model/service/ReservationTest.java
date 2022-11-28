@@ -84,7 +84,7 @@ public class ReservationTest {
         }
         //Status not reduced by the number of people booked
         p.setStatus(p.getStatus() - headCount);
-        p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType());
+        p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType1(), p.getType2(), p.getType3());
         int num = dao_p.update(p);
         //System.out.println(num);
         
@@ -119,17 +119,6 @@ public class ReservationTest {
             }
             System.out.println();
 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             System.out.println("update");
             System.out.print("update reservationId : ");
             reservationId = scanner.nextInt();
@@ -181,7 +170,7 @@ public class ReservationTest {
 
             if(productId == p.getProductId()) {
                 p.setStatus(p.getStatus() + res.getHeadCount());
-                p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType());
+                p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType1(), p.getType2(), p.getType3());
             }
             else
                 p = dao_p.findProduct(productId);
@@ -196,7 +185,7 @@ public class ReservationTest {
                 headCount = scanner.nextInt();
             }
             p.setStatus(p.getStatus() - headCount);
-            p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType());
+            p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType1(), p.getType2(), p.getType3());
             
             price = p.getPrice() * headCount;
             System.out.println("price(the amount to be paid): " + price);
@@ -222,19 +211,6 @@ public class ReservationTest {
                     System.out.printf("%d \n", n);
                 }
             }
-
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
 
             System.out.println("remove");
             System.out.print("remove reservationId : ");
@@ -264,20 +240,6 @@ public class ReservationTest {
                     System.out.printf("%d \n", n);
                 }
             }
-
-
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
 
             System.out.println("findReservation");
             System.out.print("find reservationId : ");

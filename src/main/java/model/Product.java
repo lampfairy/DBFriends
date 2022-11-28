@@ -9,7 +9,9 @@ public class Product {
     private int status;
     private String image;
     private String name;
-    private int type;
+    private int type1;
+    private int type2;
+    private int type3;
     
     // getter setter
     public int getProductId() {
@@ -54,20 +56,31 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
-    public int getType() {
-        return type;
+    public int getType1() {
+        return type1;
     }
-    public void setType(int type) {
-        this.type = type;
+    public void setType1(int type1) {
+        this.type1 = type1;
     }
-    
+    public int getType2() {
+        return type2;
+    }
+    public void setType2(int type2) {
+        this.type2 = type2;
+    }
+    public int getType3() {
+        return type3;
+    }
+    public void setType3(int type3) {
+        this.type3 = type3;
+    }
     //constructor
     public Product() {
         
     }
     
     public Product(int productId, String location, int price, String description, int status, String image, String name,
-            int type) {
+            int type1, int type2, int type3) {
         super();
         this.productId = productId;
         this.location = location;
@@ -76,12 +89,14 @@ public class Product {
         this.status = status;
         this.image = image;
         this.name = name;
-        this.type = type;
+        this.type1 = type1;
+        this.type2 = type2;
+        this.type3 = type3;
     }
     
     
     
-    public Product(String location, int price, String description, int status, String image, String name, int type) {
+    public Product(String location, int price, String description, int status, String image, String name, int type1, int type2, int type3) {
         super();
         this.location = location;
         this.price = price;
@@ -89,18 +104,16 @@ public class Product {
         this.status = status;
         this.image = image;
         this.name = name;
-        this.type = type;
+        this.type1 = type1;
+        this.type2 = type2;
+        this.type3 = type3;
     }
     
     //toString
-    @Override
-    public String toString() {
-        return "Product [productId=" + productId + ", location=" + location + ", price=" + price + ", description="
-                + description + ", status=" + status + ", image=" + image + ", name=" + name + ", type=" + type + "]";
-    }
-    
-
-    
-    
-    
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", location=" + location + ", price=" + price + ", description="
+				+ description + ", status=" + status + ", image=" + image + ", name=" + name + ", type1=" + type1
+				+ ", type2=" + type2 + ", type3=" + type3 + "]";
+	}
 }

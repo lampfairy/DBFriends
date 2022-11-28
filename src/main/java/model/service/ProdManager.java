@@ -50,12 +50,12 @@ public class ProdManager {
             return prodDAO.findProductList();
     }
     
-    public List<Product> findProductList(int type) throws SQLException {
-        return prodDAO.findProductList(type);
+    public List<Product> findProductList(int type1, int type2, int type3) throws SQLException {
+        return prodDAO.findProductList(type1, type2, type3);
 }
     
-    public int countingProduct(int type) throws SQLException {
-    	return prodDAO.countingProduct(type);
+    public int countingProduct(int type1) throws SQLException {
+    	return prodDAO.countingProduct(type1);
     }
     public ProductDAO getProdDAO() {
 		return this.prodDAO;
