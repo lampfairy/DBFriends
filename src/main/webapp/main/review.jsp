@@ -7,7 +7,7 @@
 	<title>리뷰 페이지</title>
 	<style type="text/css">
 		body{margin:0}
-		.layout{margin:0px auto;width:1180px;padding:10px}
+		.layout{margin:0px auto;width:1180px;padding:10px;text-align:center}
 		.new{width:1180px;margin: 0px auto}
 		.new div{text-align:center;font-size:18px;width:300px;height:300px;
 		background-color:skyBlue;float:left;margin:0px 40px 30px 40px;line-height:300px;border-radius:50%;}

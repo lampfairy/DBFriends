@@ -14,7 +14,6 @@
 		table, td{border:2px solid skyBlue;border-collapse:collapse;}
 		table{margin:100px auto 0px auto;text-align:center}
 		td{height:40px}
-		.image{height:150px}
 	</style>
 </head>
 <body>
@@ -25,7 +24,7 @@
 			</tr>
 			<tr>
 				<td width=300>厘家</td>
-				<td width=600>府轰 力格</td>
+				<td width=700>府轰 力格</td>
 				<td width=200>府轰 焊扁</td>
 			</tr>
 			<c:forEach var="review" items="${reviewList}">
