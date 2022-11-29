@@ -25,7 +25,7 @@ public class FindListProdController implements Controller{
 	        request.setAttribute("prodList", prodList);  
 	
 	        // 사용자 리스트 화면으로 이동(forwarding)
-	        return "/prod/list.jsp";
+	        return "/main/index.jsp";
 		}catch(Exception e) {
 			e.printStackTrace();
 			return "/main/index.jsp";

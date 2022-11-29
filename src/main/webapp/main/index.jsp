@@ -72,7 +72,7 @@
 	                  
 	                  for(x in d){
 	                     var opt = document.createElement("option");
-	                     opt.value = d[x];
+	                     opt.value = x+1;
 	                     opt.innerHTML = d[x];
 	                     target.appendChild(opt);
 	                  }
@@ -80,6 +80,8 @@
 	            </script><br><br><br><br><br><br><br><br>
 				<input type = "submit" value = "검색"/>
 			</form>
+		<!-- 결과창 -->
+		<jsp:include page = "../prod/list.jsp"/>
 		</div>
 		<!-- 개수자랑 --><br><br><br><br>
 		<div style="text-align:center;font-size:24px">서울 내 인기 여행지</div><br><br>
