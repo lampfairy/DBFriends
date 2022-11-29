@@ -144,11 +144,28 @@ public class ProductDAO {
     }
     
     public List<Product> findProductList(int type1, int type2, int type3) throws SQLException {
+    	int[] type_1;
+    	int[] type_2;
+    	int[] type_3;
+
+    	if(type1 == 0)
+    		type_1 = new int[] {1, 2, 3, 4};
+    	else
+    		type_1 = new int[] {type1, type1, type1, type1};
+    	if(type2 == 0)
+    		type_2 = new int[] {1, 2, 3, 4};
+    	else
+    		type_2 = new int[] {type2, type2, type2, type2};
+    	if(type3 == 0)
+    		type_3 = new int[] {1, 2, 3, 4};
+    	else
+    		type_3 = new int[] {type3, type3, type3, type3};
+    		
         String sql = "SELECT productId, location, price, description, status, image, name, type1, type2, type3 "
                     + "FROM Product "
-                    + "WHERE type1=? AND type2=? AND type3=? "
+                    + "WHERE type1=any(?, ?, ?, ?) AND type2=any(?, ?, ?, ?) AND type3=any(?, ?, ?, ?) "
                     + "ORDER BY productId";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {type1, type2, type3});  
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {type_1[0], type_1[1], type_1[2], type_1[3],type_2[0], type_2[1], type_2[2], type_2[3], type_3[0], type_3[1], type_3[2], type_3[3]});  
                     
         try {
             ResultSet rs = jdbcUtil.executeQuery();           
