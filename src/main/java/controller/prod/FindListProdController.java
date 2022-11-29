@@ -28,6 +28,7 @@ public class FindListProdController implements Controller{
 			prodList = prodManager.findProductListWithKey(type1, type2, type3, keySearch);
 			request.setAttribute("prodList", prodList); 
 			return "/main/reserve";
+			
 		}
 	}
 }
