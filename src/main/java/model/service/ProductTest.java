@@ -19,7 +19,7 @@ public class ProductTest {
 	public static void main(String[] args) throws SQLException {
 
 		Scanner scanner = new Scanner(System.in);
-
+		
 		List<Product> list = dao.findProductList();  
 
 		
@@ -55,14 +55,13 @@ public class ProductTest {
         String location = scanner.nextLine();
         System.out.print("price : ");
         int price = scanner.nextInt();
-		scanner.nextLine();
-
+        scanner.nextLine();
         System.out.print("description : ");
         String description = scanner.nextLine();
         System.out.print("status : ");
         int status = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("image : ");
-		scanner.nextLine();
         String image = scanner.nextLine();
         System.out.print("name : ");
         String name = scanner.nextLine();
@@ -106,24 +105,57 @@ public class ProductTest {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+        p = dao.findProduct(productId);
         
-        System.out.print("location : ");
-        location = scanner.next();
+        System.out.print("productId : " + p.getProductId() + "→ ");
+        productId = scanner.nextInt();
+        System.out.print("location : "+ p.getLocation());
+        location = p.getLocation();
+        System.out.println();
+        System.out.print("price : " + p.getPrice());
+        price = p.getPrice();
+        System.out.println();
+        System.out.print("description : "+ p.getDescription());
+        description = p.getDescription();
+        System.out.println();
+        System.out.print("status : "+ p.getStatus());
+        status = p.getStatus();
+        System.out.println();
+        System.out.print("image : "+ p.getImage());
+        image = p.getImage();
+        System.out.println();
+        System.out.print("name : "+ p.getName());
+        name = p.getName();
+        System.out.println();
+        System.out.print("type1 : "+ p.getType1() + "→ ");
+        type1 = scanner.nextInt();
+        System.out.print("type2 : "+ p.getType2() + "→ ");
+        type2 = scanner.nextInt();
+        System.out.print("type3 : "+ p.getType3() + "→ ");
+        type3 = scanner.nextInt();
+        
+        System.out.print("productId : " + p.getProductId() + "→ ");
+        productId = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("location : "+ p.getLocation() + "→ ");
+        location = scanner.nextLine();
         System.out.print("price : ");
         price = scanner.nextInt();
-        System.out.print("description : ");
-        description = scanner.next();
-        System.out.print("status : ");
+        scanner.nextLine();
+        System.out.print("description : "+ p.getDescription() + "→ ");
+        description = scanner.nextLine();
+        System.out.print("status : "+ p.getStatus() + "→ ");
         status = scanner.nextInt();
-        System.out.print("image : ");
-        image = scanner.next();
-        System.out.print("name : ");
-        name = scanner.next();
-        System.out.print("type1 : ");
+        scanner.nextLine();
+        System.out.print("image : "+ p.getImage() + "→ ");
+        image = scanner.nextLine();
+        System.out.print("name : "+ p.getName() + "→ ");
+        name = scanner.nextLine();
+        System.out.print("type1 : "+ p.getType1() + "→ ");
         type1 = scanner.nextInt();
-        System.out.print("type2 : ");
+        System.out.print("type2 : "+ p.getType2() + "→ ");
         type2 = scanner.nextInt();
-        System.out.print("type3 : ");
+        System.out.print("type3 : "+ p.getType3() + "→ ");
         type3 = scanner.nextInt();
         
         
