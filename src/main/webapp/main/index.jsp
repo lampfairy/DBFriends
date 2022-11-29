@@ -59,31 +59,6 @@
 				<select id="detail" class = "sdetail" name = "detail">
                		<option disabled selected>세부사항</option>
             	</select>
-<<<<<<< HEAD
-	            <script>
-	               function changeDetail(e){
-					  var all = ["전체"];
-	            	  var food = ["전체", "한식", "중식", "일식", "양식"];
-	                  var accom = ["전체", "게스트하우스", "글램핑", "펜션", "호텔"];
-	                  var activity = ["전체", "전시회", "놀이공원", "워터파크", "아쿠아리움"];
-	                  var target = document.getElementById("detail");
-	                  
-	                  if(e.value == "0") var d = all;
-	                  else if(e.value == "1") var d = food;
-	                  else if(e.value == "2") var d = accom;
-	                  else if(e.value == "3") var d = activity;
-	                  
-	                  target.options.length = 0;
-	                  
-	                  for(x in d){
-	                     var opt = document.createElement("option");
-	                     opt.value = x;
-	                     opt.innerHTML = d[x];
-	                     target.appendChild(opt);
-	                  }
-	               }
-	            </script><br><br><br><br><br><br><br><br>
-=======
 	           <script>
                   function changeDetail(e){
                 	 var all = ["전체"];
@@ -107,7 +82,6 @@
                      }
                   }
                </script><br><br><br><br><br><br><br><br>
->>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
 				<input type = "submit" value = "검색"/><!-- 추가 -->
 			</form>
 		<!-- 결과창 -->

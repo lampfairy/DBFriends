@@ -60,76 +60,10 @@ public class ProductDAO {
 		return 0;
 	}
 
-<<<<<<< HEAD
 	//�쉶�썝 �궘�젣
 	public int remove(int productId) throws SQLException {
 		String sql = "DELETE FROM Product WHERE productId=?";     
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {productId});   
-=======
-        if(type1 == 0)
-           type_1 = new int[] {1, 2, 3, 4, 5, 6, 7};
-        else
-           type_1 = new int[] {type1, type1, type1, type1, type1, type1, type1};
-        if(type2 == 0)
-           type_2 = new int[] {1, 2, 3, 4};
-        else
-           type_2 = new int[] {type2, type2, type2, type2};
-        if(type3 == 0)
-           type_3 = new int[] {1, 2, 3, 4};
-        else
-           type_3 = new int[] {type3, type3, type3, type3};
-           
-         String sql = "SELECT productId, location, price, description, status, image, name, type1, type2, type3 "
-                     + "FROM Product "
-                     + "WHERE type1=any(?, ?, ?, ?, ?, ?, ?) AND type2=any(?, ?, ?, ?) AND type3=any(?, ?, ?, ?) "
-                     + "ORDER BY productId";
-         jdbcUtil.setSqlAndParameters(sql, new Object[] {type_1[0], type_1[1], type_1[2], type_1[3], type_1[4], type_1[5], type_1[6], type_2[0], type_2[1], type_2[2], type_2[3], type_3[0], type_3[1], type_3[2], type_3[3]});  
-                               
-         try {
-             ResultSet rs = jdbcUtil.executeQuery();           
-             List<Product> ProductList = new ArrayList<Product>();   
-             while (rs.next()) {
-                 Product Product = new Product(
-                         rs.getInt("productId"),
-                         rs.getString("location"),
-                         rs.getInt("price"),
-                         rs.getString("description"),
-                         rs.getInt("status"),
-                         rs.getString("image"),
-                         rs.getString("name"),
-                         rs.getInt("type1"),
-                         rs.getInt("type2"),
-                         rs.getInt("type3"));
-                 ProductList.add(Product);   
-             }      
-             return ProductList;                    
-             
-         } catch (Exception ex) {
-             ex.printStackTrace();
-         } finally {
-             jdbcUtil.close();      
-         }
-         return null;
-    }
-    
-
-    
-    public int countingProduct(int type2) throws SQLException {
-    	String sql = "SELECT count(*) FROM Product WHERE type2=?";
-    	jdbcUtil.setSqlAndParameters(sql, new Object[] {type2});  
-    	int count = 0;
-    	 try {
-    		 ResultSet rs = jdbcUtil.executeQuery();
-    		 if(rs.next())
-    			 count = rs.getInt(1);
-         } catch (Exception ex) {
-             ex.printStackTrace();
-         } finally {
-             jdbcUtil.close();     
-         }
-    	 return count;
-    }
->>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {productId});
 
 		try {               
 			int result = jdbcUtil.executeUpdate(); 
