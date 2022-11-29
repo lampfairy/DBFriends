@@ -13,7 +13,6 @@ public class FindListProdController implements Controller{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		try {
 			ProdManager prodManager = ProdManager.getInstance();
 	        int type1 = Integer.parseInt(request.getParameter("place"));
 	        int type2 = Integer.parseInt(request.getParameter("type"));
@@ -26,9 +25,5 @@ public class FindListProdController implements Controller{
 	
 	        // 사용자 리스트 화면으로 이동(forwarding)
 	        return "/main/index.jsp";
-		}catch(Exception e) {
-			e.printStackTrace();
-			return "/main/index.jsp";
-		}
 	}
 }

@@ -30,7 +30,7 @@
 </head>
 <body>
 	<!-- 로고와 메뉴 -->
-	<jsp:include page = "menu.jsp"/>
+	<jsp:include page = "/main/menu.jsp"/>
 	<!-- 이벤트 배너 -->
 	<div class="event">
 	</div>
