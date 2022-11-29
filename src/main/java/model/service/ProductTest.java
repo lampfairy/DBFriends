@@ -23,11 +23,11 @@ public class ProductTest {
 		//List<Product> list = dao.findProductList();  
 
 		//일단 테스트 해야돼서 앞에다가 쓸게요
-		System.out.print("한식 1 중식 2: ");
+		System.out.print("전체0 서울 1 경기 2: ");
 		int tmp1 = scanner.nextInt();
-		System.out.print("맛집 1 숙소 2: ");
+		System.out.print("전체0 맛집 1 숙소 2: ");
 		int tmp2 = scanner.nextInt();
-		System.out.print("세부사항 1 2 3: ");
+		System.out.print("세부사항 0 1 2 3: ");
 		int tmp3 = scanner.nextInt();
 		
 		List<Product> list = dao.findProductList(tmp1, tmp2, tmp3);
