@@ -17,16 +17,19 @@ public class DetailProdController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
+
 		String id = UserSessionUtils.getLoginUserId(request.getSession());
-		UserManager manager = UserManager.getInstance();
-		User user = manager.findUser(id);
-        request.setAttribute("user", user); 
-        
+		if(id != null) {
+			UserManager manager = UserManager.getInstance();
+			User user = manager.findUser(id);
+			request.setAttribute("user", user); 
+		}
+
 		int prodId = Integer.parseInt(request.getParameter("productId"));
 		ProdManager prodManager = ProdManager.getInstance();
 		Product product = prodManager.findProduct(prodId);
 		request.setAttribute("product", product);
-		
+
 		return "/prod/detail.jsp";
 	}
 }

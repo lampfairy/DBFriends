@@ -39,7 +39,7 @@
 		<div class="search">
 			<form class = "sForm" method="POST" action="<c:url value='/prod/list' />">
 				<select name="place" class = "splace">
-					<option disabled selected>장소</option>
+					<option value = "0" selected>지역</option>
 					<option value = "0">전체</option>
 					<option value = "1">서울</option>
 					<option value = "2">경기</option>
@@ -50,20 +50,16 @@
 					<option value = "7">제주</option>
 				</select>
 				<select name="type" id="type" onchange="changeDetail(this)">
-					<option disabled selected>맛집/숙소/액티비티</option>
+					<option value = "0" selected>맛집/숙소/액티비티</option>
 					<option value = "0">전체</option>
 					<option value = "1">맛집</option>
 					<option value = "2">숙소</option>
 					<option value = "3">액티비티</option>
 				</select>
 				<select id="detail" class = "sdetail" name = "detail">
-               		<option disabled selected>세부사항</option>
-<<<<<<< HEAD
-            	</select>
-=======
-            	</select>
-
->>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
+               		<option value = "0" selected>세부사항</option>
+               		<option value = "0" >전체</option>
+               	</select>
 	           <script>
                   function changeDetail(e){
                 	 var all = ["전체"];

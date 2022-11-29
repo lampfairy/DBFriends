@@ -43,7 +43,7 @@
 						</a>
 						<a href = "<c:url value='/prod/bookmark'>
 							<c:param name = 'productId' value='${product.productId}' />
-							</c:url>" class = "btn">Âò
+							</c:url>" class = "btn">Âò 
 						</a>
 					</td>
 				</tr>

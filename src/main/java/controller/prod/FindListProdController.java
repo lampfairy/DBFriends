@@ -15,9 +15,10 @@ public class FindListProdController implements Controller{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		ProdManager prodManager = ProdManager.getInstance();
-		int type1 = Integer.parseInt(request.getParameter("place"));
-		int type2 = Integer.parseInt(request.getParameter("type"));
-		int type3 = Integer.parseInt(request.getParameter("detail"));
+		int type1 = 0, type2 = 0, type3 = 0;
+		type1 = Integer.parseInt(request.getParameter("place"));
+		type2 = Integer.parseInt(request.getParameter("type"));
+		type3 = Integer.parseInt(request.getParameter("detail"));
 		String keySearch = request.getParameter("keySearch");
 		List<Product> prodList;
 		if(keySearch == null) {
