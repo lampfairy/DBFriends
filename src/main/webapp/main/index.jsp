@@ -8,24 +8,24 @@
 	<title>메인 페이지</title>
 	<style type="text/css">
 		body{margin:0}
-		.event{margin:10px 0px 0px 0px;background-color:skyBlue;
+		.event{margin:10px 0px 0px 0px;background:url('./images/event.jpg');
 		width:100%;height:300px}
 		.layout{margin:0px auto;width:1180px;padding:10px}
 		.search{background-image:ivory;text-align:center}
-		select,input{width:240px;height:40px;background-color:skyBlue;
+		select,input{width:240px;height:40px;background-color:powderBlue;
 		border-radius: 10px;font-size:18px;text-align:center;}
 		.splace{margin-right:150px}
 		.sdetail{margin-left:150px}
 		.count{width:1180px;margin: 0px auto}
 		.count div{text-align:center;font-size:18px;width:150px;height:150px;
-		border-radius:50%;background-color:skyBlue;float:left;margin:0px 121px;
+		border-radius:50%;background-color:powderBlue;float:left;margin:0px 121px;
 		line-height:150px;color:white;font-weight:bolder}
 		.count1{background:url('./images/count1.jpg');}
 		.count2{background:url('./images/count2.jpg');}
 		.count3{background:url('./images/count3.jpg');}
 		.new{width:1180px;margin: 0px auto}
 		.new div{text-align:center;font-size:18px;width:330px;height:330px;
-		background-color:skyBlue;float:left;margin:0px 30px;line-height:330px;}
+		background-color:powderBlue;float:left;margin:0px 30px;line-height:330px;}
 	</style>
 </head>
 <body>
@@ -79,9 +79,11 @@
 	               }
 	            </script><br><br><br><br><br><br><br><br>
 				<input type = "submit" value = "검색"/>
-			</form><br><br><br><br>
+			</form>
 		</div>
-		<!-- 개수자랑 -->
+		<!-- 검색 결과 -->
+		<jsp:include page = "../prod/list.jsp"/>
+		<!-- 개수자랑 --><br><br><br><br>
 		<div style="text-align:center;font-size:24px">서울 내 인기 여행지</div><br><br>
 		<div class = "count">
 			<div class = "count2">맛집&nbsp; ${restaurant}개</div>

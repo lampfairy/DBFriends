@@ -11,7 +11,7 @@
 	<meta charset="EUC-KR">
 	<title>리뷰 리스트</title>
 	<style type="text/css">
-		table, td{border:2px solid skyBlue;border-collapse:collapse;}
+		table, td{border:2px solid powderBlue;border-collapse:collapse;}
 		table{margin:100px auto 0px auto;text-align:center}
 		td{height:40px}
 	</style>

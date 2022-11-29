@@ -8,7 +8,7 @@
 	<style type="text/css">
 		body{margin:0}
 		.layout{margin:0px auto;width:1180px;padding:10px}
-		table, td{border:2px solid skyBlue;border-collapse:collapse;text-align:center;}
+		table, td{border:2px solid powderBlue;border-collapse:collapse;text-align:center;}
 		table{margin:100px auto 0px auto; width:800px}
 		td{height:40px}
 		.btn{margin:20px}
