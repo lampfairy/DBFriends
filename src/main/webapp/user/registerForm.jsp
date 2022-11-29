@@ -115,7 +115,7 @@
 			  <tr>
 				<td width="150" align="center">생년월일</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="birthDate" placeholder="ex.20130101">
+					<input type="text" style="width:230px" name="birthDate" placeholder="ex.2013-01-01">
 				</td>
 			  </tr>
 		  	  <tr>
