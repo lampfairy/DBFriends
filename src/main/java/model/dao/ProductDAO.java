@@ -178,7 +178,7 @@ public class ProductDAO {
     }
     
     public int countingProduct(int type2) throws SQLException {
-    	String sql = "SELECT count(*) FROM Product WHERE type2=? ";
+    	String sql = "SELECT count(*) FROM Product WHERE type2=?";
     	jdbcUtil.setSqlAndParameters(sql, new Object[] {type2});  
     	int count = 0;
     	 try {
