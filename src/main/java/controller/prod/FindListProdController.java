@@ -13,23 +13,23 @@ public class FindListProdController implements Controller{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-			ProdManager prodManager = ProdManager.getInstance();
-	        int type1 = Integer.parseInt(request.getParameter("place"));
-	        int type2 = Integer.parseInt(request.getParameter("type"));
-	        int type3 = Integer.parseInt(request.getParameter("detail"));
-	        List<Product> prodList = prodManager.findProductList(type1, type2, type3);
-	        
-	        int restaurant = prodManager.countingProduct(1);
-	        int activity = prodManager.countingProduct(2);
-	        int accommodation = prodManager.countingProduct(3);
-	        request.setAttribute("restaurant", restaurant);
-	        request.setAttribute("activity", activity);
-	        request.setAttribute("accommodation", accommodation);
-	        
-	        // userList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
-	        request.setAttribute("prodList", prodList);  
-	
-	        // 사용자 리스트 화면으로 이동(forwarding)
-	        return "/main/index.jsp";
-	}
+
+		ProdManager prodManager = ProdManager.getInstance();
+		int type1 = Integer.parseInt(request.getParameter("place"));
+		int type2 = Integer.parseInt(request.getParameter("type"));
+		int type3 = Integer.parseInt(request.getParameter("detail"));
+		String keySearch = request.getParameter("keySearch");
+		List<Product> prodList;
+		if(keySearch == null) {
+			prodList = prodManager.findProductList(type1, type2, type3);
+			request.setAttribute("prodList", prodList);
+			return "/";
+		}
+		else {
+			prodList = prodManager.findProductListWithKey(type1, type2, type3, keySearch);
+			request.setAttribute("prodList", prodList); 
+			return "/main/reserve";
+			
+		}
 }
+	}

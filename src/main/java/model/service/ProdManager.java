@@ -52,7 +52,11 @@ public class ProdManager {
     
     public List<Product> findProductList(int type1, int type2, int type3) throws SQLException {
         return prodDAO.findProductList(type1, type2, type3);
-}
+    }
+    
+    public List<Product> findProductListWithKey(int type1, int type2, int type3, String keySearch) throws SQLException {
+    	  return prodDAO.findProductListWithKey(type1, type2, type3, keySearch);
+    }
     
     public int countingProduct(int type2) throws SQLException {
     	return prodDAO.countingProduct(type2);
