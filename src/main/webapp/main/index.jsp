@@ -78,7 +78,7 @@
 	                  }
 	               }
 	            </script><br><br><br><br><br><br><br><br>
-				<input type = "submit" value = "검색"/>
+				<input type = "submit" value = "검색"/><!-- 추가 -->
 			</form>
 		<!-- 결과창 -->
 		<jsp:include page = "../prod/list.jsp"/>
