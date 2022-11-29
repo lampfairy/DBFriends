@@ -11,11 +11,10 @@
 	<style type="text/css">
 		body{margin:0}
 		.layout{margin:0px auto;width:1180px;padding:10px}
-		table, td{border:2px solid powderBlue;border-collapse:collapse;text-align:center;}
+		table, td{font-size:18px;border:2px solid powderBlue;border-collapse:collapse;text-align:center;}
 		table{margin:100px auto 0px auto; width:800px}
 		td{height:40px}
-		.btn{margin:20px}
-		btn{float:left;display:inline-block;margin:0 30px 0 0}
+		.btn{display:inline-block;margin:0 30px 0 10px;float:left;}
 		.pImage{height:200px;width:200px}
 	</style>
 </head>
@@ -33,7 +32,7 @@
 					<td colspan="2">${product.name}</td>
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td colspan="2" style="text-align: left;">
 						<a href = "<c:url value='/prod/reserve'>
 							<c:param name = 'productId' value='${product.productId}' />
 							</c:url>" class = "btn">예약/예매

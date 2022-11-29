@@ -37,9 +37,10 @@
 	<div class="layout">
 		<!-- 검색창 -->
 		<div class="search">
-			<form class = "sForm" method="POST" action="<c:url value='/prod/list.jsp' />">
+			<form class = "sForm" method="POST" action="<c:url value='/prod/list' />">
 				<select name="place" class = "splace">
 					<option disabled selected>장소</option>
+					<option value = "0">전체</option>
 					<option value = "1">서울</option>
 					<option value = "2">경기</option>
 					<option value = "3">강원</option>
@@ -50,6 +51,7 @@
 				</select>
 				<select name="type" id="type" onchange="changeDetail(this)">
 					<option disabled selected>맛집/숙소/액티비티</option>
+					<option value = "0">전체</option>
 					<option value = "1">맛집</option>
 					<option value = "2">숙소</option>
 					<option value = "3">액티비티</option>
@@ -60,8 +62,13 @@
 	            <script>
 	               function changeDetail(e){
 	                  var food = ["전체", "한식", "중식", "일식", "양식"];
+<<<<<<< HEAD
 	                  var accom = ["게스트하우스", "글램핑", "펜션", "호텔"];
 	                  var activity = ["전시회", "놀이공원", "워터파크", "아쿠아리움"];
+=======
+	                  var accom = ["전체", "게스트하우스", "글램핑", "펜션", "호텔"];
+	                  var activity = ["전체", "전시회", "놀이공원", "워터파크", "아쿠아리움"];
+>>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
 	                  var target = document.getElementById("detail");
 	                  
 	                  if(e.value == "1") var d = food;
@@ -72,15 +79,25 @@
 	                  
 	                  for(x in d){
 	                     var opt = document.createElement("option");
+<<<<<<< HEAD
 	                     opt.value = x+1;
+=======
+	                     opt.value = x;
+>>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
 	                     opt.innerHTML = d[x];
 	                     target.appendChild(opt);
 	                  }
 	               }
 	            </script><br><br><br><br><br><br><br><br>
+<<<<<<< HEAD
 				<input type = "submit" value = "검색"/>
 			</form>
 		<!--  결과창  -->
+=======
+				<input type = "submit" value = "검색"/><!-- 추가 -->
+			</form>
+		<!-- 결과창 -->
+>>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
 		<jsp:include page = "../prod/list.jsp"/>
 		</div>
 		<!-- 개수자랑 --><br><br><br><br>
