@@ -19,6 +19,13 @@ public class FindListProdController implements Controller{
 	        int type3 = Integer.parseInt(request.getParameter("detail"));
 	        List<Product> prodList = prodManager.findProductList(type1, type2, type3);
 	        
+	        int restaurant = prodManager.countingProduct(1);
+	        int activity = prodManager.countingProduct(2);
+	        int accommodation = prodManager.countingProduct(3);
+	        request.setAttribute("restaurant", restaurant);
+	        request.setAttribute("activity", activity);
+	        request.setAttribute("accommodation", accommodation);
+	        
 	        // userList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
 	        request.setAttribute("prodList", prodList);  
 	
