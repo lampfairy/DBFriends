@@ -15,9 +15,9 @@ public class FindListProdController implements Controller{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
 		ProdManager prodManager = ProdManager.getInstance();
-        int type1 = Integer.parseInt(request.getParameter("type1"));
-        int type2 = Integer.parseInt(request.getParameter("type2"));
-        int type3 = Integer.parseInt(request.getParameter("type3"));
+        int type1 = Integer.parseInt(request.getParameter("place"));
+        int type2 = Integer.parseInt(request.getParameter("type"));
+        int type3 = Integer.parseInt(request.getParameter("detail"));
         List<Product> prodList = prodManager.findProductList(type1, type2, type3);
         //List<Product> prodList = prodManager.findProductList(currentPage, countPerPage);
 
