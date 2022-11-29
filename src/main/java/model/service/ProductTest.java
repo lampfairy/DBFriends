@@ -75,33 +75,33 @@ public class ProductTest {
         
         try {
         
-        Product p = new Product(productId, location, price, description, status, image, name, type1, type2, type3);
-        System.out.println(p.toString());
-        int num = dao.create(p);
-        System.out.println(num);
-        
-        list = dao.findProductList();  
-        
-        System.out.println("--------------------Product id --------------------");
-        System.out.println("1127추가 --> " + dao.countingProduct(type1));
-        if(list != null) {
-            for(int i = 0; i < list.size(); i++) {
-                Product c = list.get(i);
-                int n = c.getProductId();
-                System.out.printf("%d \n", n);
-            }
-        }
-        System.out.println();
-        
-        System.out.println("update");
-        System.out.print("update productId : ");
-        productId = scanner.nextInt();
-        try {
-            while(!dao.existingProduct(productId)) {
-                System.out.println(productId + " isn't found ");
-                System.out.print("update productId : ");
-                productId = scanner.nextInt();
-            }
+	        Product p = new Product(productId, location, price, description, status, image, name, type1, type2, type3);
+	        System.out.println(p.toString());
+	        int num = dao.create(p);
+	        System.out.println(num);
+	        
+	        list = dao.findProductList();  
+	        
+	        System.out.println("--------------------Product id --------------------");
+	        System.out.println("1127추가 --> " + dao.countingProduct(type1));
+	        if(list != null) {
+	            for(int i = 0; i < list.size(); i++) {
+	                Product c = list.get(i);
+	                int n = c.getProductId();
+	                System.out.printf("%d \n", n);
+	            }
+	        }
+	        System.out.println();
+	        
+	        System.out.println("update");
+	        System.out.print("update productId : ");
+	        productId = scanner.nextInt();
+	        try {
+	            while(!dao.existingProduct(productId)) {
+	                System.out.println(productId + " isn't found ");
+	                System.out.print("update productId : ");
+	                productId = scanner.nextInt();
+	            }
         } catch (SQLException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
