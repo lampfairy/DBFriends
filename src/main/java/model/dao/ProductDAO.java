@@ -146,7 +146,7 @@ public class ProductDAO {
     public List<Product> findProductList(int type1, int type2, int type3) throws SQLException {
         String sql = "SELECT productId, location, price, description, status, image, name, type1, type2, type3 "
                     + "FROM Product "
-                    + "WHERE type1=?, type2=?, type3=? "
+                    + "WHERE type1=? AND type2=? AND type3=? "
                     + "ORDER BY productId";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {type1, type2, type3});  
                     

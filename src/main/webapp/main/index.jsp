@@ -37,7 +37,7 @@
 	<div class="layout">
 		<!-- 검색창 -->
 		<div class="search">
-			<form class = "sForm" method="POST" action="<c:url value='/prod/list' />">
+			<form class = "sForm" method="POST" action="<c:url value='/prod/list.jsp' />">
 				<select name="place" class = "splace">
 					<option disabled selected>장소</option>
 					<option value = "1">서울</option>
