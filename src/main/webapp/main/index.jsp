@@ -58,7 +58,12 @@
 				</select>
 				<select id="detail" class = "sdetail" name = "detail">
                		<option disabled selected>세부사항</option>
+<<<<<<< HEAD
             	</select>
+=======
+            	</select>
+
+>>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
 	           <script>
                   function changeDetail(e){
                 	 var all = ["전체"];

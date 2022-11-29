@@ -13,6 +13,7 @@ public class FindListProdController implements Controller{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		ProdManager prodManager = ProdManager.getInstance();
 		int type1 = Integer.parseInt(request.getParameter("place"));
 		int type2 = Integer.parseInt(request.getParameter("type"));
