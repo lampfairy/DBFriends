@@ -30,16 +30,17 @@
 </head>
 <body>
 	<!-- 로고와 메뉴 -->
-	<jsp:include page = "/main/menu.jsp"/>
+	<jsp:include page = "menu.jsp"/>
 	<!-- 이벤트 배너 -->
 	<div class="event">
 	</div>
 	<div class="layout">
 		<!-- 검색창 -->
 		<div class="search">
-			<form class = "sForm" method="POST" action="<c:url value='/prod/list.jsp' />">
+			<form class = "sForm" method="POST" action="<c:url value='/prod/list' />">
 				<select name="place" class = "splace">
 					<option disabled selected>장소</option>
+					<option value = "0">전체</option>
 					<option value = "1">서울</option>
 					<option value = "2">경기</option>
 					<option value = "3">강원</option>
@@ -50,6 +51,7 @@
 				</select>
 				<select name="type" id="type" onchange="changeDetail(this)">
 					<option disabled selected>맛집/숙소/액티비티</option>
+					<option value = "0">전체</option>
 					<option value = "1">맛집</option>
 					<option value = "2">숙소</option>
 					<option value = "3">액티비티</option>
@@ -59,9 +61,9 @@
             	</select>
 	            <script>
 	               function changeDetail(e){
-	                  var food = ["한식", "중식", "일식", "양식"];
-	                  var accom = ["게스트하우스", "글램핑", "펜션", "호텔"];
-	                  var activity = ["전시회", "놀이공원", "워터파크", "아쿠아리움"];
+	                  var food = ["전체", "한식", "중식", "일식", "양식"];
+	                  var accom = ["전체", "게스트하우스", "글램핑", "펜션", "호텔"];
+	                  var activity = ["전체", "전시회", "놀이공원", "워터파크", "아쿠아리움"];
 	                  var target = document.getElementById("detail");
 	                  
 	                  if(e.value == "1") var d = food;
@@ -72,7 +74,7 @@
 	                  
 	                  for(x in d){
 	                     var opt = document.createElement("option");
-	                     opt.value = x+1;
+	                     opt.value = x;
 	                     opt.innerHTML = d[x];
 	                     target.appendChild(opt);
 	                  }
