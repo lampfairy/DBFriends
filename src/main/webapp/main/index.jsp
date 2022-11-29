@@ -8,7 +8,7 @@
 	<title>메인 페이지</title>
 	<style type="text/css">
 		body{margin:0}
-		.event{margin:10px 0px 0px 0px;background:url('./images/event.jpg');
+		.event{margin:10px 0px 0px 0px;background:url('${pageContext.request.contextPath}/images/event.jpg');
 		width:100%;height:300px}
 		.layout{margin:0px auto;width:1180px;padding:10px}
 		.search{background-image:ivory;text-align:center}
@@ -20,9 +20,9 @@
 		.count div{text-align:center;font-size:18px;width:150px;height:150px;
 		border-radius:50%;background-color:powderBlue;float:left;margin:0px 121px;
 		line-height:150px;color:white;font-weight:bolder}
-		.count1{background:url('./images/count1.jpg');}
-		.count2{background:url('./images/count2.jpg');}
-		.count3{background:url('./images/count3.jpg');}
+		.count1{background:url('${pageContext.request.contextPath}/images/count1.jpg');}
+		.count2{background:url('${pageContext.request.contextPath}/images/count2.jpg');}
+		.count3{background:url('${pageContext.request.contextPath}/images/count3.jpg');}
 		.new{width:1180px;margin: 0px auto}
 		.new div{text-align:center;font-size:18px;width:330px;height:330px;
 		background-color:powderBlue;float:left;margin:0px 30px;line-height:330px;}
@@ -61,17 +61,14 @@
             	</select>
 	            <script>
 	               function changeDetail(e){
-	                  var food = ["전체", "한식", "중식", "일식", "양식"];
-<<<<<<< HEAD
-	                  var accom = ["게스트하우스", "글램핑", "펜션", "호텔"];
-	                  var activity = ["전시회", "놀이공원", "워터파크", "아쿠아리움"];
-=======
+					  var all = ["전체"];
+	            	  var food = ["전체", "한식", "중식", "일식", "양식"];
 	                  var accom = ["전체", "게스트하우스", "글램핑", "펜션", "호텔"];
 	                  var activity = ["전체", "전시회", "놀이공원", "워터파크", "아쿠아리움"];
->>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
 	                  var target = document.getElementById("detail");
 	                  
-	                  if(e.value == "1") var d = food;
+	                  if(e.value == "0") var d = all;
+	                  else if(e.value == "1") var d = food;
 	                  else if(e.value == "2") var d = accom;
 	                  else if(e.value == "3") var d = activity;
 	                  
@@ -79,25 +76,15 @@
 	                  
 	                  for(x in d){
 	                     var opt = document.createElement("option");
-<<<<<<< HEAD
-	                     opt.value = x+1;
-=======
 	                     opt.value = x;
->>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
 	                     opt.innerHTML = d[x];
 	                     target.appendChild(opt);
 	                  }
 	               }
 	            </script><br><br><br><br><br><br><br><br>
-<<<<<<< HEAD
-				<input type = "submit" value = "검색"/>
-			</form>
-		<!--  결과창  -->
-=======
 				<input type = "submit" value = "검색"/><!-- 추가 -->
 			</form>
 		<!-- 결과창 -->
->>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
 		<jsp:include page = "../prod/list.jsp"/>
 		</div>
 		<!-- 개수자랑 --><br><br><br><br>

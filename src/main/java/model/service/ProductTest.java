@@ -29,8 +29,12 @@ public class ProductTest {
 		int tmp2 = scanner.nextInt();
 		System.out.print("세부사항 0 1 2 3: ");
 		int tmp3 = scanner.nextInt();
+		scanner.nextLine();
+		System.out.print("검색 단어: ");
+		String searchKey = scanner.nextLine();
 		
-		List<Product> list = dao.findProductList(tmp1, tmp2, tmp3);
+		
+		List<Product> list = dao.findProductListWithKey(tmp1, tmp2, tmp3, searchKey);
 		
 		
 		//

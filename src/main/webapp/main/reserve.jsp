@@ -33,6 +33,7 @@
          <form class = "sForm" method="POST" action="<c:url value='/prod/list' />">
             <select name="place" class = "splace">
 					<option disabled selected>장소</option>
+					<option value = "0">전체</option>
 					<option value = "1">서울</option>
 					<option value = "2">경기</option>
 					<option value = "3">강원</option>
@@ -43,6 +44,7 @@
 				</select>
 				<select name="type" id="type" onchange="changeDetail(this)">
 					<option disabled selected>맛집/숙소/액티비티</option>
+					<option value = "0">전체</option>
 					<option value = "1">맛집</option>
 					<option value = "2">숙소</option>
 					<option value = "3">액티비티</option>
@@ -52,12 +54,14 @@
             	</select>
 	            <script>
 	               function changeDetail(e){
-	                  var food = ["한식", "중식", "일식", "양식"];
-	                  var accom = ["게스트하우스", "글램핑", "펜션", "호텔"];
-	                  var activity = ["전시회", "놀이공원", "워터파크", "아쿠아리움"];
+	            	  var all = ["전체"];
+	            	  var food = ["전체", "한식", "중식", "일식", "양식"];
+	                  var accom = ["전체", "게스트하우스", "글램핑", "펜션", "호텔"];
+	                  var activity = ["전체", "전시회", "놀이공원", "워터파크", "아쿠아리움"];
 	                  var target = document.getElementById("detail");
 	                  
-	                  if(e.value == "1") var d = food;
+	                  if(e.value == "0") var d = all;
+	                  else if(e.value == "1") var d = food;
 	                  else if(e.value == "2") var d = accom;
 	                  else if(e.value == "3") var d = activity;
 	                  
@@ -65,7 +69,7 @@
 	                  
 	                  for(x in d){
 	                     var opt = document.createElement("option");
-	                     opt.value = d[x];
+	                     opt.value = x;
 	                     opt.innerHTML = d[x];
 	                     target.appendChild(opt);
 	                  }
