@@ -20,8 +20,20 @@ public class ProductTest {
 
 		Scanner scanner = new Scanner(System.in);
 		
-		List<Product> list = dao.findProductList();  
+		//List<Product> list = dao.findProductList();  
 
+		//일단 테스트 해야돼서 앞에다가 쓸게요
+		System.out.print("한식 1 중식 2: ");
+		int tmp1 = scanner.nextInt();
+		System.out.print("맛집 1 숙소 2: ");
+		int tmp2 = scanner.nextInt();
+		System.out.print("세부사항 1 2 3: ");
+		int tmp3 = scanner.nextInt();
+		
+		List<Product> list = dao.findProductList(tmp1, tmp2, tmp3);
+		
+		
+		//
 		
 		System.out.println("--------------------Product id 목록--------------------");
 		if(list != null) {
@@ -217,6 +229,7 @@ public class ProductTest {
         }
         p = dao.findProduct(productId);
         System.out.println(p.toString());
+        
         
 //        System.out.println("existingProduct");
 //        System.out.print("id : ");

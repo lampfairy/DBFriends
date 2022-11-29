@@ -81,8 +81,6 @@
 				<input type = "submit" value = "검색"/>
 			</form>
 		</div>
-		<!-- 검색 결과 -->
-		<jsp:include page = "../prod/list.jsp"/>
 		<!-- 개수자랑 --><br><br><br><br>
 		<div style="text-align:center;font-size:24px">서울 내 인기 여행지</div><br><br>
 		<div class = "count">
