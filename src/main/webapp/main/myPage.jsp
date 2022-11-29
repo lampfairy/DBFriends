@@ -8,15 +8,15 @@
 	<title>마이 페이지</title>
 	<style type="text/css">
 		.layout{margin:0px auto;width:1180px;padding:10px;font-size:18px}
-		table, td{border:2px solid skyBlue;border-collapse:collapse;}
+		table, td{border:2px solid powderBlue;border-collapse:collapse;}
 		table{margin:50px auto 0px auto}
 		td{height:40px}
-		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:skyBlue;
+		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:powderBlue;
 		border:1px solid black;width:100px;height:30px}
 		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
 		.new{width:1180px;margin: 0px auto}
 		.new div{text-align:center;font-size:18px;width:330px;height:330px;
-		background-color:skyBlue;float:left;margin:0px 30px;line-height:330px;}
+		background-color:powderBlue;float:left;margin:0px 30px;line-height:330px;}
 	</style>
 	<script>
 		function userCreate() {

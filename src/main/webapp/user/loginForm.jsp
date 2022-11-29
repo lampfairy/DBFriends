@@ -8,10 +8,10 @@
 	<title>로그인 페이지</title>
 	<style type="text/css">
 		.layout{margin:0px auto;width:1180px;padding:10px;font-size:18px}
-		table, td{border:2px solid skyBlue;border-collapse:collapse;}
+		table, td{border:2px solid powderBlue;border-collapse:collapse;}
 		table{margin:250px auto 0px auto}
 		td{height:40px}
-		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:skyBlue;
+		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:powderBlue;
 		border:1px solid black;width:100px;height:30px}
 		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
 	</style>

@@ -44,7 +44,7 @@ CREATE TABLE Product
 	status               NUMBER(1,0)  NULL ,
 	image                VARCHAR2(50)  NULL ,
 	name                 VARCHAR2(5)  NULL ,
-	type                 NUMBER(1,0)  NULL 
+	type                 NUMBER(1,0)  NULL
 );
 
 CREATE UNIQUE INDEX XPKProduct ON Product
