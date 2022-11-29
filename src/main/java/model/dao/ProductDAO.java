@@ -148,7 +148,7 @@ public class ProductDAO {
                     + "FROM Product "
                     + "WHERE type1=?, type2=?, type3=? "
                     + "ORDER BY productId";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {Integer.toString(type1), Integer.toString(type2), Integer.toString(type3)});  
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {type1, type2, type3});  
                     
         try {
             ResultSet rs = jdbcUtil.executeQuery();           
@@ -166,7 +166,7 @@ public class ProductDAO {
                         rs.getInt("type2"),
                         rs.getInt("type3"));
                 ProductList.add(Product);   
-            }       
+            }      
             return ProductList;                    
             
         } catch (Exception ex) {
@@ -177,9 +177,9 @@ public class ProductDAO {
         return null;
     }
     
-    public int countingProduct(int type1) throws SQLException {
-    	String sql = "SELECT count(*) FROM Product WHERE type1=? ";
-    	jdbcUtil.setSqlAndParameters(sql, new Object[] {Integer.toString(type1)});  
+    public int countingProduct(int type2) throws SQLException {
+    	String sql = "SELECT count(*) FROM Product WHERE type2=? ";
+    	jdbcUtil.setSqlAndParameters(sql, new Object[] {type2});  
     	int count = 0;
     	 try {
     		 ResultSet rs = jdbcUtil.executeQuery();

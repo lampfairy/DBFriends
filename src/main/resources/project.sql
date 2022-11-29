@@ -44,7 +44,10 @@ CREATE TABLE Product
 	status               NUMBER(1,0)  NULL ,
 	image                VARCHAR2(50)  NULL ,
 	name                 VARCHAR2(5)  NULL ,
+<<<<<<< HEAD
+=======
 	type                 NUMBER(1,0)  NULL
+>>>>>>> 37048a29f3c92cb50797a2700fa126831a93f1f3
 );
 
 CREATE UNIQUE INDEX XPKProduct ON Product
@@ -122,3 +125,14 @@ CONSTRAINT Reserve FOREIGN KEY (userId) REFERENCES Customer (userId));
 ALTER TABLE Review
 	ADD (
 CONSTRAINT Review FOREIGN KEY (reservationId) REFERENCES Reservation (reservationId));
+
+ALTER TABLE Product
+	ADD type1 number(1) NOT NULL;
+	
+ALTER TABLE Product
+	ADD type2 number(1) NOT NULL;
+
+ALTER TABLE Product
+	ADD type3 number(1) NOT NULL;	
+	
+ALTER TABLE Prodcut DROP COLUMN type;
