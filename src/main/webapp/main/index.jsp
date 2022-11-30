@@ -89,7 +89,7 @@
 		<jsp:include page = "../prod/list.jsp"/>
 		</div>
 		<!-- 개수자랑 --><br><br><br><br>
-		<div style="text-align:center;font-size:24px">서울 내 인기 여행지</div><br><br>
+		<div style="text-align:center;font-size:24px"></div><br><br>
 		<div class = "count">
 			<div class = "count2">맛집&nbsp; ${restaurant}개</div>
 			<div class = "count1">숙소&nbsp; ${activity}개</div>
