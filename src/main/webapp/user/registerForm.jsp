@@ -136,7 +136,6 @@
 		    </table><br>
 			<div class = "btnBox">
 				<input type="submit" value="회원 가입" onClick="userCreate()" class = "btn"> &nbsp;
-				<input type="button" value="목록" onClick="userList('<c:url value='/user/list' />')" class = "btn">
 			</div>
 		</form>
 	</div>
