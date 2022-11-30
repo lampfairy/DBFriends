@@ -67,7 +67,7 @@
 	<hr>
 	<div class = "layout">
 		<!-- 회원정보 폼 -->
-		<form class = "form" method="POST" action="<c:url value='/main/myPage' />">
+		<form class = "form" method="POST" action="<c:url value='/user/update' />">
 			<!-- 회원가입이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
 	       <c:if test="${registerFailed}">
 		      <font color="red"><c:out value="${exception.getMessage()}" /></font>
