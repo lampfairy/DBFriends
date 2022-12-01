@@ -18,11 +18,12 @@ public class UserDAO {
     //�� ���
     public int create(User Customer) throws SQLException {
         String sql = "INSERT INTO Customer (userId, name, userPw, phoneNumber, "
-                + "emailAddress, birthDate) "
-                    + "VALUES (?, ?, ?, ?, ?, ?)";     
+                + "emailAddress, birthDate, bankName, nameOnAccount, accountNumber) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ";     
         Object[] param = new Object[] {Customer.getUserId(), Customer.getName(), 
                 Customer.getUserPw(), Customer.getPhoneNumber(), Customer.getEmailAddress(), 
-                Customer.getBirthDate()};              
+                Customer.getBirthDate(), Customer.getBankName(), Customer.getNameOnAccount(),
+                Customer.getAccountNumber()};              
         jdbcUtil.setSqlAndParameters(sql, param);
         
         try {               
@@ -41,10 +42,12 @@ public class UserDAO {
     //�� ����
     public int update(User Customer) throws SQLException {
         String sql = "UPDATE Customer "
-                    + "SET name=?, userPw=?, phoneNumber=?, emailAddress=?, birthDate=? "
+                    + "SET name=?, userPw=?, phoneNumber=?, emailAddress=?, birthDate=?"
+                    + ", bankName=?, nameOnAccount=?, accountNumber=? "
                     + "WHERE userId=?";
         Object[] param = new Object[] {Customer.getName(), Customer.getUserPw(), Customer.getPhoneNumber(), 
-                Customer.getEmailAddress(), Customer.getBirthDate(), Customer.getUserId()};                
+                Customer.getEmailAddress(), Customer.getBirthDate(), 
+                Customer.getBankName(), Customer.getNameOnAccount(), Customer.getAccountNumber(), Customer.getUserId()};                
         jdbcUtil.setSqlAndParameters(sql, param);   
         
         try {               
@@ -82,7 +85,8 @@ public class UserDAO {
 
    //ȸ�� ���� ����
     public User findUser(String userId) throws SQLException {
-        String sql = "SELECT name, userPw, phoneNumber, emailAddress, birthDate "
+        String sql = "SELECT name, userPw, phoneNumber, emailAddress, birthDate, bankName,"
+        		+ "nameOnAccount, accountNumber "
                     + "FROM Customer "
                     + "WHERE userId=? ";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});   
@@ -96,7 +100,10 @@ public class UserDAO {
                     rs.getString("userPw"),
                     rs.getString("phoneNumber"),
                     rs.getString("emailAddress"),
-                    rs.getDate("birthDate"));
+                    rs.getDate("birthDate"),
+                    rs.getString("bankName"),
+                    rs.getString("nameOnAccount"),
+                    rs.getString("accountNumber"));
                 return Customer;
             }
         } catch (Exception ex) {
@@ -110,7 +117,7 @@ public class UserDAO {
     //ȸ������ ����Ʈ����
     public List<User> findUserList() throws SQLException {
         String sql = "SELECT userId, name, userPw, "
-                + "phoneNumber, emailAddress, birthDate " 
+                + "phoneNumber, emailAddress, birthDate, bankName, nameOnAccount, accountNumber " 
                    + "FROM Customer "
                    + "ORDER BY userId";
         jdbcUtil.setSqlAndParameters(sql, null);  
@@ -125,7 +132,10 @@ public class UserDAO {
                     rs.getString("userPw"),
                     rs.getString("phoneNumber"),
                     rs.getString("emailAddress"),
-                    rs.getDate("birthDate"));
+                    rs.getDate("birthDate"),
+                    rs.getString("bankName"),
+                    rs.getString("nameOnAccount"),
+                    rs.getString("accountNumber"));
                 CustomerList.add(Customer);   
             }       
             return CustomerList;                    

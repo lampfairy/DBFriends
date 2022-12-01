@@ -9,6 +9,9 @@ public class User {
     private String phoneNumber;
     private String emailAddress;
     private Date birthDate;
+    private String bankName;
+    private String nameOnAccount;
+    private String accountNumber;
     
     public User() {
         super();
@@ -33,8 +36,22 @@ public class User {
         this.emailAddress = emailAddress;
         this.birthDate = birthDate;
     }
-    
-    public String getName() {
+    // all
+    public User(String name, String userId, String userPw, String phoneNumber, String emailAddress, Date birthDate,
+			String bankName, String nameOnAccount, String accountNumber) {
+		super();
+		this.name = name;
+		this.userId = userId;
+		this.userPw = userPw;
+		this.phoneNumber = phoneNumber;
+		this.emailAddress = emailAddress;
+		this.birthDate = birthDate;
+		this.bankName = bankName;
+		this.nameOnAccount = nameOnAccount;
+		this.accountNumber = accountNumber;
+	}
+
+	public String getName() {
         return name;
     }
     public void setName(String name) {
@@ -70,12 +87,33 @@ public class User {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
-    @Override
-    public String toString() {
-        return "Customer [name=" + name + ", userId=" + userId + ", userPw=" + userPw + ", phoneNumber=" + phoneNumber
-                + ", emailAddress=" + emailAddress + ", birthDate=" + birthDate + "]";
-    }
+    public String getBankName() {
+		return bankName;
+	}
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+	public String getNameOnAccount() {
+		return nameOnAccount;
+	}
+	public void setNameOnAccount(String nameOnAccount) {
+		this.nameOnAccount = nameOnAccount;
+	}
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", userId=" + userId + ", userPw=" + userPw + ", phoneNumber=" + phoneNumber
+				+ ", emailAddress=" + emailAddress + ", birthDate=" + birthDate + ", bankName=" + bankName
+				+ ", nameOnAccount=" + nameOnAccount + ", accountNumber=" + accountNumber + "]";
+	}
     
+	
     /* 비밀번호 검사 */
     public boolean matchPassword(String userPw) {
         if (userPw == null) {

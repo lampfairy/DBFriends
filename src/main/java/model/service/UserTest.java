@@ -44,10 +44,16 @@ public class UserTest {
         String email = scanner.next();
         System.out.print("birthDate : ");
         String birthDate = scanner.next();
+        System.out.print("bankName : ");
+        String bankName = scanner.next();
+        System.out.print("nameOnAccount : ");
+        String nameOnAccount = scanner.next();
+        System.out.print("accountNumber : ");
+        String accountNumber = scanner.next();
         try {
         Date date = transformDate(birthDate);
         
-        User user = new User(name, userId, userPw, phoneNumber, email, date);
+        User user = new User(name, userId, userPw, phoneNumber, email, date, bankName, nameOnAccount, accountNumber);
         System.out.println(user.toString());
         int num = dao.create(user);
         System.out.println(num);

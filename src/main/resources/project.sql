@@ -131,4 +131,15 @@ ALTER TABLE Product
 ALTER TABLE Product
 	ADD type3 number(1) NOT NULL;	
 	
-ALTER TABLE Prodcut DROP COLUMN type;
+ALTER TABLE Product DROP COLUMN type;
+
+ALTER TABLE Customer
+	ADD Bankname VARCHAR2(10);
+
+ALTER TABLE Customer
+	ADD NameOnAccount VARCHAR2(5);
+	
+ALTER TABLE Customer
+	ADD AccountNumber VARCHAR2(20);
+
+DROP TABLE AccountDetails;
