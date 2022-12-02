@@ -95,7 +95,7 @@
 				<td width="150" align="center">비밀번호 확인</td>
 				<td width="250" style="padding-left:10px">
 					<input type="password" style="width:230px" name="password2"
-					<c:if test="${registerFailed}">value="${user.password2}"</c:if>>
+					<c:if test="${registerFailed}">value="${user.userPw}"</c:if>>
 				</td>
 			  </tr>
 			  <tr>
@@ -125,6 +125,12 @@
 					<input type="radio" name="bankName" value="nonghyup">농협
 					<input type="radio" name="bankName" value="woori">우리
 					<input type="radio" name="bankName" value="shinhan">신한
+				</td>
+			  </tr>
+			  <tr>
+				<td width="150" align="center">계좌주 명</td>
+				<td width="250" style="padding-left:10px">
+					<input type="text" style="width:230px" name="nameOnAccount" >
 				</td>
 			  </tr>
 			  <tr>

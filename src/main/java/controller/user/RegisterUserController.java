@@ -33,13 +33,9 @@ public class RegisterUserController implements Controller {
                 request.getParameter("userPw"),
                 request.getParameter("phoneNumber"),
                 request.getParameter("emailAddress"),
-                date
-                );
-
-        AccountDetails ad = new AccountDetails(
-                request.getParameter("userId"),
+                date,
                 request.getParameter("bankName"),
-                request.getParameter("name"),
+                request.getParameter("nameOnAccount"),
                 request.getParameter("accountNumber")
                 );
 

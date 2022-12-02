@@ -13,6 +13,9 @@ CREATE TABLE Customer
 	emailAddress         VARCHAR2(30)  NULL ,
 	birthDate            DATE  NULL ,
 	userId               VARCHAR2(12)  NOT NULL 
+	bankName             VARCHAR2(10)  NULL ,
+	nameOnAccount        VARCHAR2(5)  NULL ,
+	accountNumber        VARCHAR2(20)  NULL
 );
 
 CREATE UNIQUE INDEX XPKCustomer ON Customer
@@ -21,19 +24,6 @@ CREATE UNIQUE INDEX XPKCustomer ON Customer
 ALTER TABLE Customer
 	ADD CONSTRAINT  XPKCustomer PRIMARY KEY (userId);
 
-CREATE TABLE AccountDetails
-(
-	bankName             VARCHAR2(10)  NULL ,
-	nameOnAccount        VARCHAR2(5)  NULL ,
-	accountNumber        VARCHAR2(20)  NULL ,
-	userId               VARCHAR2(12)  NOT NULL 
-);
-
-CREATE UNIQUE INDEX XPKAccountDetails ON AccountDetails
-(userId   ASC);
-
-ALTER TABLE AccountDetails
-	ADD CONSTRAINT  XPKAccountDetails PRIMARY KEY (userId);
 
 CREATE TABLE Product
 (

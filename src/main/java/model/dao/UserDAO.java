@@ -15,7 +15,6 @@ public class UserDAO {
         jdbcUtil = new JDBCUtil();
     }
     
-    //�� ���
     public int create(User Customer) throws SQLException {
         String sql = "INSERT INTO Customer (userId, name, userPw, phoneNumber, "
                 + "emailAddress, birthDate, bankName, nameOnAccount, accountNumber) "
@@ -38,8 +37,7 @@ public class UserDAO {
         }       
         return 0;           
     }
-
-    //�� ����
+    
     public int update(User Customer) throws SQLException {
         String sql = "UPDATE Customer "
                     + "SET name=?, userPw=?, phoneNumber=?, emailAddress=?, birthDate=?"
@@ -64,7 +62,6 @@ public class UserDAO {
         return 0;
     }
 
-   //ȸ�� ����
     public int remove(String userId) throws SQLException {
         String sql = "DELETE FROM Customer WHERE userId=?";     
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});   
@@ -82,13 +79,12 @@ public class UserDAO {
         }       
         return 0;
     }
-
-   //ȸ�� ���� ����
+    
     public User findUser(String userId) throws SQLException {
-        String sql = "SELECT name, userPw, phoneNumber, emailAddress, birthDate, bankName,"
-        		+ "nameOnAccount, accountNumber "
+        String sql = "SELECT name, userPw, phoneNumber, emailAddress, birthDate, "
+        		+ "bankName, nameOnAccount, accountNumber "
                     + "FROM Customer "
-                    + "WHERE userId=? ";              
+                    + "WHERE userId=?";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});   
         
         try {
@@ -114,7 +110,6 @@ public class UserDAO {
         return null;
     }
 
-    //ȸ������ ����Ʈ����
     public List<User> findUserList() throws SQLException {
         String sql = "SELECT userId, name, userPw, "
                 + "phoneNumber, emailAddress, birthDate, bankName, nameOnAccount, accountNumber " 
@@ -148,7 +143,6 @@ public class UserDAO {
         return null;
     }
 
-    //���̵� �ߺ� Ȯ��
     public boolean existingUser(String userId) throws SQLException {
         String sql = "SELECT count(*) FROM Customer WHERE userId=?";      
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});  
