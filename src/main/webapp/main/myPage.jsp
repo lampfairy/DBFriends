@@ -123,10 +123,9 @@
 			  <tr>
 				<td width="150" align="center">ÀºÇà¸í</td>
 				<td width="250" style="padding-left:10px">
-					<input type="radio" name="bankName" value="kookmin">±¹¹Î
-					<input type="radio" name="bankName" value="nonghyup">³óÇù
-					<input type="radio" name="bankName" value="woori">¿ì¸®
-					<input type="radio" name="bankName" value="shinhan">½ÅÇÑ	
+					<input type="text" style="width:230px" name="bankName" value="${user.bankName}"
+					placeholder = "±¹¹Î/³óÇù/¿ì¸®/½ÅÇÑ Áß¿¡ ÀÔ·ÂÇÏ¼¼¿ä."
+						<c:if test="${registerFailed}">value="${user.bankName}"</c:if>>
 				</td>
 			  </tr>
 			  <tr>
