@@ -78,13 +78,11 @@ td {
 				</tr>
 				<tr>
 					<td>시작날짜</td>
-					<td><input type="text" style="width: 230px" name="startDate"
-						placeholder="ex.2013-01-01"></td>
+					<td><input type="date" style="width: 230px" name="startDate"></td>
 				</tr>
 				<tr>
 					<td>마지막날짜</td>
-					<td><input type="text" style="width: 230px" name="endDate"
-						placeholder="ex.2013-01-05"></td>
+					<td><input type="date" style="width: 230px" name="endDate"></td>
 				</tr>
 				<tr>
 					<td>인원수</td>
