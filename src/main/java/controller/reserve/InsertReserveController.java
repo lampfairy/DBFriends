@@ -33,7 +33,6 @@ public class InsertReserveController implements Controller {
 			ReserveManager manager = ReserveManager.getInstance();
 			manager.create(reserve);
 	        return "/main/myPage"; /// 수정
-	        
 		} catch (ExistingException e) {	// 예외 발생 시
             request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);

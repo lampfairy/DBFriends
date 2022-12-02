@@ -12,6 +12,11 @@ import model.service.UserManager;
 
 public class ViewReserveFormController implements Controller{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// 로그인 여부 확인
+        if (!UserSessionUtils.hasLogined(request.getSession())) {
+            return "redirect:/user/loginForm";     // login form 요청으로 redirect
+        }
+        
 		String id = UserSessionUtils.getLoginUserId(request.getSession());
 		UserManager manager = UserManager.getInstance();
 		User user = manager.findUser(id);
