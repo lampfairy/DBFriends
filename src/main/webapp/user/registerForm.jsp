@@ -121,13 +121,13 @@
 		  	  <tr>
 				<td width="150" align="center">ÀºÇà</td>
 				<td width="250">
-					<input type="radio" name="bankName" value="kookmin"
+					<input type="radio" name="bankName" value="±¹¹Î"
 					<c:if test="${registerFailed}">value="${user.bankName}"</c:if>>±¹¹Î
-					<input type="radio" name="bankName" value="nonghyup"
+					<input type="radio" name="bankName" value="³óÇù"
 					<c:if test="${registerFailed}">value="${user.bankName}"</c:if>>³óÇù
-					<input type="radio" name="bankName" value="woori"
+					<input type="radio" name="bankName" value="¿ì¸®"
 					<c:if test="${registerFailed}">value="${user.bankName}"</c:if>>¿ì¸®
-					<input type="radio" name="bankName" value="shinhan"
+					<input type="radio" name="bankName" value="½ÅÇÑ"
 					<c:if test="${registerFailed}">value="${user.bankName}"</c:if>>½ÅÇÑ
 				</td>
 			  </tr>
@@ -136,12 +136,6 @@
 				<td width="250" style="padding-left:10px">
 					<input type="text" style="width:230px" name="nameOnAccount" 
 					<c:if test="${registerFailed}">value="${user.nameOnAccount}"</c:if>>
-				</td>
-			  </tr>
-			  <tr>
-				<td width="150" align="center">°èÁÂÁÖ ¸í</td>
-				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="nameOnAccount" >
 				</td>
 			  </tr>
 			  <tr>
