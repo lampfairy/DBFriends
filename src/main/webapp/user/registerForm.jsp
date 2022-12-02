@@ -42,7 +42,9 @@
 				alert("전화번호 형식이 올바르지 않습니다.");
 				form.phone.focus();
 				return false;
-			}-->
+			}
+			
+			-->
 			var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 			if(emailExp.test(form.email.value)==false) {
 				alert("이메일 형식이 올바르지 않습니다.");
