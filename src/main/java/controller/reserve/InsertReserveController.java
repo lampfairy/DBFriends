@@ -18,7 +18,7 @@ public class InsertReserveController implements Controller {
        	
        	Date startDate = transformDate(request.getParameter("startDate"));
        	Date endDate = transformDate(request.getParameter("endDate"));
-       	Reservation reserv = new Reservation(
+       	Reservation reserve = new Reservation(
        			Integer.parseInt(request.getParameter("reservationId")), 
        			Integer.parseInt(request.getParameter("productId")), 
        			startDate,
@@ -31,14 +31,14 @@ public class InsertReserveController implements Controller {
 
 		try {
 			ReserveManager manager = ReserveManager.getInstance();
-			manager.create(reserv);
-	        return "redirect:/main/reserve"; /// 수정
+			manager.create(reserve);
+	        return "/main/myPage"; /// 수정
 	        
 		} catch (ExistingException e) {	// 예외 발생 시
             request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
-			request.setAttribute("reservation", reserv);
-			return "/reserve/insert.jsp"; /// 수정
+			request.setAttribute("reservation", reserve);
+			return "/reserve/reserve.jsp"; /// 수정
 		}
     }
 	
