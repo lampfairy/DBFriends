@@ -120,6 +120,30 @@
 						<c:if test="${registerFailed}">value="${user.birthDate}"</c:if>>
 				</td>
 			  </tr>
+			  <tr>
+				<td width="150" align="center">은행명</td>
+				<td width="250" style="padding-left:10px">
+					<input type="radio" name="bankName" value="kookmin">국민
+					<input type="radio" name="bankName" value="nonghyup">농협
+					<input type="radio" name="bankName" value="woori">우리
+					<input type="radio" name="bankName" value="shinhan">신한	
+				</td>
+			  </tr>
+			  <tr>
+				<td width="150" align="center">예금주</td>
+				<td width="250" style="padding-left:10px">
+					<input type="text" style="width:230px" name="nameOnAccount" value="${user.nameOnAccount}"
+						<c:if test="${registerFailed}">value="${user.nameOnAccount}"</c:if>>
+				</td>
+			  </tr>	
+			  <tr>
+				<td width="150" align="center">계좌번호</td>
+				<td width="250" style="padding-left:10px">
+					<input type="text" style="width:230px" name="accountNumber" value="${user.accountNumber}"
+						<c:if test="${registerFailed}">value="${user.accountNumber}"</c:if>>
+				</td>
+
+			  </tr>
 		    </table><br>
 			<div class = "btnBox">
 				<input type="submit" value="수정" onClick="userCreate()" class = "btn">

@@ -60,7 +60,10 @@ public class UpdateUserController implements Controller {
                 request.getParameter("userPw"),
                 request.getParameter("phoneNumber"),
                 request.getParameter("emailAddress"),
-                date
+                date,
+                request.getParameter("bankName"),
+                request.getParameter("nameOnAccount"),
+                request.getParameter("accountNumber")
         );
 
     	log.debug("Update User : {}", updateUser);

@@ -121,16 +121,28 @@
 		  	  <tr>
 				<td width="150" align="center">ÀºÇà</td>
 				<td width="250">
-					<input type="radio" name="bankName" value="kookmin">±¹¹Î
-					<input type="radio" name="bankName" value="nonghyup">³óÇù
-					<input type="radio" name="bankName" value="woori">¿ì¸®
-					<input type="radio" name="bankName" value="shinhan">½ÅÇÑ
+					<input type="radio" name="bankName" value="kookmin"
+					<c:if test="${registerFailed}">value="${user.bankName}"</c:if>>±¹¹Î
+					<input type="radio" name="bankName" value="nonghyup"
+					<c:if test="${registerFailed}">value="${user.bankName}"</c:if>>³óÇù
+					<input type="radio" name="bankName" value="woori"
+					<c:if test="${registerFailed}">value="${user.bankName}"</c:if>>¿ì¸®
+					<input type="radio" name="bankName" value="shinhan"
+					<c:if test="${registerFailed}">value="${user.bankName}"</c:if>>½ÅÇÑ
+				</td>
+			  </tr>
+			  <tr>
+				<td width="150" align="center">¿¹±ÝÁÖ</td>
+				<td width="250" style="padding-left:10px">
+					<input type="text" style="width:230px" name="nameOnAccount" 
+					<c:if test="${registerFailed}">value="${user.nameOnAccount}"</c:if>>
 				</td>
 			  </tr>
 			  <tr>
 				<td width="150" align="center">°èÁÂ¹øÈ£</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="accountNumber" >
+					<input type="text" style="width:230px" name="accountNumber" 
+					<c:if test="${registerFailed}">value="${user.accountNumber}"</c:if>>
 				</td>
 			  </tr>
 		    </table><br>
