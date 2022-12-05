@@ -29,13 +29,9 @@
 			<div>이미지</div>
 			<div>이미지</div>
 			<div>이미지</div>
-		</div>
-		<form>
-			<input type = "text" placeholder="키워드 검색" name = "keySearch" class = "key"/>
-			<input type = "submit" value = "검색" class = "sub"/>
-		</form>
-		<!-- 리뷰 목록 -->
-		<jsp:include page = "../review/list.jsp"/>
+		</div><br><br><br><br>
+		<!-- 상품 목록 -->
+		<jsp:include page = "../prod/list.jsp"/>
 	</div>
 </body>
 </html>
