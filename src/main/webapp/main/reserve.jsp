@@ -26,6 +26,7 @@
 <body>
 	<!-- 로고와 메뉴 -->
 	<jsp:include page = "menu.jsp"/>
+	<hr>
 	<!-- 이벤트 배너 -->
 	<div class="event">
 	</div>

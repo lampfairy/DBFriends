@@ -32,7 +32,7 @@ public class InsertReserveController implements Controller {
 		try {
 			ReserveManager manager = ReserveManager.getInstance();
 			manager.create(reserv);
-	        return "redirect:/main/reserve";
+	        return "/main/myPage.jsp";
 	        
 		} catch (ExistingException e) {	// 예외 발생 시
             request.setAttribute("registerFailed", true);

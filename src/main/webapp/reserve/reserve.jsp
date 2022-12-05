@@ -73,10 +73,6 @@ td {
 					<td><input type="text" style="width: 230px" name="productId" value="${product.productId}" readonly></td>
 				</tr>
 				<tr>
-					<td>예약 리스트</td>
-					<td><input type="text" style="width: 230px" name="reservationList" placeholder="ex.1"></td>
-				</tr>
-				<tr>
 					<td>시작날짜</td>
 					<td><input type="date" style="width: 230px" name="startDate"></td>
 				</tr>

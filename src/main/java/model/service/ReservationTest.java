@@ -97,178 +97,178 @@ public class ReservationTest {
         System.out.print("userId : ");
         String userId = scanner.next();
 
-        try {
-            Date sdate = transformDate(startDate);
-            Date edate = transformDate(endDate);
+//        try {
+//            Date sdate = transformDate(startDate);
+//            Date edate = transformDate(endDate);
+//
+//            Reservation res = new Reservation(reservationId, productId, sdate, edate, headCount, price, reservationList, userId);    
+//
+//            System.out.println(res.toString());
+//            num = dao.create(res);
+//            System.out.println(num);
 
-            Reservation res = new Reservation(reservationId, productId, sdate, edate, headCount, price, reservationList, userId);    
-
-            System.out.println(res.toString());
-            num = dao.create(res);
-            System.out.println(num);
-
-            List<Reservation> list = dao.findReservationList();  
-
-            System.out.println("--------------------Reservation id --------------------");
-            if(list != null) {
-                for(int i = 0; i < list.size(); i++) {
-                    Reservation r = list.get(i);
-                    int n = r.getReservationId();
-                    System.out.printf("%d \n", n);
-                }
-            }
-            System.out.println();
-
-            System.out.println("update");
-            System.out.print("update reservationId : ");
-            reservationId = scanner.nextInt();
-            try {
-                while(!dao.existingReservation(reservationId)) {
-                    System.out.println(reservationId + " isn't found ");
-                    System.out.print("update reservationId : ");
-                    reservationId = scanner.nextInt();
-                }
-            } catch (SQLException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-
-            res = dao.findReservation(reservationId);
-            
-            System.out.println();
-            list_p = dao_p.findProductList();
-
-            System.out.println("-----------a list of products available for reservation-----------");
-            if(list_p != null) {
-                for(int i = 0; i < list_p.size(); i++) {
-                    Product c = list_p.get(i);
-                    int n = c.getProductId();
-                    System.out.printf("%d \t", n);
-                    if(i != 0 && i % 10 == 0)
-                        System.out.println();
-                }
-            }
-            System.out.println();
-            System.out.println();
-
-            System.out.print("productId : " + res.getProductId() + "→ ");
-            productId = scanner.nextInt();
-            
-            System.out.print("startDate : " + res.getStartDate() + "→ ");
-            startDate = scanner.next();
-            System.out.print("endDate : " + res.getEndDate() + "→ ");
-            endDate = scanner.next();
-            while(startDate.compareTo(endDate) > 0) {
-                System.out.println("The end date cannot be earlier than the start date");
-                System.out.print("startDate : ");
-                startDate = scanner.next();
-                System.out.print("endDate : ");
-                endDate = scanner.next();
-            }
-            sdate = transformDate(startDate);
-            edate = transformDate(endDate);
-
-            if(productId == p.getProductId()) {
-                p.setStatus(p.getStatus() + res.getHeadCount());
-                p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType1(), p.getType2(), p.getType3());
-            }
-            else
-                p = dao_p.findProduct(productId);
-                
-            
-            System.out.println("Number of people available for reservation: " + p.getStatus());
-            System.out.print("headCount : " + res.getHeadCount() + "→ ");
-            headCount = scanner.nextInt();
-            while(headCount > p.getStatus()) {
-                System.out.println("overstaffed");
-                System.out.print("headCount : ");
-                headCount = scanner.nextInt();
-            }
-            p.setStatus(p.getStatus() - headCount);
-            p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType1(), p.getType2(), p.getType3());
-            
-            price = p.getPrice() * headCount;
-            System.out.println("price(the amount to be paid): " + price);
-            System.out.print("reservationList : " + res.getReservationList() + "→ ");
-            reservationList = scanner.nextInt();
-            System.out.print("userId : " + res.getUserId());
-            userId = res.getUserId();
-            System.out.println();
-
-            res = new Reservation(reservationId, productId, sdate, edate, headCount, price, reservationList, userId);
-            num = dao.update(res);
-
-            System.out.println(res.toString());
-            System.out.println(num);
-            
-            list = dao.findReservationList();  
-
-            System.out.println("--------------------Reservation id --------------------");
-            if(list != null) {
-                for(int i = 0; i < list.size(); i++) {
-                    Reservation r = list.get(i);
-                    int n = r.getReservationId();
-                    System.out.printf("%d \n", n);
-                }
-            }
-
-            System.out.println("remove");
-            System.out.print("remove reservationId : ");
-            reservationId = scanner.nextInt();
-            try {
-                while(!dao.existingReservation(reservationId)) {
-                    System.out.println(reservationId + " isn't found ");
-                    System.out.print("remove reservationId : ");
-                    reservationId = scanner.nextInt();
-                }
-            } catch (SQLException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            
-            num = dao.remove(reservationId);
-
-            System.out.println(num);
-
-            list = dao.findReservationList();  
-
-            System.out.println("--------------------Reservation id--------------------");
-            if(list != null) {
-                for(int i = 0; i < list.size(); i++) {
-                    Reservation r = list.get(i);
-                    int n = r.getReservationId();
-                    System.out.printf("%d \n", n);
-                }
-            }
-
-            System.out.println("findReservation");
-            System.out.print("find reservationId : ");
-            reservationId = scanner.nextInt();
-            try {
-                while(!dao.existingReservation(reservationId)) {
-                    System.out.println(reservationId + " isn't found ");
-                    System.out.print("find reservationId : ");
-                    reservationId = scanner.nextInt();
-                }
-            } catch (SQLException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            res = dao.findReservation(reservationId);
-            System.out.println(res.toString());
-
-            //        System.out.println("existingProduct�삁�젣");
-            //        System.out.print("id : ");
-            //        productId = scanner.next();
-            //        Boolean n = dao.existingProduct(productId);
-            //        System.out.println(n);
-
-
-        } catch(Exception e) {
-            System.out.println("");
-        } finally {
-            scanner.close();
-        }
+//            List<Reservation> list = dao.findReservationList();  
+//
+//            System.out.println("--------------------Reservation id --------------------");
+//            if(list != null) {
+//                for(int i = 0; i < list.size(); i++) {
+//                    Reservation r = list.get(i);
+//                    int n = r.getReservationId();
+//                    System.out.printf("%d \n", n);
+//                }
+//            }
+//            System.out.println();
+//
+//            System.out.println("update");
+//            System.out.print("update reservationId : ");
+//            reservationId = scanner.nextInt();
+//            try {
+//                while(!dao.existingReservation(reservationId)) {
+//                    System.out.println(reservationId + " isn't found ");
+//                    System.out.print("update reservationId : ");
+//                    reservationId = scanner.nextInt();
+//                }
+//            } catch (SQLException e1) {
+//                // TODO Auto-generated catch block
+//                e1.printStackTrace();
+//            }
+//
+//            res = dao.findReservation(reservationId);
+//            
+//            System.out.println();
+//            list_p = dao_p.findProductList();
+//
+//            System.out.println("-----------a list of products available for reservation-----------");
+//            if(list_p != null) {
+//                for(int i = 0; i < list_p.size(); i++) {
+//                    Product c = list_p.get(i);
+//                    int n = c.getProductId();
+//                    System.out.printf("%d \t", n);
+//                    if(i != 0 && i % 10 == 0)
+//                        System.out.println();
+//                }
+//            }
+//            System.out.println();
+//            System.out.println();
+//
+//            System.out.print("productId : " + res.getProductId() + "→ ");
+//            productId = scanner.nextInt();
+//            
+//            System.out.print("startDate : " + res.getStartDate() + "→ ");
+//            startDate = scanner.next();
+//            System.out.print("endDate : " + res.getEndDate() + "→ ");
+//            endDate = scanner.next();
+//            while(startDate.compareTo(endDate) > 0) {
+//                System.out.println("The end date cannot be earlier than the start date");
+//                System.out.print("startDate : ");
+//                startDate = scanner.next();
+//                System.out.print("endDate : ");
+//                endDate = scanner.next();
+//            }
+//            sdate = transformDate(startDate);
+//            edate = transformDate(endDate);
+//
+//            if(productId == p.getProductId()) {
+//                p.setStatus(p.getStatus() + res.getHeadCount());
+//                p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType1(), p.getType2(), p.getType3());
+//            }
+//            else
+//                p = dao_p.findProduct(productId);
+//                
+//            
+//            System.out.println("Number of people available for reservation: " + p.getStatus());
+//            System.out.print("headCount : " + res.getHeadCount() + "→ ");
+//            headCount = scanner.nextInt();
+//            while(headCount > p.getStatus()) {
+//                System.out.println("overstaffed");
+//                System.out.print("headCount : ");
+//                headCount = scanner.nextInt();
+//            }
+//            p.setStatus(p.getStatus() - headCount);
+//            p = new Product(p.getProductId(), p.getLocation(), p.getPrice(), p.getDescription(), p.getStatus(), p.getImage(), p.getName(), p.getType1(), p.getType2(), p.getType3());
+//            
+//            price = p.getPrice() * headCount;
+//            System.out.println("price(the amount to be paid): " + price);
+//            System.out.print("reservationList : " + res.getReservationList() + "→ ");
+//            reservationList = scanner.nextInt();
+//            System.out.print("userId : " + res.getUserId());
+//            userId = res.getUserId();
+//            System.out.println();
+//
+//            res = new Reservation(reservationId, productId, sdate, edate, headCount, price, reservationList, userId);
+//            num = dao.update(res);
+//
+//            System.out.println(res.toString());
+//            System.out.println(num);
+//            
+//            list = dao.findReservationList();  
+//
+//            System.out.println("--------------------Reservation id --------------------");
+//            if(list != null) {
+//                for(int i = 0; i < list.size(); i++) {
+//                    Reservation r = list.get(i);
+//                    int n = r.getReservationId();
+//                    System.out.printf("%d \n", n);
+//                }
+//            }
+//
+//            System.out.println("remove");
+//            System.out.print("remove reservationId : ");
+//            reservationId = scanner.nextInt();
+//            try {
+//                while(!dao.existingReservation(reservationId)) {
+//                    System.out.println(reservationId + " isn't found ");
+//                    System.out.print("remove reservationId : ");
+//                    reservationId = scanner.nextInt();
+//                }
+//            } catch (SQLException e1) {
+//                // TODO Auto-generated catch block
+//                e1.printStackTrace();
+//            }
+//            
+//            num = dao.remove(reservationId);
+//
+//            System.out.println(num);
+//
+//            list = dao.findReservationList();  
+//
+//            System.out.println("--------------------Reservation id--------------------");
+//            if(list != null) {
+//                for(int i = 0; i < list.size(); i++) {
+//                    Reservation r = list.get(i);
+//                    int n = r.getReservationId();
+//                    System.out.printf("%d \n", n);
+//                }
+//            }
+//
+//            System.out.println("findReservation");
+//            System.out.print("find reservationId : ");
+//            reservationId = scanner.nextInt();
+//            try {
+//                while(!dao.existingReservation(reservationId)) {
+//                    System.out.println(reservationId + " isn't found ");
+//                    System.out.print("find reservationId : ");
+//                    reservationId = scanner.nextInt();
+//                }
+//            } catch (SQLException e1) {
+//                // TODO Auto-generated catch block
+//                e1.printStackTrace();
+//            }
+//            res = dao.findReservation(reservationId);
+//            System.out.println(res.toString());
+//
+//            //        System.out.println("existingProduct�삁�젣");
+//            //        System.out.print("id : ");
+//            //        productId = scanner.next();
+//            //        Boolean n = dao.existingProduct(productId);
+//            //        System.out.println(n);
+//
+//
+//        } catch(Exception e) {
+//            System.out.println("");
+//        } finally {
+//            scanner.close();
+//        }
     }
 
     public static Date transformDate(String date)

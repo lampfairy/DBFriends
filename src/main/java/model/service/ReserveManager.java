@@ -47,8 +47,8 @@ public class ReserveManager {
         return prod;
     }
 
-    public List<Reservation> findReservationList() throws SQLException {
-            return resvDAO.findReservationList();
+    public List<Reservation> findReservationList(String userId) throws SQLException {
+            return resvDAO.findReservationList(userId);
     }
     
     public ReservationDAO getresvDAO() {

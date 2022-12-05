@@ -109,10 +109,11 @@ public class ReservationDAO {
     }
 
     //find Reservation List
-    public List<Reservation> findReservationList() throws SQLException {
+    public List<Reservation> findReservationList(String userId) throws SQLException {
         String sql = "SELECT reservationId, productId, startDate, endDate, "
-                + "headCount, price, reservationList, userId "
+                + "headCount, price, reservationList "
                     + "FROM Reservation "
+                    + "WHERE userId=? "
                     + "ORDER BY reservationId";
         jdbcUtil.setSqlAndParameters(sql, null);  
                     
@@ -128,7 +129,7 @@ public class ReservationDAO {
                         rs.getInt("headCount"),
                         rs.getInt("price"),
                         rs.getInt("reservationList"),
-                        rs.getString("userId"));
+                        userId);
                 ReservationList.add(Reservation);   
             }       
             return ReservationList;                    

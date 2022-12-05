@@ -11,6 +11,13 @@ import controller.Controller;
 import controller.user.UserSessionUtils;
 import model.User;
 import model.service.UserManager;
+import model.Reservation;
+import model.service.ProdManager;
+import model.Product;
+import model.service.ReserveManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GotoMyPageController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -34,7 +41,23 @@ public class GotoMyPageController implements Controller {
         UserManager manager = UserManager.getInstance();
         User user = manager.findUser(id);
         
-        request.setAttribute("user", user);     
+        ReserveManager rema = ReserveManager.getInstance();
+        List<Reservation> reserve = rema.findReservationList(id);
+        
+        ProdManager prodManager = ProdManager.getInstance();
+        List<Product> reserveList = new ArrayList<Product>();;
+        if(reserve != null) {
+            for(int i = 0; i < reserve.size(); i++) {
+                Product product = prodManager.findProduct((reserve.get(i)).getProductId());
+                reserveList.add(product);
+            }
+            request.setAttribute("user", user);    
+            request.setAttribute("reserveList", reserveList); 
+        }
+        else {
+            request.setAttribute("user", user);    
+            request.setAttribute("reserveList", null); 
+        }
 
         // 사용자 리스트 화면으로 이동(forwarding)
         return "/main/myPage.jsp";
