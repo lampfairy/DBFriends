@@ -14,6 +14,7 @@
 <body>
 	<c:choose>
 		<c:when test = "${reserveList == null}">
+			현재 예약한 곳이 없습니다.
 		</c:when>
 		<c:otherwise>
 			<form>

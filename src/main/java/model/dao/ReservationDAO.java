@@ -115,7 +115,7 @@ public class ReservationDAO {
                     + "FROM Reservation "
                     + "WHERE userId=? "
                     + "ORDER BY reservationId";
-        jdbcUtil.setSqlAndParameters(sql, null);  
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});  
                     
         try {
             ResultSet rs = jdbcUtil.executeQuery();           

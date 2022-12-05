@@ -8,14 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
+import controller.user.UserSessionUtils;
 import model.Reservation;
+import model.User;
 import model.service.ExistingException;
 import model.service.ReserveManager;
+import model.service.UserManager;
 
 public class InsertReserveController implements Controller {
 	@Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
        	
+	    String id = UserSessionUtils.getLoginUserId(request.getSession());
+        UserManager umanager = UserManager.getInstance();
+        User user = umanager.findUser(id);
+        request.setAttribute("user", user);
+	    
        	Date startDate = transformDate(request.getParameter("startDate"));
        	Date endDate = transformDate(request.getParameter("endDate"));
        	Reservation reserv = new Reservation(

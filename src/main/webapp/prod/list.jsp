@@ -35,6 +35,7 @@
 								이름 : ${prod.name}<br><br>
 								가격 : ${prod.price}<br><br>
 								위치 : ${prod.location}<br><br>
+								아이디 : ${prod.productId}<br><br>
 							</td>
 							<td>
 								<a href = "<c:url value='/prod/detail'>

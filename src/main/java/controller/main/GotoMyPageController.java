@@ -48,7 +48,7 @@ public class GotoMyPageController implements Controller {
         List<Product> reserveList = new ArrayList<Product>();;
         if(reserve != null) {
             for(int i = 0; i < reserve.size(); i++) {
-                Product product = prodManager.findProduct((reserve.get(i)).getProductId());
+                Product product = prodManager.findProduct(reserve.get(i).getProductId());
                 reserveList.add(product);
             }
             request.setAttribute("user", user);    
