@@ -17,11 +17,11 @@ public class ReservationDAO {
     
     //create Reservation
     public int create(Reservation Reservation) throws SQLException {
-        String sql = "INSERT INTO Reservation (reservationId, productId, startDate, endDate, "
-                + "headCount, price, reservationList, userId) "              
+        String sql = "INSERT INTO Reservation (reservationId, startDate, endDate, "
+                + "headCount, price, reservationList, productId, userId) "              
                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";     
-        Object[] param = new Object[] {Reservation.getReservationId(), Reservation.getProductId(), Reservation.getStartDate(), Reservation.getEndDate(),
-                Reservation.getHeadCount(), Reservation.getPrice(), Reservation.getReservationList(), Reservation.getUserId()};              
+        Object[] param = new Object[] {Reservation.getReservationId(), Reservation.getStartDate(), Reservation.getEndDate(),
+                Reservation.getHeadCount(), Reservation.getPrice(), Reservation.getReservationList(), Reservation.getProductId(), Reservation.getUserId()};              
         jdbcUtil.setSqlAndParameters(sql, param);
         
         try {               

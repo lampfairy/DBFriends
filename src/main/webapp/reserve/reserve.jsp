@@ -54,7 +54,7 @@ td {
 	<hr>
 	<div class="layout">
 		<!-- 예약 폼 -->
-		<form method="POST" action="<c:url value='/prod/insert' />">
+		<form name="form" method="POST" action="<c:url value='/prod/insert' />">
 			<table>
 				<caption
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">예약폼</caption>
@@ -102,7 +102,7 @@ td {
 				</tr>
 			</table>
 			<div class="btnBox">
-				<input type="submit" value="예약" class="btn">
+				<input type="submit" value="예약" class="btn"> &nbsp;
 			</div>
 		</form>
 	</div>
