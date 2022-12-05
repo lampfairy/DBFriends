@@ -33,7 +33,6 @@ public class InsertReserveController implements Controller {
        			endDate,
        			Integer.parseInt(request.getParameter("headCount")),
        			Integer.parseInt(request.getParameter("price")),
-       			Integer.parseInt(request.getParameter("reservationList")),
        			request.getParameter("userId")
        	);
 

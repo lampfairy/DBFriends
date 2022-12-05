@@ -9,7 +9,6 @@ public class Reservation {
     private Date endDate;
     private int headCount;
     private int price;
-    private int reservationList;
     private String userId;
     
     public int getReservationId() {
@@ -48,12 +47,6 @@ public class Reservation {
     public void setPrice(int price) {
         this.price = price;
     }
-    public int getReservationList() {
-        return reservationList;
-    }
-    public void setReservationList(int reservationList) {
-        this.reservationList = reservationList;
-    }
     public String getUserId() {
         return userId;
     }
@@ -64,7 +57,7 @@ public class Reservation {
     //Constructor
     
     public Reservation(int reservationId, int productId, Date startDate, Date endDate, int headCount, int price,
-            int reservationList, String userId) {
+            String userId) {
         super();
         this.reservationId = reservationId;
         this.productId = productId;
@@ -72,7 +65,6 @@ public class Reservation {
         this.endDate = endDate;
         this.headCount = headCount;
         this.price = price;
-        this.reservationList = reservationList;
         this.userId = userId;
     }
     
@@ -80,8 +72,8 @@ public class Reservation {
     @Override
     public String toString() {
         return "Reservation [reservationId=" + reservationId + ", productId=" + productId + ", startDate=" + startDate
-                + ", endDate=" + endDate + ", headCount=" + headCount + ", price=" + price + ", reservationList="
-                + reservationList + ", userId=" + userId + "]";
+                + ", endDate=" + endDate + ", headCount=" + headCount + ", price=" + price +
+                 ", userId=" + userId + "]";
     }
     
     
