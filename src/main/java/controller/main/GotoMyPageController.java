@@ -42,22 +42,9 @@ public class GotoMyPageController implements Controller {
         User user = manager.findUser(id);
         
         ReserveManager rema = ReserveManager.getInstance();
-        List<Reservation> reserve = rema.findReservationList(id);
-        
-        ProdManager prodManager = ProdManager.getInstance();
-        List<Product> reserveList = new ArrayList<Product>();;
-        if(reserve != null) {
-            for(int i = 0; i < reserve.size(); i++) {
-                Product product = prodManager.findProduct(reserve.get(i).getProductId());
-                reserveList.add(product);
-            }
-            request.setAttribute("user", user);    
-            request.setAttribute("reserveList", reserveList); 
-        }
-        else {
-            request.setAttribute("user", user);    
-            request.setAttribute("reserveList", null); 
-        }
+        List<Reservation> reserveList = rema.findReservationList(id);
+        request.setAttribute("user", user);    
+        request.setAttribute("reserveList", reserveList); 
 
         // 사용자 리스트 화면으로 이동(forwarding)
         return "/main/myPage.jsp";

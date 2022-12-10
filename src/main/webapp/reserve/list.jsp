@@ -28,7 +28,7 @@
 							<td style="text-align:left;height:20px;width:200px">${reserve.name}</td>
 							<td style="text-align:left;height:20px;width:130px">
 								<a href = "<c:url value='/reserve/detail'>
-									<c:param name = 'productId' value='${reserve.productId}' />
+									<c:param name = 'reservationId' value='${reserve.reservationId}' />
 									</c:url>">
 								예약 상세보기</a>
 							</td>

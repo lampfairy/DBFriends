@@ -18,10 +18,11 @@ public class ReservationDAO {
     //create Reservation
     public int create(Reservation Reservation) throws SQLException {
         String sql = "INSERT INTO Reservation (reservationId, startDate, endDate, "
-                + "headCount, price, productId, userId) "              
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";     
+                + "headCount, price, productId, userId, name) "              
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";     
         Object[] param = new Object[] {Reservation.getReservationId(), Reservation.getStartDate(), Reservation.getEndDate(),
-                Reservation.getHeadCount(), Reservation.getPrice(), Reservation.getProductId(), Reservation.getUserId()};              
+                Reservation.getHeadCount(), Reservation.getPrice(), Reservation.getProductId(), Reservation.getUserId(),
+                Reservation.getName()};              
         jdbcUtil.setSqlAndParameters(sql, param);
         
         try {               
@@ -81,7 +82,7 @@ public class ReservationDAO {
 
    //find Reservation
     public Reservation findReservation(int reservationId) throws SQLException {
-        String sql = "SELECT productId, startDate, endDate, headCount, price, userId "
+        String sql = "SELECT productId, startDate, endDate, headCount, price, userId, name "
                     + "FROM Reservation "
                     + "WHERE reservationId=? ";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
@@ -96,7 +97,8 @@ public class ReservationDAO {
                     rs.getDate("endDate"),
                     rs.getInt("headCount"),
                     rs.getInt("price"),
-                    rs.getString("userId"));
+                    rs.getString("userId"),
+                    rs.getString("name"));
                 return Reservation;
             }
         } catch (Exception ex) {
@@ -110,7 +112,7 @@ public class ReservationDAO {
     //find Reservation List
     public List<Reservation> findReservationList(String userId) throws SQLException {
         String sql = "SELECT reservationId, productId, startDate, endDate, "
-                + "headCount, price "
+                + "headCount, price, name "
                     + "FROM Reservation "
                     + "WHERE userId=? "
                     + "ORDER BY reservationId";
@@ -127,7 +129,9 @@ public class ReservationDAO {
                         rs.getDate("endDate"),
                         rs.getInt("headCount"),
                         rs.getInt("price"),
-                        userId);
+                        userId,
+                        rs.getString("name")
+                        );
                 ReservationList.add(Reservation);   
             }       
             return ReservationList;                    

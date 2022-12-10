@@ -19,7 +19,6 @@ public class DetailReserveController implements Controller {
         request.setAttribute("user", user);
         
         
-        
         return "/reserve/detail.jsp";
     }
 }

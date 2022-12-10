@@ -10,6 +10,7 @@ public class Reservation {
     private int headCount;
     private int price;
     private String userId;
+    private String name;
     
     public int getReservationId() {
         return reservationId;
@@ -53,11 +54,17 @@ public class Reservation {
     public void setUserId(String userId) {
         this.userId = userId;
     }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     
     //Constructor
     
     public Reservation(int reservationId, int productId, Date startDate, Date endDate, int headCount, int price,
-            String userId) {
+            String userId, String name) {
         super();
         this.reservationId = reservationId;
         this.productId = productId;
@@ -66,6 +73,7 @@ public class Reservation {
         this.headCount = headCount;
         this.price = price;
         this.userId = userId;
+        this.name = name;
     }
     
     //toString

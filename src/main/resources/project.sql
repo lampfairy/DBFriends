@@ -57,6 +57,7 @@ ALTER TABLE BookMark
 CREATE TABLE Reservation
 (
    reservationId        NUMBER(2,0)  NOT NULL ,
+   name                 VARCHAR2(10)  NULL,
    startDate            DATE  NULL ,
    endDate              DATE  NULL ,
    headCount            NUMBER(100,0)  NULL ,
@@ -103,6 +104,10 @@ CONSTRAINT bookMark2 FOREIGN KEY (userId) REFERENCES Customer (userId));
 ALTER TABLE Reservation
    ADD (
 CONSTRAINT include FOREIGN KEY (productId) REFERENCES Product (productId));
+
+ALTER TABLE Reservation
+   ADD (
+CONSTRAINT include FOREIGN KEY (name) REFERENCES Product (name));
 
 ALTER TABLE Reservation
    ADD (
