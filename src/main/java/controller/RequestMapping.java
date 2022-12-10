@@ -11,6 +11,7 @@ import controller.main.GotoMyPageController;
 import controller.main.GotoReservePageController;
 import controller.prod.DetailProdController;
 import controller.prod.FindListProdController;
+import controller.reserve.DetailReserveController;
 import controller.reserve.InsertReserveController;
 import controller.reserve.ViewReserveFormController;
 import controller.user.ListUserController;
@@ -42,7 +43,7 @@ public class RequestMapping {
 		mappings.put("/prod/reserve", new ViewReserveFormController());
 		mappings.put("/reserve/reserve", new InsertReserveController());
 		mappings.put("/prod/insert", new InsertReserveController());
-		
+		mappings.put("/reserve/detail", new DetailReserveController());
 		mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
 		mappings.put("/user/register", new RegisterUserController());
 		//        mappings.put("/user/update/form", new UpdateUserFormController());

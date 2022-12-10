@@ -8,15 +8,15 @@
 	<title>마이 페이지</title>
 	<style type="text/css">
 		.layout{margin:0px auto;width:1180px;padding:10px;font-size:18px}
-		table, td{border:2px solid powderBlue;border-collapse:collapse;}
-		table{margin:50px auto 0px auto}
+		.table, td{border:2px solid powderBlue;border-collapse:collapse;}
+		.table{margin:50px auto 0px auto}
 		td{height:40px}
 		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:powderBlue;
 		border:1px solid black;width:100px;height:30px}
 		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
 		.new{width:1180px;margin: 0px auto}
 		.new div{text-align:center;font-size:18px;width:330px;height:330px;
-		background-color:powderBlue;float:left;margin:0px 30px;line-height:330px;}
+		border:2px solid powderBlue;float:left;margin:0px 28px;}
 	</style>
 	<script>
 		function userCreate() {
@@ -72,7 +72,7 @@
 	       <c:if test="${registerFailed}">
 		      <font color="red"><c:out value="${exception.getMessage()}" /></font>
 		   </c:if>
-			<table>
+			<table class="table">
 				<caption style="text-align:center;font-size:24px;margin:0 0 50px 0">회원정보</caption>
 				<tr>
 					<td width="150" align="center">이름</td>
