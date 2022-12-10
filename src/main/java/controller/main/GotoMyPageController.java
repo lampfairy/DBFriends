@@ -62,6 +62,9 @@ public class GotoMyPageController implements Controller {
         List<Bookmark> bookmarkList = boma.findUserBookmarkList(id);
         request.setAttribute("bookmarkList", bookmarkList); 
         
+        List<Reservation> reserveList2 = rema.findReservationList(id);
+        request.setAttribute("user", user);    
+        request.setAttribute("reserveList", reserveList2); 
 
         // 사용자 리스트 화면으로 이동(forwarding)
         return "/main/myPage.jsp";
