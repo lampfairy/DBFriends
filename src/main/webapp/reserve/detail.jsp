@@ -56,6 +56,11 @@
 				<caption
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">예약상세정보</caption>
 				<tr>
+					<td>장소</td>
+					<td><input type="text" style="width: 230px"
+						name="name" value="${reserve.name}"></td>
+				</tr>
+				<tr>
 					<td>예약번호</td>
 					<td><input type="text" style="width: 230px"
 						name="reservationId" value="${reserve.reservationId}" readonly></td>
