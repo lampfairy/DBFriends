@@ -44,7 +44,7 @@ public class InsertReserveController implements Controller {
             request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("reservation", reserve);
-			return "/reserve/reserve.jsp"; /// 수정
+			return "/reserve/reserve"; /// 수정
 		}
     }
 	

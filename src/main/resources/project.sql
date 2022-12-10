@@ -5,6 +5,8 @@ DROP TABLE RESERVATION;
 drop TABLE PRODUCT;
 drop table CUSTOMER;
 
+
+
 CREATE TABLE Customer
 (
    name                 VARCHAR2(100)  NULL ,
@@ -33,7 +35,7 @@ CREATE TABLE Product
    description          VARCHAR2(1000)  NULL ,
    status               NUMBER(2,0)  NULL ,
    image                VARCHAR2(4000)  NULL ,
-   name                 VARCHAR2(10)  NULL
+   name                 VARCHAR2(100)  NULL
 );
 
 CREATE UNIQUE INDEX XPKProduct ON Product
@@ -131,5 +133,12 @@ ALTER TABLE Customer
    
 ALTER TABLE Customer
    ADD AccountNumber VARCHAR2(20);
+   
+ALTER TABLE BookMark
+   ADD name VARCHAR2(100);
+   
+ALTER TABLE BookMark
+   ADD (
+CONSTRAINT bookMark3 FOREIGN KEY (name) REFERENCES Product (name));
 
 DROP TABLE AccountDetails;

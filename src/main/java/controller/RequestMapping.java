@@ -5,6 +5,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import controller.bookmark.DeleteBookmarkController;
+import controller.bookmark.InsertBookmarkController;
 import controller.main.GoReviewPageController;
 import controller.main.GoTop10PageController;
 import controller.main.GotoMyPageController;
@@ -31,24 +33,35 @@ public class RequestMapping {
 		mappings.put("/", new ForwardController("/main/index.jsp"));
 		mappings.put("/user/loginForm", new ForwardController("/user/loginForm.jsp"));
 		mappings.put("/user/login", new LoginController());
+	    mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
+	    mappings.put("/user/register", new RegisterUserController());
+	    mappings.put("/user/update", new UpdateUserController());
+	    mappings.put("/user/logout", new LogoutController());
+	    mappings.put("/user/list", new ListUserController());
+		
+		
 		mappings.put("/main/myPage", new GotoMyPageController());
 		mappings.put("/main/top10", new GoTop10PageController());
 		mappings.put("/main/reserve", new GotoReservePageController());
 		mappings.put("/main/review", new GoReviewPageController());
-		mappings.put("/user/logout", new LogoutController());
-		mappings.put("/user/list", new ListUserController());
+
 		mappings.put("/prod/detail", new DetailProdController());
 		mappings.put("/prod/list", new FindListProdController());
-		
+		mappings.put("/prod/bookmark", new InsertBookmarkController());
 		mappings.put("/prod/reserve", new ViewReserveFormController());
+	    mappings.put("/prod/insert", new InsertReserveController());
+		
 		mappings.put("/reserve/reserve", new InsertReserveController());
-		mappings.put("/prod/insert", new InsertReserveController());
 		mappings.put("/reserve/detail", new DetailReserveController());
-		mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
-		mappings.put("/user/register", new RegisterUserController());
-		//        mappings.put("/user/update/form", new UpdateUserFormController());
-		mappings.put("/user/update", new UpdateUserController());
+
+		mappings.put("/bookmark/delete", new DeleteBookmarkController());
+
+		
+		
+		
+		
 		//        mappings.put("/user/delete", new DeleteUserController());
+//      mappings.put("/user/update/form", new UpdateUserFormController());
 
 		logger.info("Initialized Request Mapping!");
 	}

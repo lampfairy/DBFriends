@@ -153,7 +153,9 @@
 		<!-- 목록 3개 -->
 		<div style="text-align:center;font-size:24px">목록</div><br><br>
 		<div class = "new">
-			<div>찜목록</div>
+			<div>
+				<jsp:include page = "../bookmark/list.jsp"/>
+			</div>
 			<div>
 				<jsp:include page = "../reserve/list.jsp"/>
 			</div>

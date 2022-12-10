@@ -18,9 +18,9 @@ public class BookmarkDAO {
    
     //create Bookmark
     public int create(Bookmark Bookmark) throws SQLException {
-        String sql = "INSERT INTO Bookmark (userId, productId) "
-                    + "VALUES (?, ?)";    
-        Object[] param = new Object[] {Bookmark.getUserId(), Bookmark.getProductId()};              
+        String sql = "INSERT INTO Bookmark (userId, productId, name) "
+                    + "VALUES (?, ?, ?)";    
+        Object[] param = new Object[] {Bookmark.getUserId(), Bookmark.getProductId(), Bookmark.getName()};              
         jdbcUtil.setSqlAndParameters(sql, param);
        
         try {              
@@ -57,7 +57,7 @@ public class BookmarkDAO {
 
    //find Bookmark
     public List<Bookmark> findUserBookmarkList(String userId) throws SQLException {
-        String sql = "SELECT productId "
+        String sql = "SELECT productId, name "
                     + "FROM Bookmark "
                     + "WHERE userId=? "
                     + "ORDER BY productId";              
@@ -69,7 +69,8 @@ public class BookmarkDAO {
             while (rs.next()) {
             Bookmark Bookmark = new Bookmark(
             		userId,
-                    rs.getInt("productId"));
+                    rs.getInt("productId"),
+                    rs.getString("name"));
             BookmarkList.add(Bookmark);  
             }      
             return BookmarkList; 
@@ -83,7 +84,7 @@ public class BookmarkDAO {
 
     //find Bookmark List
     public List<Bookmark> findBookmarkList() throws SQLException {
-        String sql = "SELECT userId, productId "
+        String sql = "SELECT userId, productId, name "
                    + "FROM Bookmark "
                    + "ORDER BY userId, productId";
         jdbcUtil.setSqlAndParameters(sql, null);  
@@ -94,7 +95,8 @@ public class BookmarkDAO {
             while (rs.next()) {
             Bookmark Bookmark = new Bookmark(
                     rs.getString("userId"),
-                    rs.getInt("productId"));
+                    rs.getInt("productId"),
+                    rs.getString("name"));
             BookmarkList.add(Bookmark);  
             }      
             return BookmarkList;                    

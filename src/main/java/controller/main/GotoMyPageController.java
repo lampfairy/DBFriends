@@ -1,9 +1,5 @@
 package controller.main;
 
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +8,9 @@ import controller.user.UserSessionUtils;
 import model.User;
 import model.service.UserManager;
 import model.Reservation;
+import model.service.BookmarkManager;
 import model.service.ProdManager;
+import model.Bookmark;
 import model.Product;
 import model.service.ReserveManager;
 
@@ -58,6 +56,12 @@ public class GotoMyPageController implements Controller {
             request.setAttribute("user", user);    
             request.setAttribute("reserveList", null); 
         }
+        
+        
+        BookmarkManager boma = BookmarkManager.getInstance();
+        List<Bookmark> bookmarkList = boma.findUserBookmarkList(id);
+        request.setAttribute("bookmarkList", bookmarkList); 
+        
 
         // 사용자 리스트 화면으로 이동(forwarding)
         return "/main/myPage.jsp";
