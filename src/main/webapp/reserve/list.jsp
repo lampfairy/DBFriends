@@ -25,7 +25,11 @@
 				<table class = "list">
 					<c:forEach var="reserve" items="${reserveList}">
 						<tr>
-							<td style="text-align:left;height:20px;width:200px">${reserve.name}</td>
+							<td style="text-align: left; height: 20px; width: 200px"><a
+								href="<c:url value='/prod/detail'>
+									<c:param name = 'productId' value='${reserve.productId}' />
+									</c:url>">${reserve.name}</a></td>
+							
 							<td style="text-align:left;height:20px;width:130px">
 								<a href = "<c:url value='/reserve/detail'>
 									<c:param name = 'reservationId' value='${reserve.reservationId}' />
