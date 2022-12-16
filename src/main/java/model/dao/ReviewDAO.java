@@ -82,7 +82,7 @@ public class ReviewDAO {
    //find Review
     public Review findReview(int reservationId) throws SQLException {
         String sql = "SELECT r.title AS title, r.userId AS userId, r.productId AS productId, p.productName AS productName, "
-                + "r.writeDate AS writeDate, p.startDate AS startDate, p.endDate AS endDate, r.rating AS rating, r.content AS content "
+                    + "r.writeDate AS writeDate, p.startDate AS startDate, p.endDate AS endDate, r.rating AS rating, r.content AS content "
                     + "FROM Review r JOIN Product p ON r.productId = p.productId "
                     + "WHERE reservationId=?";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
