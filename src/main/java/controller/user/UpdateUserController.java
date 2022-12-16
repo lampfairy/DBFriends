@@ -69,7 +69,7 @@ public class UpdateUserController implements Controller {
     	log.debug("Update User : {}", updateUser);
 		manager.update(updateUser);
 		request.setAttribute("user", updateUser);
-        return "/main/myPage.jsp";
+        return "/main/myPage";
     }
     
     public static Date transformDate(String date)

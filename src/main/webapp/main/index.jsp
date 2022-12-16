@@ -98,9 +98,9 @@
 		<!-- 신규여행지 3개 -->
 		<div style="text-align:center;font-size:24px">신규 여행지</div><br><br>
 		<div class = "new">
-			<div>신규 여행지</div>
-			<div>신규 여행지</div>
-			<div>신규 여행지</div>
+			<div><img src="<c:url value='/upload/${product1.image}'/>" /></div>
+			<div><img src="<c:url value='/upload/${product2.image}'/>" /></div>
+			<div><img src="<c:url value='/upload/${product3.image}'/>" /></div>
 		</div>
 	</div>
 </body>

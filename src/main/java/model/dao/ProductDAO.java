@@ -281,4 +281,37 @@ public class ProductDAO {
       }
       return false;
    }
+   
+   public List<Product> findNewProdList() throws SQLException {
+       String sql = "SELECT productId, location, price, description, status, image, name, type1, type2, type3 "
+               + "FROM Product "
+               + "ORDER BY productId DESC";
+         jdbcUtil.setSqlAndParameters(sql, null);  
+
+         try {
+            ResultSet rs = jdbcUtil.executeQuery();           
+            List<Product> ProductList = new ArrayList<Product>();   
+            while (rs.next()) {
+               Product Product = new Product(
+                     rs.getInt("productId"),
+                     rs.getString("location"),
+                     rs.getInt("price"),
+                     rs.getString("description"),
+                     rs.getInt("status"),
+                     rs.getString("image"),
+                     rs.getString("name"),
+                     rs.getInt("type1"),
+                     rs.getInt("type2"),
+                     rs.getInt("type3"));
+               ProductList.add(Product);   
+            }       
+            return ProductList;                    
+
+         } catch (Exception ex) {
+            ex.printStackTrace();
+         } finally {
+            jdbcUtil.close();      
+         }
+         return null;
+   }
 }

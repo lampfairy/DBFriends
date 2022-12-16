@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,6 +27,12 @@ public class ForwardController implements Controller {
 		req.setAttribute("restaurant", restaurant);
 		req.setAttribute("activity", activity);
 		req.setAttribute("accommodation", accommodation);
+		
+		List<Product> prodList = prodManager.findNewProdList();
+		
+		req.setAttribute("product1", prodList.get(0));
+		req.setAttribute("product2", prodList.get(1));
+		req.setAttribute("product3", prodList.get(2));
 		
         return forwardUrl;
     }
