@@ -58,4 +58,9 @@ public class ReviewManager {
     public ReviewDAO getreviewDAO() {
 		return this.reviewDAO;
 	}
+    
+    public boolean existingReview(int reservationId) throws SQLException {
+        return reviewDAO.existingReview(reservationId);
+    }
+    
 }
