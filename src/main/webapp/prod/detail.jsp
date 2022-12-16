@@ -57,7 +57,8 @@
 				</tr>
 				<tr>
 					<td class="pImage">
-						이미지
+				
+						<img src="<c:url value='/upload/${product.image}'/>" />
 					</td>
 					<td>
 						장소 설명: ${product.description}

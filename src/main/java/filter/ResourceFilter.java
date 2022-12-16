@@ -23,6 +23,7 @@ public class ResourceFilter implements Filter {
         resourcePrefixs.add("/js");
         resourcePrefixs.add("/fonts");
         resourcePrefixs.add("/images");
+        resourcePrefixs.add("/upload");
     }
 
     private RequestDispatcher defaultRequestDispatcher;
@@ -31,7 +32,7 @@ public class ResourceFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         this.defaultRequestDispatcher = filterConfig.getServletContext().getNamedDispatcher("default");
     }
-
+    
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {

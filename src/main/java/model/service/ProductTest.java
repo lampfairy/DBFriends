@@ -48,6 +48,7 @@ public class ProductTest {
 				System.out.printf("%d  %s \n", n, name);
 			}
 		}
+	
 		System.out.println("end");
 
 		System.out.println("create product");  
