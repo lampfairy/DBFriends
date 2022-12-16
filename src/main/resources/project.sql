@@ -75,7 +75,9 @@ CREATE TABLE Review
    writeDate            DATE  NULL ,
    rating               NUMBER(2,1)  NULL  CONSTRAINT  Validation_Rule_Rating CHECK (rating BETWEEN 0 AND 5),
    reservationId        NUMBER(10,0)  NOT NULL,
-   userId               VARCHAR2(100)  NOT NULL 
+   userId               VARCHAR2(100)  NOT NULL,
+   productId            NUMBER(10,0)  NOT NULL,
+   content               VARCHAR2(2000)  NULL 
 );
 
 CREATE UNIQUE INDEX XPKReview ON Review
