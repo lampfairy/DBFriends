@@ -39,12 +39,12 @@ public class ReserveManager {
 
     public Reservation findReservation(int ReservationId)
         throws SQLException, ExistingException {
-        Reservation prod = resvDAO.findReservation(ReservationId);
+        Reservation reserve = resvDAO.findReservation(ReservationId);
         
-        if (prod == null) {
-            throw new ExistingException(ReservationId + "doesn't exist");
+        if (reserve == null) {
+            throw new ExistingException(ReservationId + " doesn't exist");
         }       
-        return prod;
+        return reserve;
     }
 
     public List<Reservation> findReservationList(String userId) throws SQLException {

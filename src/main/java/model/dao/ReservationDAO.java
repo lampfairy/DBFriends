@@ -18,11 +18,10 @@ public class ReservationDAO {
     //create Reservation
     public int create(Reservation Reservation) throws SQLException {
         String sql = "INSERT INTO Reservation (reservationId, startDate, endDate, "
-                + "headCount, price, productId, userId, name) "              
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";     
+                + "headCount, price, productId, userId) "              
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";     
         Object[] param = new Object[] {Reservation.getReservationId(), Reservation.getStartDate(), Reservation.getEndDate(),
-                Reservation.getHeadCount(), Reservation.getPrice(), Reservation.getProductId(), Reservation.getUserId(),
-                Reservation.getName()};              
+                Reservation.getHeadCount(), Reservation.getPrice(), Reservation.getProductId(), Reservation.getUserId()};              
         jdbcUtil.setSqlAndParameters(sql, param);
         
         try {               
@@ -82,9 +81,9 @@ public class ReservationDAO {
 
    //find Reservation
     public Reservation findReservation(int reservationId) throws SQLException {
-        String sql = "SELECT productId, startDate, endDate, headCount, price, userId, name "
-                    + "FROM Reservation "
-                    + "WHERE reservationId=? ";              
+        String sql = "SELECT r.productId AS productId, r.startDate AS startDate, r.endDate AS endDate, r.headCount AS headCount, r.price AS price, r.userId AS userId, p.name AS name "
+                    + "FROM Reservation r JOIN Product p ON r.productId = p.productId "
+                    + "WHERE reservationId=?";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
         
         try {
@@ -111,9 +110,9 @@ public class ReservationDAO {
 
     //find Reservation List
     public List<Reservation> findReservationList(String userId) throws SQLException {
-        String sql = "SELECT reservationId, productId, startDate, endDate, "
-                + "headCount, price, name "
-                    + "FROM Reservation "
+        String sql = "SELECT r.reservationId AS reservationId, r.productId AS productId, "
+                + "r.startDate AS startDate, r.endDate AS endDate, r.headCount AS headCount, r.price AS price, r.userId AS userId, p.name AS name "
+                    + "FROM Reservation r JOIN Product p ON r.productId = p.productId "
                     + "WHERE userId=? "
                     + "ORDER BY reservationId";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});  

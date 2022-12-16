@@ -83,9 +83,4 @@ public class Reservation {
                 + ", endDate=" + endDate + ", headCount=" + headCount + ", price=" + price +
                  ", userId=" + userId + "]";
     }
-    
-    
-    
-    
-
 }

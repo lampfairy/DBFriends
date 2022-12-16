@@ -3,6 +3,7 @@ package model.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import model.Review;
@@ -14,13 +15,12 @@ public class ReviewDAO {
     public ReviewDAO() {          
         jdbcUtil = new JDBCUtil();
     }
-    //r
+   
     //create Review
     public int create(Review Review) throws SQLException {
-        String sql = "INSERT INTO Review (reservationId, title, writeDate, rating, content, image) "
-                    + "VALUES (?, ?, ?, ?, ?, ?)";     
-        Object[] param = new Object[] {Review.getReservationId(), Review.getTitle(), Review.getWriteDate(),
-                Review.getRating(), Review.getContent(), Review.getImage()};              
+        String sql = "INSERT INTO Review (reservationId, userId, writeDate, rating) "
+                    + "VALUES (?, ?, ?, ?)";     
+        Object[] param = new Object[] {Review.getReservationId(), Review.getUserId(), Review.getWriteDate(), Review.getRating()};              
         jdbcUtil.setSqlAndParameters(sql, param);
         
         try {               
@@ -39,10 +39,10 @@ public class ReviewDAO {
     //update Review
     public int update(Review Review) throws SQLException {
         String sql = "UPDATE Review "
-                    + "SET title=?, writeDate=?, rating=?, content=?, image=? "
+                    + "SET userId=?, writeDate=?, rating=? "
                     + "WHERE reservationId=?";
-        Object[] param = new Object[] {Review.getTitle(), Review.getWriteDate(),
-                Review.getRating(), Review.getContent(), Review.getImage(), Review.getReservationId()};                
+        Object[] param = new Object[] {Review.getUserId(), Review.getWriteDate(),
+                Review.getRating(), Review.getReservationId()};                
         jdbcUtil.setSqlAndParameters(sql, param);   
         
         try {               
@@ -90,11 +90,9 @@ public class ReviewDAO {
             if (rs.next()) {                      
                 Review Review = new Review(
                         reservationId,
-                        rs.getString("title"),
+                        rs.getString("userId"),
                         rs.getDate("writeDate"),
-                        rs.getFloat("rating"),
-                        rs.getString("content"),
-                        rs.getString("image")
+                        rs.getFloat("rating")
                    );
                 return Review;
             }
@@ -119,11 +117,9 @@ public class ReviewDAO {
             while (rs.next()) {
                 Review Review = new Review(
                        rs.getInt("reservationId"),
-                       rs.getString("title"),
+                       rs.getString("userId"),
                        rs.getDate("writeDate"),
-                       rs.getFloat("rating"),
-                       rs.getString("content"),
-                       rs.getString("image")
+                       rs.getFloat("rating")
                         );
                 ReviewList.add(Review);   
             }       

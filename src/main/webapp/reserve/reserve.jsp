@@ -54,14 +54,15 @@ td {
 	<hr>
 	<div class="layout">
 		<!-- 예약 폼 -->
-		<form name="form" method="POST" action="<c:url value='/prod/insert' />">
+		<form name="form" method="POST"
+			action="<c:url value='/prod/insert' />">
 			<table>
 				<caption
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">예약폼</caption>
 				<tr>
 					<td>장소</td>
-					<td><input type="text" style="width: 230px"
-						name="name" value="${product.name}"></td>
+					<td><input type="text" style="width: 230px" name="name"
+						value="${product.name}"></td>
 				</tr>
 				<tr>
 					<td>회원ID</td>
@@ -70,7 +71,8 @@ td {
 				</tr>
 				<tr>
 					<td>여행지ID</td>
-					<td><input type="text" style="width: 230px" name="productId" value="${product.productId}" readonly></td>
+					<td><input type="text" style="width: 230px" name="productId"
+						value="${product.productId}" readonly></td>
 				</tr>
 				<tr>
 					<td>시작날짜</td>
@@ -96,7 +98,7 @@ td {
 						name="accountNumber" value="${user.accountNumber}" readonly></td>
 				</tr>
 				<tr>
-					<td>가격</td>
+					<td>1인당 가격</td>
 					<td><input type="text" style="width: 230px" name="price"
 						value="${product.price}" readonly></td>
 				</tr>

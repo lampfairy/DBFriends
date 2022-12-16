@@ -14,6 +14,11 @@ import model.Bookmark;
 import model.Product;
 import model.service.ReserveManager;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,34 +44,59 @@ public class GotoMyPageController implements Controller {
         UserManager manager = UserManager.getInstance();
         User user = manager.findUser(id);
         
-        ReserveManager rema = ReserveManager.getInstance();
-        List<Reservation> reserve = rema.findReservationList(id);
-        
-        ProdManager prodManager = ProdManager.getInstance();
-        List<Product> reserveList = new ArrayList<Product>();;
-        if(reserve != null) {
-            for(int i = 0; i < reserve.size(); i++) {
-                Product product = prodManager.findProduct(reserve.get(i).getProductId());
-                reserveList.add(product);
-            }
-            request.setAttribute("user", user);    
-            request.setAttribute("reserveList", reserveList); 
-        }
-        else {
-            request.setAttribute("user", user);    
-            request.setAttribute("reserveList", null); 
-        }
-        
-        
         BookmarkManager boma = BookmarkManager.getInstance();
         List<Bookmark> bookmarkList = boma.findUserBookmarkList(id);
         request.setAttribute("bookmarkList", bookmarkList); 
         
-        List<Reservation> reserveList2 = rema.findReservationList(id);
-        request.setAttribute("user", user);    
-        request.setAttribute("reserveList", reserveList2); 
+        ReserveManager rema = ReserveManager.getInstance();
+        List<Reservation> reservationList = rema.findReservationList(id);
+        request.setAttribute("user", user);
+        
+        List<Reservation> reserveList = new  ArrayList<Reservation>();
+        List<Reservation> visitedList = new  ArrayList<Reservation>();
+        
+        if(reservationList != null) {
+            LocalDateTime now = LocalDateTime.now();
+            String formatedNow = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            Date nowDate = transformDate(formatedNow);
+            
+            for(int i = 0; i < reservationList.size(); i++) {
+                Reservation reservation = rema.findReservation(reservationList.get(i).getReservationId());
+                if(reservation.getEndDate().compareTo(nowDate) < 0) {
+                    visitedList.add(reservation);
+                }
+                else {
+                    reserveList.add(reservation);
+                }
+            }
+        }
+        else {  
+            request.setAttribute("reserveList", null); 
+        }
+        
+        request.setAttribute("reserveList", reserveList); 
+        request.setAttribute("visitedList", visitedList); 
 
         // 사용자 리스트 화면으로 이동(forwarding)
         return "/main/myPage.jsp";
+    }
+    
+    public static Date transformDate(String date)
+    {
+        SimpleDateFormat beforeFormat = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+        
+        java.util.Date tempDate = null;
+        
+        try {
+            tempDate = beforeFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
+        String transDate = afterFormat.format(tempDate);
+        Date d = Date.valueOf(transDate);
+        
+        return d;
     }
 }

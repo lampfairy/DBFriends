@@ -18,9 +18,9 @@ public class BookmarkDAO {
    
     //create Bookmark
     public int create(Bookmark Bookmark) throws SQLException {
-        String sql = "INSERT INTO Bookmark (userId, productId, name) "
-                    + "VALUES (?, ?, ?)";    
-        Object[] param = new Object[] {Bookmark.getUserId(), Bookmark.getProductId(), Bookmark.getName()};              
+        String sql = "INSERT INTO Bookmark (userId, productId) "
+                    + "VALUES (?, ?)";    
+        Object[] param = new Object[] {Bookmark.getUserId(), Bookmark.getProductId()};              
         jdbcUtil.setSqlAndParameters(sql, param);
        
         try {              
@@ -57,8 +57,8 @@ public class BookmarkDAO {
 
    //find Bookmark
     public List<Bookmark> findUserBookmarkList(String userId) throws SQLException {
-        String sql = "SELECT productId, name "
-                    + "FROM Bookmark "
+        String sql = "SELECT b.productId AS productId, p.name AS name "
+                    + "FROM Bookmark b JOIN Product p ON b.productId = p.productId "
                     + "WHERE userId=? "
                     + "ORDER BY productId";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});  
@@ -84,8 +84,8 @@ public class BookmarkDAO {
 
     //find Bookmark List
     public List<Bookmark> findBookmarkList() throws SQLException {
-        String sql = "SELECT userId, productId, name "
-                   + "FROM Bookmark "
+        String sql = "SELECT userId, b.productId AS productId, p.name AS name  "
+                   + "FROM Bookmark b JOIN Product p ON b.productId = p.productId "
                    + "ORDER BY userId, productId";
         jdbcUtil.setSqlAndParameters(sql, null);  
                    

@@ -2,6 +2,8 @@ package controller.reserve;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,13 +28,17 @@ public class InsertReserveController implements Controller {
 	    
        	Date startDate = transformDate(request.getParameter("startDate"));
        	Date endDate = transformDate(request.getParameter("endDate"));
+       	
+        LocalDateTime now = LocalDateTime.now();
+        String formatedNow = now.format(DateTimeFormatter.ofPattern("MMddHHmmss"));
+        
        	Reservation reserve = new Reservation(
-       			Integer.parseInt(request.getParameter("reservationId")), 
+       	        Integer.parseInt(formatedNow), 
        			Integer.parseInt(request.getParameter("productId")), 
        			startDate,
        			endDate,
        			Integer.parseInt(request.getParameter("headCount")),
-       			Integer.parseInt(request.getParameter("price")),
+       			Integer.parseInt(request.getParameter("price")) * Integer.parseInt(request.getParameter("headCount")),
        			request.getParameter("userId"),
        			request.getParameter("name")
        	);
@@ -49,7 +55,7 @@ public class InsertReserveController implements Controller {
 		}
     }
 	
-	public static Date transformDate(String date)
+public static Date transformDate(String date)
     {
         SimpleDateFormat beforeFormat = new SimpleDateFormat("yyyy-mm-dd");
         SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");

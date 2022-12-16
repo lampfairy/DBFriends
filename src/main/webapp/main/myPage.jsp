@@ -159,7 +159,9 @@
 			<div>
 				<jsp:include page = "../reserve/list.jsp"/>
 			</div>
-			<div>내가다녀온곳</div>
+			<div>
+				<jsp:include page = "../reserve/visitedList.jsp"/>
+			</div>
 		</div>
 	</div>
 </body>

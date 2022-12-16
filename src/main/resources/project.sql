@@ -1,11 +1,8 @@
-drop table ACCOUNTDETAILS;
 drop table BOOKMARK;
 DROP TABLE REVIEW;
 DROP TABLE RESERVATION;
 drop TABLE PRODUCT;
 drop table CUSTOMER;
-
-
 
 CREATE TABLE Customer
 (
@@ -58,58 +55,34 @@ ALTER TABLE BookMark
 
 CREATE TABLE Reservation
 (
-   reservationId        NUMBER(2,0)  NOT NULL ,
-   name                 VARCHAR2(10)  NULL,
+   reservationId        NUMBER(10,0)  NOT NULL ,
    startDate            DATE  NULL ,
    endDate              DATE  NULL ,
-   headCount            NUMBER(100,0)  NULL ,
+   headCount            NUMBER(3,0)  NULL ,
    price                NUMBER(10,0)  NULL ,
-   reservationList      NUMBER(100,0)  NULL ,
-   productId            NUMBER(100,0)  NOT NULL ,
+   productId            NUMBER(10,0)  NOT NULL ,
    userId               VARCHAR2(100)  NOT NULL 
 );
 
 CREATE UNIQUE INDEX XPKReservation ON Reservation
-(reservationId   ASC);
+(reservationId  ASC);
 
 ALTER TABLE Reservation
    ADD CONSTRAINT  XPKReservation PRIMARY KEY (reservationId);
 
 CREATE TABLE Review
 (
-   title                VARCHAR2(100)  NULL ,
    writeDate            DATE  NULL ,
    rating               NUMBER(2,1)  NULL  CONSTRAINT  Validation_Rule_Rating CHECK (rating BETWEEN 0 AND 5),
-   content              VARCHAR2(100)  NULL ,
-   image                VARCHAR2(4000)  NULL ,
-   reservationId           NUMBER(100,0)  NOT NULL
+   reservationId        NUMBER(10,0)  NOT NULL,
+   userId               VARCHAR2(100)  NOT NULL 
 );
 
 CREATE UNIQUE INDEX XPKReview ON Review
-(reservationId   ASC,userId   ASC);
+(reservationId   ASC, userId   ASC);
 
 ALTER TABLE Review
-   ADD CONSTRAINT  XPKReview PRIMARY KEY (reservationId);
-
-ALTER TABLE AccountDetails
-   ADD (
-CONSTRAINT Have FOREIGN KEY (userId) REFERENCES Customer (userId));
-
-ALTER TABLE BookMark
-   ADD (
-CONSTRAINT bookMark1 FOREIGN KEY (productId) REFERENCES Product (productId));
-
-ALTER TABLE BookMark
-   ADD (
-CONSTRAINT bookMark2 FOREIGN KEY (userId) REFERENCES Customer (userId));
-
-ALTER TABLE Reservation
-   ADD (
-CONSTRAINT include FOREIGN KEY (productId) REFERENCES Product (productId));
-
-ALTER TABLE Reservation
-   ADD (
-CONSTRAINT include FOREIGN KEY (name) REFERENCES Product (name));
+   ADD CONSTRAINT  XPKReview1 PRIMARY KEY (reservationId);
 
 ALTER TABLE Reservation
    ADD (
@@ -118,6 +91,24 @@ CONSTRAINT Reserve FOREIGN KEY (userId) REFERENCES Customer (userId));
 ALTER TABLE Review
    ADD (
 CONSTRAINT Review FOREIGN KEY (reservationId) REFERENCES Reservation (reservationId));
+
+ALTER TABLE Reservation
+   ADD (
+CONSTRAINT include FOREIGN KEY (productId) REFERENCES Product (productId));
+
+CREATE UNIQUE INDEX XPKReview ON Review
+(reservationId   ASC,userId   ASC);
+
+ALTER TABLE Review
+   ADD CONSTRAINT  XPKReview PRIMARY KEY (reservationId);
+
+ALTER TABLE BookMark
+   ADD (
+CONSTRAINT bookMark1 FOREIGN KEY (productId) REFERENCES Product (productId));
+
+ALTER TABLE BookMark
+   ADD (
+CONSTRAINT bookMark2 FOREIGN KEY (userId) REFERENCES Customer (userId));
 
 ALTER TABLE Product
    ADD type1 number(1) NOT NULL;
@@ -138,12 +129,3 @@ ALTER TABLE Customer
    
 ALTER TABLE Customer
    ADD AccountNumber VARCHAR2(20);
-   
-ALTER TABLE BookMark
-   ADD name VARCHAR2(100);
-   
-ALTER TABLE BookMark
-   ADD (
-CONSTRAINT bookMark3 FOREIGN KEY (name) REFERENCES Product (name));
-
-DROP TABLE AccountDetails;
