@@ -37,14 +37,15 @@
 							<c:param name = 'productId' value='${product.productId}' />
 							</c:url>" class = "btn">¿¹¾à/¿¹¸Å
 						</a>
-						<a href = "<c:url value='/prod/review'>
-							<c:param name = 'productId' value='${product.productId}' />
-							</c:url>" class = "btn">¸®ºä
-						</a>
 						<a href = "<c:url value='/prod/bookmark'>
 							<c:param name = 'productId' value='${product.productId}' />
 							</c:url>" class = "btn">Âò 
 						</a>
+						<a href = "<c:url value='/prod/review'>
+							<c:param name = 'productId' value='${product.productId}' />
+							</c:url>" class = "btn">¸®ºä
+						</a>
+						º°Á¡ ${product.rating}
 					</td>
 				</tr>
 				<tr>

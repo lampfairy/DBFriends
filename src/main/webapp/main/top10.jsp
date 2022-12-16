@@ -31,7 +31,7 @@
 			<div>이미지</div>
 		</div><br><br><br><br>
 		<!-- 상품 목록 -->
-		<jsp:include page = "../prod/list.jsp"/>
+		<jsp:include page = "../prod/Best10List.jsp"/>
 	</div>
 </body>
 </html>

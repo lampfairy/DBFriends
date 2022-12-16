@@ -147,6 +147,31 @@ public class ReviewDAO {
         }
         return null;
     }
+    
+  //find Review
+    public String findRating(int productId) throws SQLException {
+        String sql = "SELECT rating "
+                    + "FROM Review "
+                    + "WHERE productId=?";              
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {productId});   
+        
+        float rating = 0;
+        int count = 0;
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();    
+            while (rs.next()) {                      
+                rating += rs.getFloat("rating");
+                count++;
+            }
+            rating /= count;
+            return String.format("%.1f", rating);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close(); 
+        }
+        return null;
+    }
 
   //Review 아이디 중복 확인
     public boolean existingReview(int reservationId) throws SQLException {

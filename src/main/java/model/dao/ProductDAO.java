@@ -15,13 +15,12 @@ public class ProductDAO {
       jdbcUtil = new JDBCUtil();
    }
 
-   //怨좉컼  벑濡 
    public int create(Product Product) throws SQLException {
       String sql = "INSERT INTO Product (productId, location, price, description, "
-            + "status, image, name, type1, type2, type3) "
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";     
+            + "image, name, rating, type1, type2, type3) "
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)";     
       Object[] param = new Object[] {Product.getProductId(), Product.getLocation(), Product.getPrice(), Product.getDescription(),
-            Product.getStatus(), Product.getImage(), Product.getName(), Product.getType1(), Product.getType2(), Product.getType3()};              
+            Product.getImage(), Product.getName(), Product.getType1(), Product.getType2(), Product.getType3()};              
       jdbcUtil.setSqlAndParameters(sql, param);
 
       try {               
@@ -37,13 +36,12 @@ public class ProductDAO {
       return 0;           
    }
 
-   //怨좉컼  닔 젙
    public int update(Product Product) throws SQLException {
       String sql = "UPDATE Product "
-            + "SET location=?, price=?, description=?, image=?, name=?, type1=?,type2=?, type3=? "
-            + "WHERE productId=? ";
-      Object[] param = new Object[] {Product.getLocation(), Product.getPrice(), Product.getDescription(),
-            Product.getImage(), Product.getName(), Product.getType1(), Product.getType2(), Product.getType3(), Product.getProductId()};                
+            + "SET location=?, price=?, description=?, image=?, name=?, rating=?, type1=?, type2=?, type3=? "
+            + "WHERE productId=?";
+      Object[] param = new Object[] {Product.getLocation(), Product.getPrice(), Product.getDescription(), Product.getImage(),
+              Product.getName(), Product.getRating(), Product.getType1(), Product.getType2(), Product.getType3(), Product.getProductId()};                
       jdbcUtil.setSqlAndParameters(sql, param);   
 
       try {               
@@ -60,7 +58,6 @@ public class ProductDAO {
       return 0;
    }
 
-   // 쉶 썝  궘 젣
    public int remove(int productId) throws SQLException {
       String sql = "DELETE FROM Product WHERE productId=?";     
       jdbcUtil.setSqlAndParameters(sql, new Object[] {productId});
@@ -79,9 +76,8 @@ public class ProductDAO {
       return 0;
    }
 
-   // 쉶 썝  젙蹂  蹂닿린
    public Product findProduct(int productId) throws SQLException {
-      String sql = "SELECT location, price, description, status, image, name, type1, type2, type3 "
+      String sql = "SELECT location, price, description, image, name, rating, type1, type2, type3 "
             + "FROM Product "
             + "WHERE productId=?";              
       jdbcUtil.setSqlAndParameters(sql, new Object[] {productId});   
@@ -94,9 +90,9 @@ public class ProductDAO {
                   rs.getString("location"),
                   rs.getInt("price"),
                   rs.getString("description"),
-                  rs.getInt("status"),
                   rs.getString("image"),
                   rs.getString("name"),
+                  rs.getFloat("rating"),
                   rs.getInt("type1"),
                   rs.getInt("type2"),
                   rs.getInt("type3"));
@@ -111,7 +107,7 @@ public class ProductDAO {
    }
 
    public List<Product> findProductList() throws SQLException {
-      String sql = "SELECT productId, location, price, description, status, image, name, type1, type2, type3 "
+      String sql = "SELECT productId, location, price, description, image, name, rating, type1, type2, type3 "
             + "FROM Product "
             + "ORDER BY productId";
       jdbcUtil.setSqlAndParameters(sql, null);  
@@ -125,9 +121,9 @@ public class ProductDAO {
                   rs.getString("location"),
                   rs.getInt("price"),
                   rs.getString("description"),
-                  rs.getInt("status"),
                   rs.getString("image"),
                   rs.getString("name"),
+                  rs.getFloat("rating"),
                   rs.getInt("type1"),
                   rs.getInt("type2"),
                   rs.getInt("type3"));
@@ -161,7 +157,7 @@ public class ProductDAO {
       else
          type_3 = new int[] {type3, type3, type3, type3};
 
-      String sql = "SELECT productId, location, price, description, status, image, name, type1, type2, type3 "
+      String sql = "SELECT productId, location, price, description, image, name, rating, type1, type2, type3 "
             + "FROM Product "
             + "WHERE type1=any(?, ?, ?, ?, ?, ?, ?) AND type2=any(?, ?, ?, ?) AND type3=any(?, ?, ?, ?) "
             + "ORDER BY productId";
@@ -176,9 +172,9 @@ public class ProductDAO {
                   rs.getString("location"),
                   rs.getInt("price"),
                   rs.getString("description"),
-                  rs.getInt("status"),
                   rs.getString("image"),
                   rs.getString("name"),
+                  rs.getFloat("rating"),
                   rs.getInt("type1"),
                   rs.getInt("type2"),
                   rs.getInt("type3"));
@@ -214,7 +210,7 @@ public class ProductDAO {
       
       String key = "%" + keySearch + "%";
 
-      String sql = "SELECT productId, location, price, description, status, image, name, type1, type2, type3 "
+      String sql = "SELECT productId, location, price, description, image, name, rating, type1, type2, type3 "
             + "FROM Product "
             + "WHERE type1=any(?, ?, ?, ?, ?, ?, ?) AND type2=any(?, ?, ?, ?) AND type3=any(?, ?, ?, ?) AND name LIKE ?"
             + "ORDER BY productId";
@@ -229,9 +225,9 @@ public class ProductDAO {
                   rs.getString("location"),
                   rs.getInt("price"),
                   rs.getString("description"),
-                  rs.getInt("status"),
                   rs.getString("image"),
                   rs.getString("name"),
+                  rs.getFloat("rating"),
                   rs.getInt("type1"),
                   rs.getInt("type2"),
                   rs.getInt("type3"));
@@ -283,7 +279,7 @@ public class ProductDAO {
    }
    
    public List<Product> findNewProdList() throws SQLException {
-       String sql = "SELECT productId, location, price, description, status, image, name, type1, type2, type3 "
+       String sql = "SELECT productId, location, price, description, image, name, rating, type1, type2, type3 "
                + "FROM Product "
                + "ORDER BY productId DESC";
          jdbcUtil.setSqlAndParameters(sql, null);  
@@ -297,9 +293,44 @@ public class ProductDAO {
                      rs.getString("location"),
                      rs.getInt("price"),
                      rs.getString("description"),
-                     rs.getInt("status"),
                      rs.getString("image"),
                      rs.getString("name"),
+                     rs.getFloat("rating"),
+                     rs.getInt("type1"),
+                     rs.getInt("type2"),
+                     rs.getInt("type3"));
+               ProductList.add(Product);   
+            }       
+            return ProductList;                    
+
+         } catch (Exception ex) {
+            ex.printStackTrace();
+         } finally {
+            jdbcUtil.close();      
+         }
+         return null;
+   }
+   
+   
+   public List<Product> findTOP10List() throws SQLException {
+       String sql = "SELECT productId, location, price, description, image, name, rating, type1, type2, type3 "
+               + "FROM ( SELECT productId, location, price, description, image, name, rating, type1, type2, type3 "
+                       + "FROM Product WHERE rating IS NOT NULL ORDER BY rating DESC ) "
+               + "WHERE ROWNUM <= 10";
+         jdbcUtil.setSqlAndParameters(sql, null);  
+
+         try {
+            ResultSet rs = jdbcUtil.executeQuery();           
+            List<Product> ProductList = new ArrayList<Product>();   
+            while (rs.next()) {
+               Product Product = new Product(
+                     rs.getInt("productId"),
+                     rs.getString("location"),
+                     rs.getInt("price"),
+                     rs.getString("description"),
+                     rs.getString("image"),
+                     rs.getString("name"),
+                     rs.getFloat("rating"),
                      rs.getInt("type1"),
                      rs.getInt("type2"),
                      rs.getInt("type3"));

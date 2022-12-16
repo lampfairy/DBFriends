@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
 import controller.user.UserSessionUtils;
+import model.Product;
 import model.Reservation;
 import model.Review;
 import model.User;
 import model.service.ExistingException;
+import model.service.ProdManager;
 import model.service.ReserveManager;
 import model.service.ReviewManager;
 import model.service.UserManager;
@@ -32,11 +34,12 @@ public class InsertReviewController implements Controller {
         ReserveManager reserveMa = ReserveManager.getInstance();
         Reservation r = reserveMa.findReservation(reservationId);
         
+        int productId = Integer.parseInt(request.getParameter("productId"));
         Review review = new Review(
                 request.getParameter("title"),
                 reservationId,
                 user.getUserId(),
-                Integer.parseInt(request.getParameter("productId")),
+                productId,
                 request.getParameter("productName"),
                 null,
                 r.getStartDate(),
@@ -48,6 +51,13 @@ public class InsertReviewController implements Controller {
         try {
             ReviewManager manager = ReviewManager.getInstance();
             manager.create(review);
+            
+            float rating = Float.parseFloat(manager.findRating(productId));
+            ProdManager pMa = ProdManager.getInstance();
+            Product p = pMa.findProduct(review.getProductId());
+            p.setRating(rating);
+            pMa.update(p);
+            
             return "/main/review"; /// 수정
         } catch (ExistingException e) { // 예외 발생 시
             request.setAttribute("registerFailed", true);
