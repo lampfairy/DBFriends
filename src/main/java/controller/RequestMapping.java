@@ -16,6 +16,7 @@ import controller.prod.FindListProdController;
 import controller.reserve.DetailReserveController;
 import controller.reserve.InsertReserveController;
 import controller.reserve.ViewReserveFormController;
+import controller.review.ViewReviewFormController;
 import controller.user.ListUserController;
 import controller.user.LoginController;
 import controller.user.LogoutController;
@@ -39,7 +40,6 @@ public class RequestMapping {
 	    mappings.put("/user/logout", new LogoutController());
 	    mappings.put("/user/list", new ListUserController());
 		
-		
 		mappings.put("/main/myPage", new GotoMyPageController());
 		mappings.put("/main/top10", new GoTop10PageController());
 		mappings.put("/main/reserve", new GotoReservePageController());
@@ -56,6 +56,7 @@ public class RequestMapping {
 
 		mappings.put("/bookmark/delete", new DeleteBookmarkController());
 	
+		mappings.put("/review/review", new ViewReviewFormController());
 		
 		
 		
