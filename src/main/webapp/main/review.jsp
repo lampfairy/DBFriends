@@ -23,13 +23,6 @@
 	<hr>
 	<div class="layout">
 		<br><br>
-		<!-- 최신 리뷰 사진 -->
-		<div style="text-align:center;font-size:24px">최신 리뷰 TOP3</div><br><br>
-		<div class = "new">
-			<div>이미지</div>
-			<div>이미지</div>
-			<div>이미지</div>
-		</div>
 		<form>
 			<input type = "text" placeholder="키워드 검색" name = "keySearch" class = "key"/>
 			<input type = "submit" value = "검색" class = "sub"/>

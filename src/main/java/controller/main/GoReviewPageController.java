@@ -9,7 +9,9 @@ import controller.Controller;
 import controller.user.UserSessionUtils;
 import model.Product;
 import model.User;
+import model.Review;
 import model.service.ProdManager;
+import model.service.ReviewManager;
 import model.service.UserManager;
 
 public class GoReviewPageController implements Controller {
@@ -35,12 +37,12 @@ public class GoReviewPageController implements Controller {
 	        User user = manager.findUser(id);
 	        request.setAttribute("user", user);
 	        
-	        ProdManager prodManager = ProdManager.getInstance();
-	        List<Product> prodList = prodManager.findProductList();
+	        ReviewManager reviewManager = ReviewManager.getInstance();
+	        List<Review> reviewList = reviewManager.findReviewList();
 	        //         List<Product> prodList = prodManager.findProductList(currentPage, countPerPage);
 
 	        // userList 객체와 현재 로그인한 사용자 ID를 request에 저장하여 전달
-	        request.setAttribute("prodList", prodList);  
+	        request.setAttribute("reviewList", reviewList);  
 
 	        return "/main/review.jsp";
 	    }
