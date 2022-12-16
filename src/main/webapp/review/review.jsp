@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,7 @@
 				</tr>
 				<tr>
 					<td>리뷰작성자</td>
-					<td style="padding-left:50px;text-align:left">${user.name}</td>
+					<td style="padding-left:50px;text-align:left">${user.userId}</td>
 				</tr>
 				<tr>
 					<td colspan = "2">
