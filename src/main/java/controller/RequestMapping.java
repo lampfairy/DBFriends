@@ -16,6 +16,7 @@ import controller.prod.FindListProdController;
 import controller.reserve.DetailReserveController;
 import controller.reserve.InsertReserveController;
 import controller.reserve.ViewReserveFormController;
+import controller.review.InsertReviewController;
 import controller.review.ViewReviewFormController;
 import controller.user.ListUserController;
 import controller.user.LoginController;
@@ -57,10 +58,10 @@ public class RequestMapping {
 		mappings.put("/bookmark/delete", new DeleteBookmarkController());
 	
 		mappings.put("/review/review", new ViewReviewFormController());
+		mappings.put("/review/insert", new InsertReviewController());
 		
 		
-		
-		//        mappings.put("/user/delete", new DeleteUserController());
+//      mappings.put("/user/delete", new DeleteUserController());
 //      mappings.put("/user/update/form", new UpdateUserFormController());
 
 		logger.info("Initialized Request Mapping!");

@@ -28,6 +28,11 @@
 				<caption
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">리뷰 작성 폼 </caption>
 				<tr>
+					<td>예약번호</td>
+					<td><input type="text" style="width: 230px" name="reservationId"
+						value="${reserve.reservationId}"></td>
+				</tr>
+				<tr>
 					<td width="100px" align="center">제목</td>
 					<td style="padding-left:10px">
 						<input type="text" style="width:600px" name="title" placeholder="제목 입력창">
@@ -42,6 +47,20 @@
 				<tr>
 					<td>리뷰작성자</td>
 					<td style="padding-left:50px;text-align:left">${user.name}</td>
+				</tr>
+				<tr>
+					<td>장소ID</td>
+					<td><input type="text" style="width: 230px" name="productId"
+						value="${product.productId}"></td>
+				</tr>
+				<tr>
+					<td>장소명</td>
+					<td><input type="text" style="width: 230px" name="productName"
+						value="${product.name}"></td>
+				</tr>
+				<tr>
+					<td>방문일자</td>
+					<td style="padding-left:50px;text-align:left">${reserve.startDate} ~ ${reserve.endDate}</td>
 				</tr>
 				<tr>
 					<td colspan = "2">
