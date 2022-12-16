@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +12,10 @@
 		table, td{border:2px solid powderBlue;border-collapse:collapse;text-align:center;}
 		table{margin:100px auto 0px auto; width:800px}
 		td{height:40px}
-		.btn{margin:20px}
-		btn{float:left;display:inline-block;margin:0 30px 0 0}
-		.pImage{height:200px;width:200px}
+		.btn{text-align:center;font-size:18px;border-radius:10px;background-color:powderBlue;
+		border:1px solid black;width:100px;height:30px}
+		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
+	
 	</style>
 </head>
 <body>
@@ -21,39 +23,41 @@
 	<jsp:include page="../main/menu.jsp" /> 
 	<hr>
 	<div class="layout">
-		<!-- 리뷰 상세 폼 -->
-		<form>
+		<!-- 리뷰 상세 정보 -->
+		<form name="form" method="POST" action="<c:url value='/main/review' />">
 			<table>
 				<caption
-					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">리뷰 상세 정보 </caption>
+					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">리뷰 상세 정보</caption>
 				<tr>
-					<td>
-					<a href = "<c:url value='/prod/detail'>
-						<c:param name = 'productId' value='${prod.productId}' />
-						</c:url>">
-					장소이름 : ${review.location}</a>
+					<td width="100px" align="center">장소</td>
+					<td style="padding-left:10px">
+						<a href = "<c:url value='/prod/detail'>
+							<c:param name = 'productId' value='${review.productId}' />
+							</c:url>" class = "btn">${review.productName}
+						</a>
 					</td>
 				</tr>
 				<tr>
-					<td>별점 : <input type = "text"></td>
+					<td width="100px" align="center">제목</td>
+					<td>${review.title}</td>
 				</tr>
 				<tr>
-					<td>위치</td>
-					<td>${product.location}</td>
-				</tr>
-				<tr>
-					<td>가격</td>
-					<td>${product.price}</td>
-				</tr>
-				<tr>
-					<td class="pImage">
-						이미지
-					</td>
-					<td>
-						장소 설명: ${product.description}
+					<td colspan="2">
+						별점 : ${review.rating}&nbsp;&nbsp;&nbsp;
+						작성자 : ${review.userId}&nbsp;&nbsp;&nbsp;
+						작성일 : ${review.writeDate}&nbsp;&nbsp;&nbsp;
+						장소 방문일 : ${review.startDate}
 					</td>
 				</tr>
-			</table>
+				<tr>
+					<td colspan = "2">
+						${review.content}
+					</td>
+				</tr>
+			</table><br>
+			<div class = "btnBox">
+				<input type="submit" value="등록" class = "btn"> &nbsp;
+			</div>
 		</form>
 	</div>
 </body>
