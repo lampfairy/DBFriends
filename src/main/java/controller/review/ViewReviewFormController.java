@@ -31,7 +31,8 @@ public class ViewReviewFormController implements Controller{
         
         ProdManager prodManager = ProdManager.getInstance();
         Product product = prodManager.findProduct(reserve.getProductId());
-
+        request.setAttribute("product", product);
+        
         return "/review/review.jsp";
     }
 }
