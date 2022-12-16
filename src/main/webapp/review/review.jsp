@@ -36,7 +36,7 @@
 				<tr>
 					<td width="100" align="center">º°Á¡</td>
 					<td style="padding-left:50px;text-align:left">
-						<input type="text" style="width:100px" name="title" placeholder="0-5">
+						<input type="text" style="width:100px" name="rating" placeholder="0.0-5.0">
 					</td>
 				</tr>
 				<tr>
