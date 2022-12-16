@@ -32,16 +32,13 @@ public class InsertReviewController implements Controller {
         ReserveManager reserveMa = ReserveManager.getInstance();
         Reservation r = reserveMa.findReservation(reservationId);
         
-        LocalDateTime now = LocalDateTime.now();
-        Date nowDate = transformDate(now.format(DateTimeFormatter.ofPattern("yyyy-mm-dd")));
-        
         Review review = new Review(
                 request.getParameter("title"),
                 reservationId,
                 user.getUserId(),
                 Integer.parseInt(request.getParameter("productId")),
                 request.getParameter("productName"),
-                nowDate,
+                null,
                 r.getStartDate(),
                 r.getEndDate(),
                 Float.parseFloat(request.getParameter("rating")),
@@ -51,7 +48,7 @@ public class InsertReviewController implements Controller {
         try {
             ReviewManager manager = ReviewManager.getInstance();
             manager.create(review);
-            return "/main/review.jsp"; /// 수정
+            return "/main/review"; /// 수정
         } catch (ExistingException e) { // 예외 발생 시
             request.setAttribute("registerFailed", true);
             request.setAttribute("exception", e);

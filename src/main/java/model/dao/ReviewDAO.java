@@ -19,8 +19,8 @@ public class ReviewDAO {
     //create Review
     public int create(Review Review) throws SQLException {
         String sql = "INSERT INTO Review (title, reservationId, userId, writeDate, rating, productId, content) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";     
-        Object[] param = new Object[] {Review.getTitle(), Review.getReservationId(), Review.getUserId(), Review.getWriteDate(),
+                    + "VALUES (?, ?, ?, SYSDATE, ?, ?, ?)";     
+        Object[] param = new Object[] {Review.getTitle(), Review.getReservationId(), Review.getUserId(), 
                 Review.getRating(), Review.getProductId(), Review.getContent()};              
         jdbcUtil.setSqlAndParameters(sql, param);
         
