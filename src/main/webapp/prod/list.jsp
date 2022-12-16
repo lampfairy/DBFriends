@@ -24,13 +24,13 @@
 			<form>
 				<table>
 					<tr>
-						<td width=150>사진</td>
-						<td width=600>이름 및 위치</td>
+						<td width=250>사진</td>
+						<td width=500>이름 및 위치</td>
 						<td width=200>바로가기</td>
 					</tr>
 					<c:forEach var="prod" items="${prodList}">
 						<tr>
-							<td class = "image">이미지</td>
+							<td class = "image"><img src="<c:url value='/upload/${prod.image}'/>" width="250px" height="250px"/></td>
 							<td style="text-align:left;">
 								이름 : ${prod.name}<br><br>
 								가격 : ${prod.price}<br><br>

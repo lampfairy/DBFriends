@@ -98,9 +98,24 @@
 		<!-- 신규여행지 3개 -->
 		<div style="text-align:center;font-size:24px">신규 여행지</div><br><br>
 		<div class = "new">
-			<div><img src="<c:url value='/upload/${product1.image}'/>" /></div>
-			<div><img src="<c:url value='/upload/${product2.image}'/>" /></div>
-			<div><img src="<c:url value='/upload/${product3.image}'/>" /></div>
+			<div>
+				<a href = "<c:url value='/prod/detail'>
+					<c:param name = 'productId' value='${product1.productId}' />
+					</c:url>">
+				<img src="<c:url value='/upload/${product1.image}'/>" width="330px" height="330px"/></a>
+			</div>
+			<div>
+				<a href = "<c:url value='/prod/detail'>
+					<c:param name = 'productId' value='${product2.productId}' />
+					</c:url>">
+				<img src="<c:url value='/upload/${product2.image}'/>" width="330px" height="330px"/></a>
+			</div>
+			<div>
+				<a href = "<c:url value='/prod/detail'>
+					<c:param name = 'productId' value='${product3.productId}' />
+					</c:url>">
+				<img src="<c:url value='/upload/${product3.image}'/>" width="330px" height="330px"/></a>
+			</div>
 		</div>
 	</div>
 </body>
