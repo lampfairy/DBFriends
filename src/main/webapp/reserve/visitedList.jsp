@@ -32,7 +32,7 @@
 									</c:url>">${reserve.name}</a></td>
 							
 							<td style="text-align:left;height:20px;width:130px">
-								<a href = "<c:url value='/reserve/detail'>
+								<a href = "<c:url value='/review/review'>
 									<c:param name = 'reservationId' value='${reserve.reservationId}' />
 									</c:url>">
 								리뷰 작성하기</a>

@@ -55,8 +55,7 @@ public class RequestMapping {
 		mappings.put("/reserve/detail", new DetailReserveController());
 
 		mappings.put("/bookmark/delete", new DeleteBookmarkController());
-
-		
+	
 		
 		
 		
