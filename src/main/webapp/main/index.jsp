@@ -98,9 +98,9 @@
 		<!-- 신규여행지 3개 -->
 		<div style="text-align:center;font-size:24px">신규 여행지</div><br><br>
 		<div class = "new">
-			<div><img src="<c:url value='/upload/${product1.image}'/>" /></div>
-			<div><img src="<c:url value='/upload/${product2.image}'/>" /></div>
-			<div><img src="<c:url value='/upload/${product3.image}'/>" /></div>
+			<div><img src="<c:url value='/upload/${product1.image}'/>" width="330px" height="330px"/></div>
+			<div><img src="<c:url value='/upload/${product2.image}'/>"  width="330px" height="330px"/></div>
+			<div><img src="<c:url value='/upload/${product3.image}'/>"  width="330px" height="330px"/></div>
 		</div>
 	</div>
 </body>
