@@ -64,11 +64,6 @@ td {
 						name="name" value="${product.name}"></td>
 				</tr>
 				<tr>
-					<td>예약번호</td>
-					<td><input type="text" style="width: 230px"
-						name="reservationId"></td>
-				</tr>
-				<tr>
 					<td>회원ID</td>
 					<td><input type="text" style="width: 230px" name="userId"
 						value="${user.userId}" readonly></td>
