@@ -23,7 +23,7 @@
 			현재 찜한 곳이 없습니다.
 		</c:when>
 		<c:otherwise>
-			<h4>찜 리스트</h4>
+			<h4>찜 목록</h4>
 			<form>
 				<table class="list">
 					<c:forEach var="bookmark" items="${bookmarkList}">

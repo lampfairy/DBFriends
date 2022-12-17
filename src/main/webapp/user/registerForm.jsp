@@ -162,7 +162,7 @@ td {
                </td>
             </tr>
             <tr>
-               <td width="150" align="center">사용자 ID</td>
+               <td width="150" align="center">아이디</td>
                <td width="250" style="padding-left: 10px"><input type="text"
                   style="width: 230px;" name="userId"
                   <c:if test="${registerFailed}">value="${user.userId}"</c:if>>

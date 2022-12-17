@@ -21,7 +21,7 @@
 			현재 예약한 곳이 없습니다.
 		</c:when>
 		<c:otherwise>
-			<h4>예약 리스트</h4>
+			<h4>예약 목록</h4>
 			<form>
 				<table class = "list">
 					<c:forEach var="reserve" items="${reserveList}">

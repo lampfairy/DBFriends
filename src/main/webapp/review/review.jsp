@@ -30,7 +30,7 @@
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">리뷰 작성 폼 </caption>
 				<tr>
 					<td>예약번호</td>
-					<td><input type="text" style="width: 230px" name="reservationId"
+					<td style="padding-left:50px;text-align:left"><input type="text" style="width: 230px" name="reservationId"
 						value="${reserve.reservationId}" readonly></td>
 				</tr>
 				<tr>
@@ -51,12 +51,12 @@
 				</tr>
 				<tr>
 					<td>장소ID</td>
-					<td><input type="text" style="width: 230px" name="productId"
+					<td style="padding-left:50px;text-align:left"><input type="text" style="width: 230px" name="productId"
 						value="${product.productId}" readonly></td>
 				</tr>
 				<tr>
 					<td>장소명</td>
-					<td><input type="text" style="width: 230px" name="productName"
+					<td style="padding-left:50px;text-align:left"><input type="text" style="width: 230px" name="productName"
 						value="${product.name}" readonly></td>
 				</tr>
 				<tr>

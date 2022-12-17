@@ -21,7 +21,7 @@
 			현재 다녀온 곳이 없습니다.
 		</c:when>
 		<c:otherwise>
-			<h4>다녀온 곳 리스트</h4>
+			<h4>다녀온 곳 목록</h4>
 			<form>
 				<table class = "list">
 					<c:forEach var="reserve" items="${visitedList}">

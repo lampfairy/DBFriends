@@ -24,7 +24,7 @@
 	<hr>
 	<div class="layout">
 		<!-- 리뷰 상세 정보 -->
-		<form name="form" method="POST" action="<c:url value='/main/myPage' />">
+		<form name="form">
 			<table>
 				<caption
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">리뷰 상세 정보</caption>
@@ -55,9 +55,6 @@
 					</td>
 				</tr>
 			</table><br>
-			<div class = "btnBox">
-				<input type="submit" value="이전" class = "btn"> &nbsp;
-			</div>
 		</form>
 	</div>
 </body>
