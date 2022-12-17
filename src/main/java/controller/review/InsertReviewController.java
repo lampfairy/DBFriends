@@ -67,7 +67,7 @@ public class InsertReviewController implements Controller {
         }
     }
     
-public static Date transformDate(String date)
+    public static Date transformDate(String date)
     {
         SimpleDateFormat beforeFormat = new SimpleDateFormat("yyyy-mm-dd");
         SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
@@ -85,4 +85,5 @@ public static Date transformDate(String date)
         
         return d;
     }
-}
+}  
+

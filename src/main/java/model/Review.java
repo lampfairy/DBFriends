@@ -1,7 +1,7 @@
 package model;
 
 import java.util.Date;
-//
+// Review Domain
 public class Review {
     private String title;
     private int reservationId;

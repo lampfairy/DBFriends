@@ -36,7 +36,6 @@ public class ReviewDAO {
         }       
         return 0;           
     }
-
     //update Review
     public int update(Review Review) throws SQLException {
         String sql = "UPDATE Review "
@@ -59,7 +58,6 @@ public class ReviewDAO {
         }       
         return 0;
     }
-
    //remove Review
     public int remove(int reservationId) throws SQLException {
         String sql = "DELETE FROM Review WHERE reservationId=?";     
@@ -77,7 +75,6 @@ public class ReviewDAO {
         }       
         return 0;
     }
-
    //find Review
     public Review findReview(int reservationId) throws SQLException {
         String sql = "SELECT rv.title AS title, rv.userId AS userId, rv.productId AS productId, p.name AS productName, "
@@ -112,7 +109,6 @@ public class ReviewDAO {
         }
         return null;
     }
- 
     //find Review List
     public List<Review> findReviewList() throws SQLException {
             String sql = "SELECT rv.title AS title, rv.reservationId AS reservationId, rv.userId AS userId, rv.productId AS productId, p.name AS productName, "
@@ -149,7 +145,6 @@ public class ReviewDAO {
         }
         return null;
     }
-    
     public List<Review> findReviewListByKey(String key) throws SQLException {
             String sql = "SELECT rv.title AS title, rv.userId AS userId, rv.productId AS productId, p.name AS productName, rv.writeDate AS writeDate, "
                         + "rs.startDate AS startDate, rs.endDate AS endDate, rv.rating AS rating, rv.content AS content, rs.reservationId AS reservationId "
@@ -188,7 +183,6 @@ public class ReviewDAO {
         }
         return null;
     }
-    
     public List<Review> findReviewListByProd(int prodId) throws SQLException {
         String sql = "SELECT rv.title AS title, rv.userId AS userId, p.name AS productName, rv.writeDate AS writeDate, "
                     + "rs.startDate AS startDate, rs.endDate AS endDate, rv.rating AS rating, rv.content AS content, rs.reservationId AS reservationId "
@@ -225,10 +219,8 @@ public class ReviewDAO {
         jdbcUtil.close();      
     }
     return null;
-}
-    
-
-  //find Review
+} 
+    //find Review
     public String findRating(int productId) throws SQLException {
         String sql = "SELECT rating "
                     + "FROM Review "
@@ -252,8 +244,7 @@ public class ReviewDAO {
         }
         return null;
     }
-
-  //Review 아이디 중복 확인
+    //Review 아이디 중복 확인
     public boolean existingReview(int reservationId) throws SQLException {
         String sql = "SELECT count(*) FROM Review WHERE reservationId=?";      
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});  

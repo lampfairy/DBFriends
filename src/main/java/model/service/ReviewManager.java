@@ -16,27 +16,22 @@ public class ReviewManager {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
+	}	
 	public static ReviewManager getInstance() {
 		return reviewMan;
 	}
-	
 	public int create(Review Review) throws SQLException, ExistingException {
 		if(reviewDAO.existingReview(Review.getReservationId()) == true) {
 			throw new ExistingException(Review.getReservationId() + "exists");
 		}
 		return reviewDAO.create(Review);
-	}
-	
+	}	
 	public int update(Review Review) throws SQLException {
 		return reviewDAO.update(Review);
 	}
-	
 	public int remove(int reservationId) throws SQLException {
         return reviewDAO.remove(reservationId);
     }
-
     public Review findReview(int reservationId)
         throws SQLException, ExistingException {
         Review review = reviewDAO.findReview(reservationId);
@@ -44,28 +39,22 @@ public class ReviewManager {
             throw new ExistingException(reservationId + " doesn't exist");
         }       
         return review;
-    }
-    
+    }    
     public String findRating(int productId) throws SQLException {
         return reviewDAO.findRating(productId);
     }
-
     public List<Review> findReviewList() throws SQLException {
             return reviewDAO.findReviewList();
-    }
-    
+    } 
     public List<Review> findReviewListByKey(String key) throws SQLException {
         return reviewDAO.findReviewListByKey(key);
     }
-    
     public ReviewDAO getreviewDAO() {
 		return this.reviewDAO;
-	}
-    
+	}   
     public boolean existingReview(int reservationId) throws SQLException {
         return reviewDAO.existingReview(reservationId);
     }
-    
     public List<Review> findReviewListByProd(int prodId) throws SQLException {
         return reviewDAO.findReviewListByProd(prodId);
     }
