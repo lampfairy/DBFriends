@@ -26,9 +26,9 @@ public class ReviewTest {
       
         System.out.println("create Review");  
         
-        String string = scanner.next();
+        int string = scanner.nextInt();
         
-        List<Review> list_r = dao.findReviewListByKey(string);
+        List<Review> list_r = dao.findReviewListByProd(string);
 
         System.out.println("-----------a list of products available for reservation-----------");
         if(list_r != null) {

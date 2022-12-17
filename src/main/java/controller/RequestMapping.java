@@ -13,6 +13,7 @@ import controller.main.GotoMyPageController;
 import controller.main.GotoReservePageController;
 import controller.prod.DetailProdController;
 import controller.prod.FindListProdController;
+import controller.prod.FindReviewController;
 import controller.reserve.DetailReserveController;
 import controller.reserve.InsertReserveController;
 import controller.reserve.ViewReserveFormController;
@@ -53,6 +54,7 @@ public class RequestMapping {
 		mappings.put("/prod/bookmark", new InsertBookmarkController());
 		mappings.put("/prod/reserve", new ViewReserveFormController());
 	    mappings.put("/prod/insert", new InsertReserveController());
+	    mappings.put("/prod/review", new FindReviewController());
 		
 		mappings.put("/reserve/reserve", new InsertReserveController());
 		mappings.put("/reserve/detail", new DetailReserveController());
