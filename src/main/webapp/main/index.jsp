@@ -96,7 +96,7 @@
 			<div class = "count3">액티비티&nbsp; ${accommodation}개</div>
 		</div><br><br><br><br><br><br><br><br><br><br><br><br>
 		<!-- 인기여행지 3개 -->
-		<div style="text-align:center;font-size:24px">인기 여행지 TOP3</div><br><br>
+		<div style="text-align:center;font-size:24px">인기 여행지</div><br><br>
 		<div class = "new">
 			<div>
 				<a href = "<c:url value='/prod/detail'>
