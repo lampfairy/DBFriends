@@ -34,8 +34,8 @@
 					</tr>
 					<c:forEach var="review" items="${reviewList}">
 						<tr>
-							<td style="text-align:left;">¿Âº“∏Ì</td>
-							<td style="text-align:left;">${review.title}<td>
+							<td style="text-align:left;">${review.productName}</td>
+							<td style="text-align:left;">${review.title}</td>
 							<td>
 								<a href = "<c:url value='/review/detail'>
 									<c:param name = 'reservationId' value='${review.reservationId}' />

@@ -115,7 +115,7 @@ public class ReviewDAO {
  
     //find Review List
     public List<Review> findReviewList() throws SQLException {
-            String sql = "SELECT rv.title AS title, rv.userId AS userId, rv.productId AS productId, p.name AS productName, "
+            String sql = "SELECT rv.title AS title, rv.reservationId AS reservationId, rv.userId AS userId, rv.productId AS productId, p.name AS productName, "
                         + "rv.writeDate AS writeDate, rs.startDate AS startDate, rs.endDate AS endDate, rv.rating AS rating, rv.content AS content "
                         + "FROM Review rv, Product p, Reservation rs "
                         + "WHERE rv.productId = p.productId "
