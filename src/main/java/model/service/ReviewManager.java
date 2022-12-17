@@ -46,6 +46,10 @@ public class ReviewManager {
         }       
         return prod;
     }
+    
+    public String findRating(int productId) throws SQLException {
+        return reviewDAO.findRating(productId);
+    }
 
     public List<Review> findReviewList() throws SQLException {
             return reviewDAO.findReviewList();
@@ -58,4 +62,9 @@ public class ReviewManager {
     public ReviewDAO getreviewDAO() {
 		return this.reviewDAO;
 	}
+    
+    public boolean existingReview(int reservationId) throws SQLException {
+        return reviewDAO.existingReview(reservationId);
+    }
+    
 }

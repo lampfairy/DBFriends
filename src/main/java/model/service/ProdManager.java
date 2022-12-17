@@ -69,4 +69,8 @@ public class ProdManager {
     public List<Product> findNewProdList() throws SQLException {
         return prodDAO.findNewProdList();
     }
+    
+    public List<Product> findTOP10List() throws SQLException {
+        return prodDAO.findTOP10List();
+    }
 }

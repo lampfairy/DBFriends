@@ -10,6 +10,7 @@ import model.Reservation;
 import model.User;
 import model.service.ProdManager;
 import model.service.ReserveManager;
+import model.service.ReviewManager;
 import model.service.UserManager;
 
 public class ViewReviewFormController implements Controller{
@@ -28,6 +29,11 @@ public class ViewReviewFormController implements Controller{
         ReserveManager reMa = ReserveManager.getInstance();
         Reservation reserve = reMa.findReservation(reserveId);
         request.setAttribute("reserve", reserve);
+        
+        ReviewManager reviewma = ReviewManager.getInstance();
+        if(reviewma.existingReview(reserve.getReservationId())) {
+            return "redirect:/main/myPage";
+        }
         
         ProdManager prodManager = ProdManager.getInstance();
         Product product = prodManager.findProduct(reserve.getProductId());

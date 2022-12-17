@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 import controller.user.UserSessionUtils;
@@ -26,8 +25,10 @@ public class GoTop10PageController implements Controller {
         request.setAttribute("user", user);  
         
         ProdManager prodManager = ProdManager.getInstance();
-        List<Product> prodList = prodManager.findProductList();
-        request.setAttribute("prodList", prodList);
+        List<Product> prodTOP10List = prodManager.findTOP10List();
+        
+        
+        request.setAttribute("prodTOP10List", prodTOP10List);
 	    
 		return "/main/top10.jsp";
     }

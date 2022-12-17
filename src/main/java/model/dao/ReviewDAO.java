@@ -19,8 +19,8 @@ public class ReviewDAO {
     //create Review
     public int create(Review Review) throws SQLException {
         String sql = "INSERT INTO Review (title, reservationId, userId, writeDate, rating, productId, content) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";     
-        Object[] param = new Object[] {Review.getTitle(), Review.getReservationId(), Review.getUserId(), Review.getWriteDate(),
+                    + "VALUES (?, ?, ?, SYSDATE, ?, ?, ?)";     
+        Object[] param = new Object[] {Review.getTitle(), Review.getReservationId(), Review.getUserId(), 
                 Review.getRating(), Review.getProductId(), Review.getContent()};              
         jdbcUtil.setSqlAndParameters(sql, param);
         
@@ -184,7 +184,31 @@ public class ReviewDAO {
         return null;
     }
     
-    
+
+  //find Review
+    public String findRating(int productId) throws SQLException {
+        String sql = "SELECT rating "
+                    + "FROM Review "
+                    + "WHERE productId=?";              
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {productId});   
+        
+        float rating = 0;
+        int count = 0;
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();    
+            while (rs.next()) {                      
+                rating += rs.getFloat("rating");
+                count++;
+            }
+            rating /= count;
+            return String.format("%.1f", rating);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close(); 
+        }
+        return null;
+    }
 
   //Review 아이디 중복 확인
     public boolean existingReview(int reservationId) throws SQLException {

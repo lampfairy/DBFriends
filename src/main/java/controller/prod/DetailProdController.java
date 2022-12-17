@@ -9,8 +9,10 @@ import org.slf4j.LoggerFactory;
 import controller.Controller;
 import controller.user.UserSessionUtils;
 import model.Product;
+import model.Review;
 import model.User;
 import model.service.ProdManager;
+import model.service.ReviewManager;
 import model.service.UserManager;
 public class DetailProdController implements Controller {
 	private static final Logger log = LoggerFactory.getLogger(DetailProdController.class);
