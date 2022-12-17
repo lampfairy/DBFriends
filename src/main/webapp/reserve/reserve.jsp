@@ -89,8 +89,7 @@ td {
 				</tr>
 				<tr>
 					<td>예약자명</td>
-					<td><input type="text" style="width: 230px" name="name"
-						value="${user.name}" readonly></td>
+					<td><input type="text" style="width: 230px" name="name"></td>
 				</tr>
 				<tr>
 					<td>계좌번호확인</td>

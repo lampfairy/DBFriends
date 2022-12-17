@@ -132,7 +132,6 @@ td {
             return false;
          }
       }
-      
       form.submit();
    }
 
