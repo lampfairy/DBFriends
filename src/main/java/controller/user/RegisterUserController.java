@@ -20,10 +20,6 @@ public class RegisterUserController implements Controller {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-       
-
-        // POST request (회원정보가 parameter로 전송됨)
-//        SimpleDateFormat transFormat = new SimpleDateFormat("yyyyMMdd");
         Date date = transformDate(request.getParameter("birthDate"));
         User user = new User(
                 request.getParameter("name"),
@@ -36,13 +32,6 @@ public class RegisterUserController implements Controller {
                 request.getParameter("nameOnAccount"),
                 request.getParameter("accountNumber")
                 );
-
-//        AccountDetails ad = new AccountDetails(
-//                request.getParameter("userId"),
-//                request.getParameter("bankName"),
-//                request.getParameter("name"),
-//                request.getParameter("accountNumber")
-//                );
 
         try {
             UserManager manager = UserManager.getInstance();

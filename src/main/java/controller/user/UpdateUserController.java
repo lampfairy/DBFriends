@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.Controller;
+import model.service.ExistingException;
 import model.service.UserManager;
 import model.User;
 
@@ -22,12 +23,11 @@ public class UpdateUserController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
         String id = UserSessionUtils.getLoginUserId(request.getSession());
-        UserManager manager = UserManager.getInstance();
         
     	Date date = transformDate(request.getParameter("birthDate"));
         User updateUser = new User(
                 request.getParameter("name"),
-                request.getParameter("userId"),
+                id,
                 request.getParameter("userPw"),
                 request.getParameter("phoneNumber"),
                 request.getParameter("emailAddress"),
@@ -36,11 +36,19 @@ public class UpdateUserController implements Controller {
                 request.getParameter("nameOnAccount"),
                 request.getParameter("accountNumber")
         );
-
-    	log.debug("Update User : {}", updateUser);
-		manager.update(updateUser);
-		request.setAttribute("user", updateUser);
-        return "/main/myPage";
+        
+        try {
+            UserManager manager = UserManager.getInstance();
+            manager.update(updateUser);
+            return "redirect:/main/myPage";
+        } catch (Exception e) {
+            request.setAttribute("updateFailed", true);
+            request.setAttribute("exception", e);
+            request.setAttribute("user", updateUser);
+            return "/main/myPage.jsp";
+        }
+        
+    	//log.debug("Update User : {}", updateUser);
     }
     
     public static Date transformDate(String date)
