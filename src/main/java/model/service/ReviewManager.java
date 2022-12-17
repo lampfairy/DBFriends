@@ -66,4 +66,7 @@ public class ReviewManager {
         return reviewDAO.existingReview(reservationId);
     }
     
+    public List<Review> findReviewListByProd(int prodId) throws SQLException {
+        return reviewDAO.findReviewListByProd(prodId);
+    }
 }

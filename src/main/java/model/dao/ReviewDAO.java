@@ -189,6 +189,44 @@ public class ReviewDAO {
         return null;
     }
     
+    public List<Review> findReviewListByProd(int prodId) throws SQLException {
+        String sql = "SELECT rv.title AS title, rv.userId AS userId, p.name AS productName, rv.writeDate AS writeDate, "
+                    + "rs.startDate AS startDate, rs.endDate AS endDate, rv.rating AS rating, rv.content AS content, rs.reservationId AS reservationId "
+                    + "FROM Review rv, Product p, Reservation rs "
+                    + "WHERE rv.productId = p.productId "
+                    + "AND rv.reservationId = rs.reservationId "
+                    + "AND rv.productId = ? "
+                    + "ORDER BY writeDate";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {prodId});  
+                
+    try {
+        ResultSet rs = jdbcUtil.executeQuery();           
+        List<Review> ReviewList = new ArrayList<Review>();   
+        while (rs.next()) {
+            Review Review = new Review(
+                    rs.getString("title"),
+                    rs.getInt("reservationId"),
+                    rs.getString("userId"),
+                    prodId,
+                    rs.getString("productName"),
+                    rs.getDate("writeDate"),
+                    rs.getDate("startDate"),
+                    rs.getDate("endDate"),
+                    rs.getFloat("rating"),
+                    rs.getString("content")
+                    );
+            ReviewList.add(Review);   
+        }       
+        return ReviewList;                    
+        
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    } finally {
+        jdbcUtil.close();      
+    }
+    return null;
+}
+    
 
   //find Review
     public String findRating(int productId) throws SQLException {
