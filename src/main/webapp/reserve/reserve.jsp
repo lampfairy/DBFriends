@@ -103,7 +103,7 @@ td {
 				</tr>
 			</table>
 			<div class="btnBox">
-				<input type="submit" value="예약" class="btn" onclick="return confirm('예약하시겠습니까?/n작성하신 내용은 등록 후 수정하거나 삭제할 수 없습니다.')"> &nbsp;
+				<input type="submit" value="예약" class="btn" onclick="return confirm('예약하시겠습니까? 작성하신 내용은 등록 후 수정하거나 삭제할 수 없습니다.')"> &nbsp;
 			</div>
 		</form>
 	</div>

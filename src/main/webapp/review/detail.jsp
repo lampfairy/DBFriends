@@ -24,7 +24,7 @@
 	<hr>
 	<div class="layout">
 		<!-- 리뷰 상세 정보 -->
-		<form name="form" method="POST" action="<c:url value='/main/review' />">
+		<form name="form" method="POST" action="<c:url value='/main/myPage' />">
 			<table>
 				<caption
 					style="text-align: center; font-size: 24px; margin: 0 0 50px 0">리뷰 상세 정보</caption>
