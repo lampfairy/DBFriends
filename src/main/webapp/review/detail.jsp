@@ -56,7 +56,7 @@
 				</tr>
 			</table><br>
 			<div class = "btnBox">
-				<input type="submit" value="등록" class = "btn"> &nbsp;
+				<input type="submit" value="이전" class = "btn"> &nbsp;
 			</div>
 		</form>
 	</div>

@@ -17,6 +17,7 @@ import controller.reserve.DetailReserveController;
 import controller.reserve.InsertReserveController;
 import controller.reserve.ViewReserveFormController;
 import controller.review.FindReviewListController;
+import controller.review.DetailReviewController;
 import controller.review.InsertReviewController;
 import controller.review.ViewReviewFormController;
 import controller.user.ListUserController;
@@ -61,6 +62,7 @@ public class RequestMapping {
 		mappings.put("/review/review", new ViewReviewFormController());
 		mappings.put("/review/insert", new InsertReviewController());
 		mappings.put("/review/list", new FindReviewListController());
+		mappings.put("/review/detail", new DetailReviewController());
 		
 		
 //      mappings.put("/user/delete", new DeleteUserController());

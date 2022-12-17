@@ -39,12 +39,11 @@ public class ReviewManager {
 
     public Review findReview(int reservationId)
         throws SQLException, ExistingException {
-        Review prod = reviewDAO.findReview(reservationId);
-        
-        if (prod == null) {
-            throw new ExistingException(reservationId + "doesn't exist");
+        Review review = reviewDAO.findReview(reservationId);
+        if (review == null) {
+            throw new ExistingException(reservationId + " doesn't exist");
         }       
-        return prod;
+        return review;
     }
     
     public String findRating(int productId) throws SQLException {

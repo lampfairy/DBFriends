@@ -25,12 +25,14 @@
 			<form>
 				<table>
 					<tr>
+						<td width=50>순위</td>
 						<td width=250>사진</td>
 						<td width=500>이름 및 위치</td>
-						<td width=200>바로가기</td>
+						<td width=150>바로가기</td>
 					</tr>
 					<c:forEach var="prod" items="${prodTOP10List}">
 						<tr>
+							<td> 1</td>
 							<td class = "image"><img src="<c:url value='/upload/${prod.image}'/>" width="250px" height="250px"/></td>
 							<td style="text-align:left;">
 								이름 : ${prod.name}<br><br>
