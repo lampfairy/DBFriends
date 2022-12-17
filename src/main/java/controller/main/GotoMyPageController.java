@@ -56,6 +56,8 @@ public class GotoMyPageController implements Controller {
 
         List<Reservation> reserveList = new ArrayList<Reservation>();
         List<Reservation> visitedList = new ArrayList<Reservation>();
+        
+        ReviewManager reviewma = ReviewManager.getInstance();
 
         if(reservationList != null) {
             LocalDateTime now = LocalDateTime.now();
@@ -64,10 +66,10 @@ public class GotoMyPageController implements Controller {
 
             for(int i = 0; i < reservationList.size(); i++) {
                 Reservation reservation = reservema.findReservation(reservationList.get(i).getReservationId());
-                if(reservation.getEndDate().compareTo(nowDate) < 0) {
+                if(reservation.getEndDate().compareTo(nowDate) < 0 && !reviewma.existingReview(reservation.getReservationId())) {
                     visitedList.add(reservation);
                 }
-                else {  
+                else if(reservation.getEndDate().compareTo(nowDate) >= 0){  
                     reserveList.add(reservation);
                 }
             }

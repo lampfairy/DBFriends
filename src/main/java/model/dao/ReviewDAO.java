@@ -61,7 +61,6 @@ public class ReviewDAO {
     }
 
    //remove Review
-
     public int remove(int reservationId) throws SQLException {
         String sql = "DELETE FROM Review WHERE reservationId=?";     
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
