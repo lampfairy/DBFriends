@@ -29,7 +29,7 @@
 						<td width=700>府轰 力格</td>
 						<td width=200>府轰 焊扁</td>
 					</tr>
-					<c:forEach var="fReview" items="${freviewList}">
+					<c:forEach var="fReview" items="${fReviewList}">
 						<tr>
 							<td style="text-align:left;">${fReview.productName}</td>
 							<td style="text-align:left;">${fReview.title}</td>

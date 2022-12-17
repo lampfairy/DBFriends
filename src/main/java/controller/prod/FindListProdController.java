@@ -10,7 +10,6 @@ import model.Product;
 import model.service.ProdManager;
 
 public class FindListProdController implements Controller{
-
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
