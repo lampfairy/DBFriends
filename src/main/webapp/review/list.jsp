@@ -18,31 +18,7 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test = "${fReviewList != null}">
-			<form>
-				<table>
-					<tr>
-						<td colspan = "3">검색 결과</td>
-					</tr>
-					<tr>
-						<td width=300>장소</td>
-						<td width=700>리뷰 제목</td>
-						<td width=200>리뷰 보기</td>
-					</tr>
-					<c:forEach var="fReview" items="${freviewList}">
-						<tr>
-							<td style="text-align:left;">${fReview.productName}</td>
-							<td style="text-align:left;">${fReview.title}</td>
-							<td>
-								<a href = "<c:url value='/review/detail'>
-									<c:param name = 'reservationId' value='${fReview.reservationId}' />
-									</c:url>">
-								리뷰 보기</a>
-							</td>
-						</tr>
-					</c:forEach>
-				</table>
-			</form>
+		<c:when test = "${reviewList == null}">
 		</c:when>
 		<c:otherwise>
 			<form>
