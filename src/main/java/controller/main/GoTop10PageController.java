@@ -29,6 +29,10 @@ public class GoTop10PageController implements Controller {
         
         
         request.setAttribute("prodTOP10List", prodTOP10List);
+        
+        request.setAttribute("prodTOP1", prodTOP10List.get(0));
+        request.setAttribute("prodTOP2", prodTOP10List.get(1));
+        request.setAttribute("prodTOP3", prodTOP10List.get(2));
 	    
 		return "/main/top10.jsp";
     }
