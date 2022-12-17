@@ -34,7 +34,7 @@
 									</c:url>">${bookmark.name}</a></td>
 
 							<td style="text-align: left; height: 20px; width: 130px"><a
-								href="<c:url value='/bookmark/delete'>
+								onclick="return confirm('삭제하시겠습니까?')" href="<c:url value='/bookmark/delete'>
 							<c:param name = 'productId' value='${bookmark.productId}' />
 									</c:url>">삭제</a></td>
 						</tr>

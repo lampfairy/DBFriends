@@ -58,7 +58,7 @@
 				<tr>
 					<td>장소</td>
 					<td><input type="text" style="width: 230px"
-						name="name" value="${reserve.name}"></td>
+						name="name" value="${reserve.name}" readonly></td>
 				</tr>
 				<tr>
 					<td>예약번호</td>
