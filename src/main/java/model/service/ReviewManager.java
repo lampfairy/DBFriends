@@ -40,9 +40,8 @@ public class ReviewManager {
     public Review findReview(int reservationId)
         throws SQLException, ExistingException {
         Review review = reviewDAO.findReview(reservationId);
-        
         if (review == null) {
-            throw new ExistingException(reservationId + "doesn't exist");
+            throw new ExistingException(reservationId + " doesn't exist");
         }       
         return review;
     }

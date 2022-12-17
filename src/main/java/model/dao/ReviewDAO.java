@@ -85,7 +85,7 @@ public class ReviewDAO {
                     + "FROM Review rv, Product p, Reservation rs "
                     + "WHERE rv.productId = p.productId "
                     + "AND rv.reservationId = rs.reservationId "
-                    + "AND reservationId=?";              
+                    + "AND rv.reservationId=?";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
         
         try {
