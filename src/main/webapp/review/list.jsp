@@ -18,8 +18,31 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test = "${reviewList == null}">
-			¸®ºä¸ñ·ÏÀÌ ¾ø½À´Ï´Ù.
+		<c:when test = "${fReviewList != null}">
+			<form>
+				<table>
+					<tr>
+						<td colspan = "3">°Ë»ö °á°ú</td>
+					</tr>
+					<tr>
+						<td width=300>Àå¼Ò</td>
+						<td width=700>¸®ºä Á¦¸ñ</td>
+						<td width=200>¸®ºä º¸±â</td>
+					</tr>
+					<c:forEach var="fReview" items="${freviewList}">
+						<tr>
+							<td style="text-align:left;">${fReview.productName}</td>
+							<td style="text-align:left;">${fReview.title}</td>
+							<td>
+								<a href = "<c:url value='/review/detail'>
+									<c:param name = 'reservationId' value='${fReview.reservationId}' />
+									</c:url>">
+								¸®ºä º¸±â</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</form>
 		</c:when>
 		<c:otherwise>
 			<form>

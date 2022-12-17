@@ -23,8 +23,8 @@
 	<hr>
 	<div class="layout">
 		<br><br>
-		<form>
-			<input type = "text" placeholder="키워드 검색" name = "keySearch" class = "key"/>
+		<form class = "sForm" method="POST" action="<c:url value='/review/list' />">
+			<input type = "text" placeholder="키워드 검색" name = "key" class = "key"/>
 			<input type = "submit" value = "검색" class = "sub"/>
 		</form>
 		<!-- 리뷰 목록 -->

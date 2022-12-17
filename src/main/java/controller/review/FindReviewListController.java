@@ -18,12 +18,17 @@ import model.service.UserManager;
 public class FindReviewListController implements Controller{
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         
+        String id = UserSessionUtils.getLoginUserId(request.getSession());
+        UserManager manager = UserManager.getInstance();
+        User user = manager.findUser(id);
+        request.setAttribute("user", user);
+        
         ReviewManager reviewManager = ReviewManager.getInstance();
         String key = request.getParameter("key");
         
-        List<Review> reviewList;
-        reviewList = reviewManager.findReviewListByKey(key);
-            request.setAttribute("reviewList", reviewList); 
-            return "/main/review";
+        List<Review> fReviewList;
+        fReviewList = reviewManager.findReviewListByKey(key);
+        request.setAttribute("fReviewList", fReviewList); 
+        return "/main/review";
     }
 }

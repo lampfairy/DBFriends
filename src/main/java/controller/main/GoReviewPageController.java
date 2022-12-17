@@ -29,7 +29,8 @@ public class GoReviewPageController implements Controller {
 	        ReviewManager reviewManager = ReviewManager.getInstance();
 	        List<Review> reviewList = reviewManager.findReviewList();
 	        
-	        request.setAttribute("reviewList", reviewList);  
+	        request.setAttribute("reviewList", reviewList);
+	        request.setAttribute("freviewList", null); 
 
 	        return "/main/review.jsp";
 	    }
