@@ -32,7 +32,6 @@ public class FindReviewListController implements Controller{
             request.setAttribute("reviewList", null);
         }
         
-        return "/";
-
+        return "/main/review";
     }
 }

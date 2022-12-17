@@ -23,7 +23,7 @@ public class FindListProdController implements Controller{
 		if(keySearch == null) {
 			prodList = prodManager.findProductList(type1, type2, type3);
 			request.setAttribute("prodList", prodList);
-			return "/";
+			return "/main/reserve";
 		}
 		else {
 			prodList = prodManager.findProductListWithKey(type1, type2, type3, keySearch);
