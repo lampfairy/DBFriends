@@ -24,21 +24,15 @@ public class FindReviewListController implements Controller{
         ReviewManager reviewManager = ReviewManager.getInstance();
         String keySearch = request.getParameter("keySearch");
         
-<<<<<<< HEAD
         if(keySearch != null) {
-            List<Review> fReviewList = reviewManager.findReviewListByKey(keySearch);
-            request.setAttribute("fReviewList", fReviewList); 
+            List<Review> reviewList = reviewManager.findReviewListByKey(keySearch);
+            request.setAttribute("reviewList", reviewList); 
         }
         else {
-            request.setAttribute("fReviewList", null);
+            request.setAttribute("reviewList", null);
         }
         
-        return "/review/list.jsp";
-=======
-        List<Review> reviewList;
-        reviewList = reviewManager.findReviewListByKey(key);
-        request.setAttribute("reviewList", reviewList); 
         return "/";
->>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
+
     }
 }
