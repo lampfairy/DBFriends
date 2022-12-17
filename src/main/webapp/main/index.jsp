@@ -95,6 +95,28 @@
 			<div class = "count1">숙소&nbsp; ${activity}개</div>
 			<div class = "count3">액티비티&nbsp; ${accommodation}개</div>
 		</div><br><br><br><br><br><br><br><br><br><br><br><br>
+		<!-- 인기여행지 3개 -->
+		<div style="text-align:center;font-size:24px">인기 여행지 TOP3</div><br><br>
+		<div class = "new">
+			<div>
+				<a href = "<c:url value='/prod/detail'>
+					<c:param name = 'productId' value='${prodTOP1.productId}' />
+					</c:url>">
+				<img src="<c:url value='/upload/${prodTOP1.image}'/>" width="330px" height="330px"/></a>
+			</div>
+			<div>
+				<a href = "<c:url value='/prod/detail'>
+					<c:param name = 'productId' value='${prodTOP2.productId}' />
+					</c:url>">
+				<img src="<c:url value='/upload/${prodTOP2.image}'/>" width="330px" height="330px"/></a>
+			</div>
+			<div>
+				<a href = "<c:url value='/prod/detail'>
+					<c:param name = 'productId' value='${prodTOP3.productId}' />
+					</c:url>">
+				<img src="<c:url value='/upload/${prodTOP3.image}'/>" width="330px" height="330px"/></a>
+			</div>
+		</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<!-- 신규여행지 3개 -->
 		<div style="text-align:center;font-size:24px">신규 여행지</div><br><br>
 		<div class = "new">
