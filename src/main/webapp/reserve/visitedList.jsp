@@ -39,6 +39,21 @@
 							</td>
 						</tr>
 					</c:forEach>
+					<c:forEach var="review" items="${reviewedList}">
+						<tr>
+							<td style="text-align: left; height: 20px; width: 200px"><a
+								href="<c:url value='/prod/detail'>
+									<c:param name = 'productId' value='${review.productId}' />
+									</c:url>">${review.name}</a>
+							</td>
+							<td style="text-align:left;height:20px;width:130px">
+								<a href = "<c:url value='/review/detail'>
+									<c:param name = 'reservationId' value='${review.reservationId}' />
+									</c:url>">
+								리뷰 상세보기</a>
+							</td>
+						</tr>
+					</c:forEach>
 				</table>
 			</form>
 		</c:otherwise>
