@@ -30,9 +30,10 @@
 						<td width=500>이름 및 위치</td>
 						<td width=150>바로가기</td>
 					</tr>
+					<c:set var="no" value="0"/>
 					<c:forEach var="prod" items="${prodTOP10List}">
 						<tr>
-							<td> 1</td>
+							<td><c:set var="no" value="${no+1}"/>${no}</td>
 							<td class = "image"><img src="<c:url value='/upload/${prod.image}'/>" width="250px" height="250px"/></td>
 							<td style="text-align:left;">
 								이름 : ${prod.name}<br><br>

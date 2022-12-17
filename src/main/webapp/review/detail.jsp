@@ -33,7 +33,7 @@
 					<td style="padding-left:10px">
 						<a href = "<c:url value='/prod/detail'>
 							<c:param name = 'productId' value='${review.productId}' />
-							</c:url>" class = "btn">${review.productName}
+							</c:url>">${review.productName}
 						</a>
 					</td>
 				</tr>
@@ -49,7 +49,7 @@
 						장소 방문일 : ${review.startDate}
 					</td>
 				</tr>
-				<tr>
+				<tr height="200px">
 					<td colspan = "2">
 						${review.content}
 					</td>

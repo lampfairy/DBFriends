@@ -18,6 +18,7 @@
 </head>
 <body>
 	<c:choose>
+<<<<<<< HEAD
 		<c:when test = "${fReviewList != null}">
 			<form>
 				<table>
@@ -43,6 +44,9 @@
 					</c:forEach>
 				</table>
 			</form>
+=======
+		<c:when test = "${reviewList == null}">
+>>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
 		</c:when>
 		<c:otherwise>
 			<form>

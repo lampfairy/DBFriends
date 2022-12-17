@@ -30,7 +30,6 @@ public class GoReviewPageController implements Controller {
 	        List<Review> reviewList = reviewManager.findReviewList();
 	        
 	        request.setAttribute("reviewList", reviewList);
-	        request.setAttribute("freviewList", null); 
 
 	        return "/main/review.jsp";
 	    }

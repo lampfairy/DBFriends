@@ -16,14 +16,15 @@ public class FindReviewListController implements Controller{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         
-        String id = UserSessionUtils.getLoginUserId(request.getSession());
-        UserManager manager = UserManager.getInstance();
-        User user = manager.findUser(id);
-        request.setAttribute("user", user);
+//        String id = UserSessionUtils.getLoginUserId(request.getSession());
+//        UserManager manager = UserManager.getInstance();
+//        User user = manager.findUser(id);
+//        request.setAttribute("user", user);
         
         ReviewManager reviewManager = ReviewManager.getInstance();
         String keySearch = request.getParameter("keySearch");
         
+<<<<<<< HEAD
         if(keySearch != null) {
             List<Review> fReviewList = reviewManager.findReviewListByKey(keySearch);
             request.setAttribute("fReviewList", fReviewList); 
@@ -33,5 +34,11 @@ public class FindReviewListController implements Controller{
         }
         
         return "/review/list.jsp";
+=======
+        List<Review> reviewList;
+        reviewList = reviewManager.findReviewListByKey(key);
+        request.setAttribute("reviewList", reviewList); 
+        return "/";
+>>>>>>> branch 'practice/1' of https://github.com/lampfairy/DBFriends.git
     }
 }
