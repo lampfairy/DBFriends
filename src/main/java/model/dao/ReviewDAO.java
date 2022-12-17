@@ -81,10 +81,12 @@ public class ReviewDAO {
 
    //find Review
     public Review findReview(int reservationId) throws SQLException {
-        String sql = "SELECT r.title AS title, r.userId AS userId, r.productId AS productId, p.productName AS productName, "
-                    + "r.writeDate AS writeDate, p.startDate AS startDate, p.endDate AS endDate, r.rating AS rating, r.content AS content "
-                    + "FROM Review r JOIN Product p ON r.productId = p.productId "
-                    + "WHERE reservationId=?";              
+        String sql = "SELECT rv.title AS title, rv.userId AS userId, rv.productId AS productId, p.name AS productName, "
+                    + "rv.writeDate AS writeDate, rs.startDate AS startDate, rs.endDate AS endDate, rv.rating AS rating, rv.content AS content "
+                    + "FROM Review rv, Product p, Reservation rs "
+                    + "WHERE rv.productId = p.productId "
+                    + "AND rv.reservationId = rs.reservationId "
+                    + "AND reservationId=?";              
         jdbcUtil.setSqlAndParameters(sql, new Object[] {reservationId});   
         
         try {
@@ -114,10 +116,11 @@ public class ReviewDAO {
  
     //find Review List
     public List<Review> findReviewList() throws SQLException {
-        String sql = "SELECT r.title AS title, r.reservationId AS reservationId, r.userId AS userId, r.productId AS productId, p.productName AS productName, "
-                    + "r.writeDate AS writeDate, p.startDate AS startDate, p.endDate AS endDate, r.rating AS rating, r.content AS content "
-                    + "FROM Review r JOIN Product p ON r.productId = p.productId "
-                    + "ORDER BY writeDate";
+            String sql = "SELECT rv.title AS title, rv.userId AS userId, rv.productId AS productId, p.name AS productName, "
+                        + "rv.writeDate AS writeDate, rs.startDate AS startDate, rs.endDate AS endDate, rv.rating AS rating, rv.content AS content "
+                        + "FROM Review rv, Product p, Reservation rs "
+                        + "WHERE rv.productId = p.productId "
+                        + "AND rv.reservationId = rs.reservationId";
         jdbcUtil.setSqlAndParameters(sql, null);  
                     
         try {
@@ -149,11 +152,13 @@ public class ReviewDAO {
     }
     
     public List<Review> findReviewListByKey(String key) throws SQLException {
-        String sql = "SELECT r.title AS title, r.reservationId AS reservationId, r.userId AS userId, r.productId AS productId, p.productName AS productName, "
-                    + "r.writeDate AS writeDate, p.startDate AS startDate, p.endDate AS endDate, r.rating AS rating, r.content AS content "
-                    + "FROM Review r JOIN Product p ON r.productId = p.productId "
-                    + "WHERE title LIKE ? OR content LIKE ? "
-                    + "ORDER BY writeDate";
+            String sql = "SELECT rv.title AS title, rv.userId AS userId, rv.productId AS productId, p.name AS productName, "
+                        + "rv.writeDate AS writeDate, rs.startDate AS startDate, rs.endDate AS endDate, rv.rating AS rating, rv.content AS content "
+                        + "FROM Review rv, Product p, Reservation rs "
+                        + "WHERE rv.productId = p.productId "
+                        + "AND rv.reservationId = rs.reservationId "
+                        + "AND title LIKE ? OR content LIKE ? "
+                        + "ORDER BY writeDate";
         jdbcUtil.setSqlAndParameters(sql, new Object[] {key, key});  
                     
         try {
