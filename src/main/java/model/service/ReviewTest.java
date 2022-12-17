@@ -27,20 +27,20 @@ public class ReviewTest {
         System.out.println("create Review");  
         
         
-//        List<Reservation> list_r = dao_r.findReservationList();
-//
-//        System.out.println("-----------a list of products available for reservation-----------");
-//        if(list_r != null) {
-//            for(int i = 0; i < list_r.size(); i++) {
-//                Reservation c = list_r.get(i);
-//                int n = c.getReservationId();
-//                System.out.printf("%d \t", n);
-//                if(i != 0 && i % 10 == 0)
-//                    System.out.println();
-//            }
-//        }
-//        System.out.println();
-//        System.out.println();
+        List<Review> list_r = dao.findReviewList();
+
+        System.out.println("-----------a list of products available for reservation-----------");
+        if(list_r != null) {
+            for(int i = 0; i < list_r.size(); i++) {
+                Review c = list_r.get(i);
+                int n = c.getReservationId();
+                System.out.printf("%d \t", n);
+                if(i != 0 && i % 10 == 0)
+                    System.out.println();
+            }
+        }
+        System.out.println();
+        System.out.println();
 //
 //        System.out.print("input reservationId : ");
 //        int reservationId = scanner.nextInt();

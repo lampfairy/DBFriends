@@ -19,6 +19,7 @@
 <body>
 	<c:choose>
 		<c:when test = "${reviewList == null}">
+			리뷰목록이 없습니다.
 		</c:when>
 		<c:otherwise>
 			<form>
