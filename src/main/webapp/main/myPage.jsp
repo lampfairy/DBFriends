@@ -19,47 +19,95 @@
 		border:2px solid powderBlue;float:left;margin:0px 28px;}
 	</style>
 	<script>
-		function userCreate() {
-			if (form.userPw.value == "") {
-				alert("비밀번호를 입력하십시오.");
-				form.password.focus();
-				return false;
-			}
-			if (form.userPw.value != form.password2.value) {
-				alert("비밀번호가 일치하지 않습니다.");
-				form.name.focus();
-				return false;
-			}
-			if (form.name.value == "") {
-				alert("이름을 입력하십시오.");
-				form.name.focus();
-				return false;
-			}
-			<!-- var phoneExp = /^\d{2,3}-\d{3,4}-\d{4}$/;
-			if(phoneExp.test(form.phone.value)==false) {
+	function userCreate() {
+		if (form.name.value == "") {
+			alert("이름을 입력하십시오.");
+			form.name.focus();
+			return false;
+		}
+
+		if (form.userPw.value == "") {
+			alert("비밀번호를 입력하십시오.");
+			form.userPw.focus();
+			return false;
+		}
+
+		if (form.userPw.value != form.password2.value) {
+			alert("비밀번호가 일치하지 않습니다.");
+			form.password2.focus();
+			return false;
+		}
+
+		if (form.phoneNumber.value == "") {
+			alert("전화번호를 입력하십시오.");
+			form.phoneNumber.focus();
+			return false;
+		} else {
+			var phoneExp = /^\d{2,3}\d{3,4}\d{4}$/;
+			if (phoneExp.test(form.phoneNumber.value) == false) {
 				alert("전화번호 형식이 올바르지 않습니다.");
-				form.phone.focus();
-				return false;
-			} -->
-			
-			var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-			if(emailExp.test(form.email.value)==false) {
-				alert("이메일 형식이 올바르지 않습니다.");
-				form.email.focus();
+				form.phoneNumber.focus();
 				return false;
 			}
-			
-			<!-- var birthExp = /^[10000000-99999999]/;
-			if(birthExp.test(form.birth.value)==false) {
-				alert("생년월일 형식이 올바르지 않습니다.");
-				form.birth.focus();
+
+		}
+		if (form.emailAddress.value == "") {
+			alert("이메일을 입력하십시오.");
+			form.emailAddress.focus();
+			return false;
+		} else {
+			var emailExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+			if (emailExp.test(form.emailAddress.value) == false) {
+				alert("이메일 형식이 올바르지 않습니다.");
+				form.emailAddress.focus();
 				return false;
-			} -->
-			
-			form.submit();
+			}
+		}
+		if (form.birthDate.value == "") {
+			alert("생년월일 입력하십시오.");
+			form.birthDate.focus();
+			return false;
+		}
+		else{
+			var birthDateExp = /^\d{4}-\d{2}-\d{2}$/;
+			if(birthDateExp.test(form.birthDate.value)==false) {
+				alert("생년월일 형식이 올바르지 않습니다.");
+				form.birthDate.focus();
+				return false;
+			}
 		}
 		
-	</script>
+		if (form.bankName.value == "") {
+			alert("은행명을 선택하십시오.");
+			form.bankName.focus();
+			return false;
+		}
+		if (form.nameOnAccount.value == "") {
+			alert("예금주명을 입력하십시오.");
+			form.nameOnAccount.focus();
+			return false;
+		} 
+		if (form.accountNumber.value == "") {
+			alert("계좌번호를 입력하십시오.");
+			form.accountNumber.focus();
+			return false;
+		} else{
+			var accountNumberExp = /^\d{5,50}$/;
+			if(accountNumberExp.test(form.accountNumber.value)==false) {
+				alert("계좌번호 형식이 올바르지 않습니다.");
+				form.accountNumber.focus();
+				return false;
+			}
+		}
+		
+		form.submit();
+	}
+
+	function userList(targetUri) {
+		form.action = targetUri;
+		form.submit();
+	}
+</script>
 </head>
 <body>
 	<!-- 로고와 메뉴 -->
@@ -116,7 +164,7 @@
 			  <tr>
 				<td width="150" align="center">생년월일</td>
 				<td width="250" style="padding-left:10px">
-					<input type="text" style="width:230px" name="birthDate" value="${user.birthDate}"
+					<input type="date" style="width:230px" name="birthDate" value="${user.birthDate}"
 						<c:if test="${registerFailed}">value="${user.birthDate}"</c:if>>
 				</td>
 			  </tr>
@@ -145,7 +193,7 @@
 			  </tr>
 		    </table><br>
 			<div class = "btnBox">
-				<input type="submit" value="수정" onClick="userCreate()" class = "btn">
+				<input type="submit" value="수정" onClick="return userCreate()" class = "btn">
 			</div>
 		</form><br><br>
 		<div style='background:gray; height:1px;'></div>

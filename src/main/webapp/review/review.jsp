@@ -31,7 +31,7 @@
 				<tr>
 					<td>예약번호</td>
 					<td><input type="text" style="width: 230px" name="reservationId"
-						value="${reserve.reservationId}"></td>
+						value="${reserve.reservationId}" readonly></td>
 				</tr>
 				<tr>
 					<td width="100px" align="center">제목</td>
@@ -52,16 +52,16 @@
 				<tr>
 					<td>장소ID</td>
 					<td><input type="text" style="width: 230px" name="productId"
-						value="${product.productId}"></td>
+						value="${product.productId}" readonly></td>
 				</tr>
 				<tr>
 					<td>장소명</td>
 					<td><input type="text" style="width: 230px" name="productName"
-						value="${product.name}"></td>
+						value="${product.name}" readonly></td>
 				</tr>
 				<tr>
 					<td>방문일자</td>
-					<td style="padding-left:50px;text-align:left">${reserve.startDate} ~ ${reserve.endDate}</td>
+					<td style="padding-left:50px;text-align:left">${reserve.startDate} ~ ${reserve.endDate} </td>
 				</tr>
 				<tr>
 					<td colspan = "2">

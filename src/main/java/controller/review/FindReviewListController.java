@@ -7,11 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
 import controller.user.UserSessionUtils;
-import model.Reservation;
 import model.User;
 import model.Review;
-import model.service.ProdManager;
-import model.service.ReserveManager;
 import model.service.ReviewManager;
 import model.service.UserManager;
 
