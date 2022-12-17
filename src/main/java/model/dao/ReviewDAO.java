@@ -148,6 +148,42 @@ public class ReviewDAO {
         return null;
     }
     
+    public List<Review> findReviewListByKey(String key) throws SQLException {
+        String sql = "SELECT r.title AS title, r.reservationId AS reservationId, r.userId AS userId, r.productId AS productId, p.productName AS productName, "
+                    + "r.writeDate AS writeDate, p.startDate AS startDate, p.endDate AS endDate, r.rating AS rating, r.content AS content "
+                    + "FROM Review r JOIN Product p ON r.productId = p.productId "
+                    + "WHERE title LIKE ? OR content LIKE ? "
+                    + "ORDER BY writeDate";
+        jdbcUtil.setSqlAndParameters(sql, new Object[] {key, key});  
+                    
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();           
+            List<Review> ReviewList = new ArrayList<Review>();   
+            while (rs.next()) {
+                Review Review = new Review(
+                        rs.getString("title"),
+                        rs.getInt("reservationId"),
+                        rs.getString("userId"),
+                        rs.getInt("productId"),
+                        rs.getString("productName"),
+                        rs.getDate("writeDate"),
+                        rs.getDate("startDate"),
+                        rs.getDate("endDate"),
+                        rs.getFloat("rating"),
+                        rs.getString("content")
+                        );
+                ReviewList.add(Review);   
+            }       
+            return ReviewList;                    
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            jdbcUtil.close();      
+        }
+        return null;
+    }
+    
     
 
   //Review 아이디 중복 확인

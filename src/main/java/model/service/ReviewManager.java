@@ -51,6 +51,10 @@ public class ReviewManager {
             return reviewDAO.findReviewList();
     }
     
+    public List<Review> findReviewListByKey(String key) throws SQLException {
+        return reviewDAO.findReviewListByKey(key);
+    }
+    
     public ReviewDAO getreviewDAO() {
 		return this.reviewDAO;
 	}
