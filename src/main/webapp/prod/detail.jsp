@@ -33,11 +33,11 @@
 				</tr>
 				<tr>
 					<td colspan="2" style="text-align: left;">
-						<a href = "<c:url value='/prod/reserve'>
+						<a onclick="return confirm('해당 여행지를 예약하시겠습니까?')" href = "<c:url value='/prod/reserve'>
 							<c:param name = 'productId' value='${product.productId}' />
 							</c:url>" class = "btn">예약/예매
 						</a>
-						<a href = "<c:url value='/prod/bookmark'>
+						<a onclick="return confirm('해당 여행지를 찜 등록하시겠습니까?')" href = "<c:url value='/prod/bookmark'>
 							<c:param name = 'productId' value='${product.productId}' />
 							</c:url>" class = "btn">찜 
 						</a>

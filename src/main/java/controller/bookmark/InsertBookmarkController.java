@@ -35,12 +35,12 @@ public class InsertBookmarkController implements Controller {
         try {
             BookmarkManager manager = BookmarkManager.getInstance();
             manager.create(bookmark);
-            return "/main/myPage";
+            return "redirect:/prod/detail?productId=" + productId;
         } catch (ExistingException e) { // 예외 발생 시
             request.setAttribute("registerFailed", true);
             request.setAttribute("exception", e);
             request.setAttribute("bookmark", bookmark);
-            return "/"; /// 수정
+            return "redirect:/prod/detail?productId=" + productId; /// 수정
         }
     }
 }
