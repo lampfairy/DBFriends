@@ -151,15 +151,15 @@ public class ReviewDAO {
     }
     
     public List<Review> findReviewListByKey(String key) throws SQLException {
-            String sql = "SELECT rv.title AS title, rv.userId AS userId, rv.productId AS productId, p.name AS productName, "
-                        + "rv.writeDate AS writeDate, rs.startDate AS startDate, rs.endDate AS endDate, rv.rating AS rating, rv.content AS content, "
-                        + "rs.reservationId AS reservationId "
+            String sql = "SELECT rv.title AS title, rv.userId AS userId, rv.productId AS productId, p.name AS productName, rv.writeDate AS writeDate, "
+                        + "rs.startDate AS startDate, rs.endDate AS endDate, rv.rating AS rating, rv.content AS content, rs.reservationId AS reservationId "
                         + "FROM Review rv, Product p, Reservation rs "
                         + "WHERE rv.productId = p.productId "
                         + "AND rv.reservationId = rs.reservationId "
-                        + "AND title LIKE ? OR content LIKE ? "
+                        + "AND ( rv.title LIKE ? OR rv.content LIKE ? ) "
                         + "ORDER BY writeDate";
-        jdbcUtil.setSqlAndParameters(sql, new Object[] {key, key});  
+            String keySearch = "%" + key + "%";
+            jdbcUtil.setSqlAndParameters(sql, new Object[] {keySearch, keySearch});  
                     
         try {
             ResultSet rs = jdbcUtil.executeQuery();           

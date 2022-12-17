@@ -212,7 +212,7 @@ public class ProductDAO {
 
       String sql = "SELECT productId, location, price, description, image, name, rating, type1, type2, type3 "
             + "FROM Product "
-            + "WHERE type1=any(?, ?, ?, ?, ?, ?, ?) AND type2=any(?, ?, ?, ?) AND type3=any(?, ?, ?, ?) AND name LIKE ?"
+            + "WHERE type1=any(?, ?, ?, ?, ?, ?, ?) AND type2=any(?, ?, ?, ?) AND type3=any(?, ?, ?, ?) AND name LIKE ? "
             + "ORDER BY productId";
       jdbcUtil.setSqlAndParameters(sql, new Object[] {type_1[0], type_1[1], type_1[2], type_1[3], type_1[4], type_1[5], type_1[6], type_2[0], type_2[1], type_2[2], type_2[3], type_3[0], type_3[1], type_3[2], type_3[3], key});  
 

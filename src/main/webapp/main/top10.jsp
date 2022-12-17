@@ -33,7 +33,7 @@
 			<div><img src="<c:url value='/upload/${prodTOP3.image}'/>" width="330px" height="330px"/></div>
 		</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<!-- 상품 목록 -->
-		<div style="text-align:center;font-size:24px">인기 여행지 TOP10</div><br><br>
+		<br><br><br><br><br><br><div style="text-align:center;font-size:24px">인기 여행지 TOP10</div>
 		<jsp:include page = "../prod/Best10List.jsp"/>
 	</div>
 </body>
