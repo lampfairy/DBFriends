@@ -15,7 +15,7 @@
 		border:1px solid black;width:100px;height:30px}
 		.btnBox{width:350px;height:30px;margin:auto;background-color:white;text-align:center}
 		.new{width:1180px;margin: 0px auto}
-		.new div{text-align:center;font-size:18px;width:330px;height:330px;
+		.new div{overflow:scroll;text-align:center;font-size:18px;width:330px;height:330px;
 		border:2px solid powderBlue;float:left;margin:0px 28px;}
 	</style>
 	<script>

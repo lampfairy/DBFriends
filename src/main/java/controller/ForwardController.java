@@ -29,6 +29,11 @@ public class ForwardController implements Controller {
 		req.setAttribute("accommodation", accommodation);
 		
 		List<Product> prodList = prodManager.findNewProdList();
+		List<Product> prodTOP10List = prodManager.findTOP10List();
+		
+		req.setAttribute("prodTOP1", prodTOP10List.get(0));
+        req.setAttribute("prodTOP2", prodTOP10List.get(1));
+        req.setAttribute("prodTOP3", prodTOP10List.get(2));
 		
 		req.setAttribute("product1", prodList.get(0));
 		req.setAttribute("product2", prodList.get(1));

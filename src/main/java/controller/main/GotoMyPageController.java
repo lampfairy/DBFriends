@@ -81,6 +81,7 @@ public class GotoMyPageController implements Controller {
 
         request.setAttribute("reserveList", reserveList); 
         request.setAttribute("visitedList", visitedList); 
+        request.setAttribute("reviewedList", reviewedList); 
 
         // 사용자 리스트 화면으로 이동(forwarding)
         return "/main/myPage.jsp";
